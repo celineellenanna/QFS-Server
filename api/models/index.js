@@ -1,68 +1,92 @@
 var Log = require('../logs/index');
 
-var Sequelize = require('sequelize');
-var sequelize = new Sequelize(process.db.database, process.db.username, process.db.password, {
-    host    : process.db.host,
-    dialect : process.db.dialect,
-    logging : process.db.logging
+var mongoose = require('mongoose');
+mongoose.connect(process.db.connection);
+
+var db = mongoose.connection;
+
+db.on('error', function() {
+    Log.error('Database', 'Connection failed');
 });
 
-var User = sequelize.define('user', {
-    username            : {
-        type                : Sequelize.STRING,
-        unique              : true,
-        allowNull           : false
-    },
-    password            : {
-        type                : Sequelize.STRING,
-        unique              : false,
-        allowNull           : false
-    },
-    email               : {
-        type                : Sequelize.STRING,
-        unique              : true,
-        allowNull           : false
-    },
-    verificationToken   : {
-        type                : Sequelize.STRING,
-        unique              : false,
-        allowNull           : true
-    },
-    passwordResetToken  : {
-        type                : Sequelize.STRING,
-        unique              : false,
-        allowNull           : true
-    },
-    status              : {
-        type                : Sequelize.ENUM('registered', 'activated', 'deleted'),
-        defaultValue        : 'registered',
-        allowNull           : false
-    }
-}, {
-    instanceMethods     : {
-        validPassword       : function(password) {
-            return this.password === password;
+db.once('open', function() {
+    Log.info('Database', 'Connection successfully');
+    User.create({
+        firstname   : 'firstname_user0',
+        lastname    : 'lastname_user0',
+        username    : 'user0',
+        password    : 'pass0',
+        email       : 'user0@test.com'
+    }, function(err) {
+        if (err) {
+            Log.error(err);
+        } else {
+            Log.info('Database', 'User created successfully');
         }
-    },
-    classMethods: {
-        register: function(username, password, email, next) {
-            User.create({ username: username, password: password, email: email })
-                .then(function(user) {
-                    Log.info('Database', 'Registration successfully for user <' + user.username + '>');
-                    next(null, 'Registration successfully for user <' + user.username + '>');
-                })
-                .catch(function(err) {
-                    next(err, null);
-                });
-        }
-    }
+    });
 });
 
-sequelize.sync({force: true}).then(function(sequelizeModel) {
-    Log.info('Database', 'Model synchronization successfully');
-}).catch(function(err) {
-    Log.error(err);
-});
+var userSchema = mongoose.Schema({
+        firstname: {
+            type: String,
+            required: true
+        },
+        lastname: {
+            type: String,
+            required: true
+        },
+        email: {
+            type: String,
+            unique: true,
+            required: true
+        },
+        username: {
+            type: String,
+            unique: true,
+            required: true
+        },
+        password: {
+            type: String,
+            required: true
+        },
+        status: {
+            type: String,
+            enum: ['registered', 'activated', 'deleted'],
+            default: 'registered'
+        },
+        role: {
+            type: String,
+            enum: ['Player', 'Administrator', 'Moderator'],
+            default: 'Player'
+        }
+    },
+    {
+        timestamps: true
+    }
+);
+
+userSchema.methods.fullName = function() {
+    return this.firstname + ', ' + this.lastname;
+}
+
+userSchema.methods.validPassword = function(password) {
+    return this.password === password;
+}
+
+userSchema.statics.register = function(firstname, lastname, username, password, email, cb) {
+    User.create({
+        firstname   : firstname,
+        lastname    : lastname,
+        username    : username,
+        password    : password,
+        email       : email
+    }, function(err, user) {
+        if(err) cb(err);
+        cb(null, user);
+    });
+}
+
+var User = mongoose.model('User', userSchema);
 
 module.exports = {
     User        : User

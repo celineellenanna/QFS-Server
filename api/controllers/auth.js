@@ -7,11 +7,9 @@ var LocalStrategy = require('passport-local').Strategy;
 passport.use(new LocalStrategy(
     function(username, password, done) {
         User.findOne({
-                where:  {
-                    username: username
-                }
-            })
-            .then(function(user) {
+            username: username
+        }, function(err, user) {
+                if (err) return done(err);
                 if (!user) {
                     return done(null, false, { message: 'Incorrect username.' });
                 }
@@ -19,10 +17,7 @@ passport.use(new LocalStrategy(
                     return done(null, false, { message: 'Incorrect password.' });
                 }
                 return done(null, user);
-            })
-            .catch(function(err) {
-                return done(err);
-            });
+         });
     }
 ));
 
@@ -31,13 +26,10 @@ passport.serializeUser(function(user, done) {
 });
 
 passport.deserializeUser(function(id, done) {
-    User.findById(id)
-        .then(function(user) {
-            done(null, user);
-        })
-        .catch(function(err) {
-            done(err);
-        });
+    User.findById(id, function(err, user) {
+        if (err) done(err);
+        done(null, user);
+    });
 });
 
 var controller = {
@@ -51,7 +43,7 @@ var controller = {
         })(req, res, next);
     },
     register: function(req, res, next) {
-        User.register(req.body.username, req.body.password, req.body.email, function(err, message) {
+        User.register(req.body.firstname, req.body.lastname, req.body.username, req.body.password, req.body.email, function(err, message) {
             if(err) next(err);
             res.send(message);
         });

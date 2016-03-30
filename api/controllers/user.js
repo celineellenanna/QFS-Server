@@ -3,11 +3,10 @@ var User = require('../models/index').User;
 
 var controller = {
     index: function(req, res, next) {
-        res.users = User.findAll().then(function(data) {
+        res.users = User.find(function(err, data) {
+            if(err) next(err);
             res.users = data;
             next();
-        }).catch(function(err) {
-            Log.write('Database', err.name, err.message);
         });
     },
     get: function() {
