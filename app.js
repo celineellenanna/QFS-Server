@@ -18,10 +18,10 @@ var userRoute = require('./api/routes/user');
 var app = express();
 
 app.listen(process.srv.port, function() {
-  Log.info('Server', 'QFS WEB API started');
-  Log.info('Server', 'Environment:' + process.srv.env);
-  Log.info('Server', 'Host:' + process.srv.host);
-  Log.info('Server', 'Port:' + process.srv.port);
+  Log.info('QFS WEB API started');
+  Log.info('Environment:' + process.srv.env);
+  Log.info('Host:' + process.srv.host);
+  Log.info('Port:' + process.srv.port);
 });
 
 // view engine setup

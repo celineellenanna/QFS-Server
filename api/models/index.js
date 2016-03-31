@@ -6,11 +6,11 @@ mongoose.connect(process.db.connection);
 var db = mongoose.connection;
 
 db.on('error', function() {
-    Log.error('Database', 'Connection failed');
+    Log.error('Database connection failed');
 });
 
 db.once('open', function() {
-    Log.info('Database', 'Connection successfully');
+    Log.info('Database connection successfully');
     User.create({
         firstname   : 'firstname_user0',
         lastname    : 'lastname_user0',
@@ -18,11 +18,8 @@ db.once('open', function() {
         password    : 'pass0',
         email       : 'user0@test.com'
     }, function(err) {
-        if (err) {
-            Log.error(err);
-        } else {
-            Log.info('Database', 'User created successfully');
-        }
+        if (err) Log.error(err);
+        else Log.info('User created successfully');
     });
 });
 
