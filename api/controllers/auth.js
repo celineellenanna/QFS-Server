@@ -33,24 +33,24 @@ passport.deserializeUser(function(id, done) {
 });
 
 var controller = {
-    authenticate: function(req, res, next) {
+    login: function(req, res, next) {
         passport.authenticate('local', function(err, user, info) {
             if (err) { return next(err); }
-            if (!user) { return res.send('Authentication failed');}
+            if (!user) { return res.send({ "status" : false });}
             req.login(user, function(err) {
-                res.send('Authentication successfully');
+                res.send({ "status" : true });
             });
         })(req, res, next);
     },
     register: function(req, res, next) {
         User.register(req.body.firstname, req.body.lastname, req.body.username, req.body.password, req.body.email, function(err, message) {
             if(err) next(err);
-            res.send(message);
+            res.send({ "status" : true });
         });
     },
     logout: function(req, res, next) {
         req.logout();
-        res.send('Logout successfully');
+        res.send({ "status" : true });
     }
 };
 
