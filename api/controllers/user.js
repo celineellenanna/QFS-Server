@@ -3,23 +3,24 @@ var User = require('../models/index').User;
 
 var controller = {
     index: function(req, res, next) {
-        res.users = User.find(function(err, data) {
+        User.find(function(err, data) {
             if(err) next(err);
-            res.users = data;
-            next();
+            res.send(data);
         });
     },
-    get: function() {
-        return "get";
+    get: function(req, res, next) {
+        User.findById(req.params.id, function(err, data) {
+            if(err) next(err);
+            res.send(data);
+        });
     },
-    add: function() {
-        return "add";
-    },
-    edit: function() {
-        return "edit";
-    },
-    destroy: function() {
-        return "remove";
+    destroy: function(req, res, next) {
+        User.findById(req.params.id, function(err, data) {
+            if(err) next(err);
+            data.status = 'inactivated';
+            data.save();
+            res.send({ "status" : true });
+        });
     }
 };
 

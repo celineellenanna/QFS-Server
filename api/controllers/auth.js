@@ -44,13 +44,17 @@ var controller = {
     },
     register: function(req, res, next) {
         User.register(req.body.firstname, req.body.lastname, req.body.username, req.body.password, req.body.email, function(err, message) {
-            if(err) next(err);
+            if(err) res.send({ "status" : false });
             res.send({ "status" : true });
         });
     },
     logout: function(req, res, next) {
         req.logout();
         res.send({ "status" : true });
+    },
+    isLoggedIn: function(req, res, next) {
+        if(req.user) res.send({ "status" : true });
+        else res.send({ "status" : false });
     }
 };
 
