@@ -38,7 +38,8 @@ var controller = {
             if (err) { return next(err); }
             if (!user) { return res.send({ "status" : false, "message" : "Benutzername oder Passwort ist falsch" });}
             req.login(user, function(err) {
-                res.send({ "status" : true, "message" : "Login war erfolgreich" });
+                if(err) { return next(err); }
+                res.send( {"status" : true, "message" : "Login erfolgreich", "user" : user });
             });
         })(req, res, next);
     },
