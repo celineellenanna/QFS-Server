@@ -36,21 +36,21 @@ var controller = {
     login: function(req, res, next) {
         passport.authenticate('local', function(err, user, info) {
             if (err) { return next(err); }
-            if (!user) { return res.send({ "status" : false });}
+            if (!user) { return res.send({ "status" : false, "message" : "Benutzername oder Passwort ist falsch" });}
             req.login(user, function(err) {
-                res.send({ "status" : true });
+                res.send({ "status" : true, "message" : "Login war erfolgreich" });
             });
         })(req, res, next);
     },
     register: function(req, res, next) {
         User.register(req.body.firstname, req.body.lastname, req.body.username, req.body.password, req.body.email, function(err, message) {
-            if(err) res.send({ "status" : false });
-            res.send({ "status" : true });
+            if(err) res.send({ "status" : false, "message" : "Registrierung fehlgeschlagen" });
+            res.send({ "status" : true, "message" : "Registrierung war erfolgreich" });
         });
     },
     logout: function(req, res, next) {
         req.logout();
-        res.send({ "status" : true });
+        res.send({ "status" : true, "message" : "Ausloggen war erfolgreich" });
     },
     isLoggedIn: function(req, res, next) {
         if(req.user) res.send({ "status" : true });
