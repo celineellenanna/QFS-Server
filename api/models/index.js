@@ -64,11 +64,11 @@ var userSchema = mongoose.Schema({
 
 userSchema.methods.fullName = function() {
     return this.firstname + ', ' + this.lastname;
-}
+};
 
 userSchema.methods.validPassword = function(password) {
     return this.password === password;
-}
+};
 
 userSchema.statics.register = function(firstname, lastname, username, password, email, cb) {
     User.create({
@@ -81,10 +81,94 @@ userSchema.statics.register = function(firstname, lastname, username, password, 
         if(err) cb(err);
         cb(null, user);
     });
-}
+};
+
+var categorySchema = mongoose.Schema({
+    name: {
+        type: String,
+        required: true
+    },
+    description: {
+        type: String
+
+    }
+});
+
+var questionSchema = mongoose.Schema({
+    name: {
+        type: String,
+        required: true
+    },
+    status: {
+        type: String,
+        enum: ['Created', 'Approved', 'Rejected', 'Deleted']
+    }
+});
+
+var answerSchema = mongoose.Schema({
+    text: {
+        type: String,
+        required: true
+    },
+    question: 
+    correct: {
+        type: bool
+    }
+});
+
+var quizSchema = mongoose.Schema({
+    user1: {
+        type: Schema.ObjectId,
+        ref: 'User',
+        required: true
+    },
+    user2: {
+        type: Schema.ObjectId,
+        ref: 'User',
+        required: true
+    },
+    status: {
+        type: String,
+        enum: ['Started', 'Finished', 'Canceled', 'Waiting']
+    },
+    rounds: [roundSchema]
+
+});
+
+var roundSchema = mongoose.Schema({
+    start: {
+        type: Date
+    },
+    end: {
+        type: Date
+    },
+    category: {
+        type: Category
+    },
+    questions: [roundQuestionSchema]
+});
+
+var roundQuestionSchema = mongoose.Schema({
+    sequenceNo: {
+        type: Number,
+        required: true
+    },
+    question: {
+        type: Schema.ObjectId,
+        ref: 'Question',
+        required: true
+    },
+
+
+});
+
+
+
 
 var User = mongoose.model('User', userSchema);
+var Quiz = mongoose.model('Quiz', quizSchema);
 
 module.exports = {
-    User        : User
+    User        : User,
+    Quiz        : Quiz
 }
