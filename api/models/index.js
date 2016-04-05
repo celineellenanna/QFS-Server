@@ -102,7 +102,8 @@ var questionSchema = mongoose.Schema({
     status: {
         type: String,
         enum: ['Created', 'Approved', 'Rejected', 'Deleted']
-    }
+    },
+    answers: [answerSchema]
 });
 
 var answerSchema = mongoose.Schema({
@@ -110,7 +111,6 @@ var answerSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    question: 
     correct: {
         type: bool
     }
@@ -158,10 +158,27 @@ var roundQuestionSchema = mongoose.Schema({
         ref: 'Question',
         required: true
     },
+    userAnswers: [userAnswerSchema]
 
 
 });
 
+var userAnswerSchema = mongoose.Schema({
+    timeToAnswer: {
+        type: Date,
+        required: true
+    },
+    answer: {
+        type: Schema.ObjectId,
+        ref: 'Answer',
+        required: true
+    },
+    user: {
+        type: Schema.ObjectId,
+        ref: 'User',
+        required: true
+    }
+});
 
 
 
