@@ -71,19 +71,6 @@ userSchema.methods.validPassword = function(password) {
     return this.password === password;
 };
 
-userSchema.statics.register = function(firstname, lastname, username, password, email, cb) {
-    User.create({
-        firstname   : firstname,
-        lastname    : lastname,
-        username    : username,
-        password    : password,
-        email       : email
-    }, function(err, user) {
-        if(err) cb(err);
-        cb(null, user);
-    });
-};
-
 var categorySchema = mongoose.Schema({
     name: {
         type: String,
