@@ -92,6 +92,17 @@ var categorySchema = mongoose.Schema({
     description: {
         type: String
 
+    },
+    moderator: [userSchema]
+});
+
+var answerSchema = mongoose.Schema({
+    text: {
+        type: String,
+        required: true
+    },
+    correct: {
+        type: Boolean
     }
 });
 
@@ -107,33 +118,34 @@ var questionSchema = mongoose.Schema({
     answers: [answerSchema]
 });
 
-var answerSchema = mongoose.Schema({
-    text: {
-        type: String,
+var userAnswerSchema = mongoose.Schema({
+    timeToAnswer: {
+        type: Date,
         required: true
     },
-    correct: {
-        type: bool
+    answer: {
+        type: mongoose.Schema.ObjectId,
+        ref: 'Answer',
+        required: true
+    },
+    user: {
+        type: mongoose.Schema.ObjectId,
+        ref: 'User',
+        required: true
     }
 });
 
-var quizSchema = mongoose.Schema({
-    user1: {
-        type: Schema.ObjectId,
-        ref: 'User',
+var roundQuestionSchema = mongoose.Schema({
+    sequenceNo: {
+        type: Number,
         required: true
     },
-    user2: {
-        type: Schema.ObjectId,
-        ref: 'User',
+    question: {
+        type: mongoose.Schema.ObjectId,
+        ref: 'Question',
         required: true
     },
-    status: {
-        type: String,
-        enum: ['Started', 'Finished', 'Canceled', 'Waiting']
-    },
-    rounds: [roundSchema]
-
+    userAnswers: [userAnswerSchema]
 });
 
 var roundSchema = mongoose.Schema({
@@ -144,44 +156,30 @@ var roundSchema = mongoose.Schema({
         type: Date
     },
     category: {
-        type: Category
+        type: mongoose.Schema.ObjectId,
+        ref: 'Category'
     },
     questions: [roundQuestionSchema]
 });
 
-var roundQuestionSchema = mongoose.Schema({
-    sequenceNo: {
-        type: Number,
-        required: true
-    },
-    question: {
-        type: Schema.ObjectId,
-        ref: 'Question',
-        required: true
-    },
-    userAnswers: [userAnswerSchema]
-
-
-});
-
-var userAnswerSchema = mongoose.Schema({
-    timeToAnswer: {
-        type: Date,
-        required: true
-    },
-    answer: {
-        type: Schema.ObjectId,
-        ref: 'Answer',
-        required: true
-    },
-    user: {
-        type: Schema.ObjectId,
+var quizSchema = mongoose.Schema({
+    user1: {
+        type: mongoose.Schema.ObjectId,
         ref: 'User',
         required: true
-    }
+    },
+    user2: {
+        type: mongoose.Schema.ObjectId,
+        ref: 'User',
+        required: true
+    },
+    status: {
+        type: String,
+        enum: ['Started', 'Finished', 'Canceled', 'Waiting']
+    },
+    rounds: [roundSchema]
+
 });
-
-
 
 var User = mongoose.model('User', userSchema);
 var Quiz = mongoose.model('Quiz', quizSchema);
