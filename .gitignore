@@ -4,6 +4,7 @@
 *.log
 logs/*
 npm-debug.log*
+.idea/workspace.xml
 
 # Runtime data
 pids
