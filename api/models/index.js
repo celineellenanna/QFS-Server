@@ -181,6 +181,21 @@ var quizSchema = mongoose.Schema({
 
 });
 
+var ratingSchema = mongoose.Schema({
+    ratingValue: {
+        type: String,
+        enum: ['Highest', 'AboveAverage', 'Average', 'BelowAverage', 'Lowest']
+    },
+    comment: {
+        type: String
+    },
+    user: {
+        type: mongoose.Schema.ObjectId,
+        ref: 'User',
+        required: true
+    }
+});
+
 var User = mongoose.model('User', userSchema);
 var Quiz = mongoose.model('Quiz', quizSchema);
 
