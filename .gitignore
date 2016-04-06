@@ -1,9 +1,11 @@
 # Logs
 *.log
-logs/
+
+# API
+/api/logs
 
 # Exlude IDEA
-.idea/workspace.xml
+/.idea
 
 # Runtime data
 pids
