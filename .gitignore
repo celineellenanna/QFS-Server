@@ -2,7 +2,7 @@
 # logs
 
 *.log
-logs/
+logs/*
 npm-debug.log*
 
 # Runtime data
