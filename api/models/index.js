@@ -16,7 +16,8 @@ db.once('open', function() {
         lastname    : 'lastname_user0',
         username    : 'user0',
         password    : 'pass0',
-        email       : 'user0@test.com'
+        email       : 'user0@test.com',
+        status      : 'activated'
     }, function(err) {
         if (err) Log.error(err);
         else Log.info('User created successfully');

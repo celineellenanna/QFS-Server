@@ -36,10 +36,10 @@ var controller = {
     login: function(req, res, next) {
         passport.authenticate('local', function(err, user, info) {
             if (err) { return next(err); }
-            if (!user) { return res.send({ "status" : false, "message" : "Benutzername oder Passwort ist falsch" });}
+            if (!user) { return res.send(new User()); }
             req.login(user, function(err) {
                 if(err) { return next(err); }
-                res.send( {"status" : true, "message" : "Login erfolgreich", "user" : user });
+                res.send(user);
             });
         })(req, res, next);
     },
