@@ -4,15 +4,6 @@ var User = require('../models/index').User;
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 
-var theUser;
-
-User.findOne({
-    username: 'user0'
-}, function(err, user) {
-    if (err) return done(err);
-    theUser = user;
-});
-
 passport.use(new LocalStrategy(
     function(username, password, done) {
         User.findOne({
