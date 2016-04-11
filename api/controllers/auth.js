@@ -10,7 +10,7 @@ passport.use(new LocalStrategy(
             username: username
         }, function(err, user) {
                 if (err) return done(err);
-                if (!user) {
+                if (!user || user.status !== "activated") {
                     return done(null, false, "Benutzername ist falsch");
                 }
                 if (!user.validPassword(password)) {
@@ -53,11 +53,12 @@ var controller = {
             password    : req.body.password,
             email       : req.body.email
         }, function(err, user) {
-            if(err) next(err);
             if(!user) {
+                Log.error("User Registrierung fehlgeschlagen");
                 res.send({ "success" : false, "message" : "Registrierung ist fehlgeschlagen", "data" : null });
             } else {
-                res.send({ "success" : false, "message" : "Registrierung war erfolgreich", "data" : user });
+                Log.info("User " + user.username + " erfolgreich registriert");
+                res.send({ "success" : true, "message" : "Registrierung war erfolgreich", "data" : user });
             }
         });
     },

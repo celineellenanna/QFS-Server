@@ -16,7 +16,7 @@ db.once('open', function() {
         lastname    : 'lastname_user0',
         username    : 'user0',
         password    : 'pass0',
-        email       : 'user0@test.com',
+        email       : 'user0@hsr.ch',
         status      : 'activated'
     }, function(err) {
         if (err) Log.error(err);
@@ -36,7 +36,13 @@ var userSchema = mongoose.Schema({
         email: {
             type: String,
             unique: true,
-            required: true
+            required: true,
+            validate: {
+                validator: function(v) {
+                    return new RegExp("[a-zA-Z0-9\.]*@hsr.ch").test(v);
+                },
+                message: '{VALUE} ist keine gültige Email adresse!'
+            }
         },
         username: {
             type: String,
