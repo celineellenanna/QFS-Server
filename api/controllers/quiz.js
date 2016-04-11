@@ -30,6 +30,15 @@ var controller = {
             quiz.save();
             res.send({ "success" : true, "message" : "Quiz beendet", data : null });
         });
+    },
+    newRound: function (req, res, next) {
+        Quiz.findById(req.params.id, function(err, quiz){
+            if(err) next(err);
+            quiz.rounds.push();
+            quiz.save();
+            res.send({ "success" : true, "message" : "Neue Runde erstellt", data : null });
+        })
+
     }
 };
 
