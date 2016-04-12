@@ -10,7 +10,7 @@ passport.use(new LocalStrategy(
             username: username
         }, function(err, user) {
                 if (err) return done(err);
-                if (!user || user.status !== "activated") {
+                if (!user) {
                     return done(null, false, "Benutzername ist falsch");
                 }
                 if (!user.validPassword(password)) {
