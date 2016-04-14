@@ -17,7 +17,7 @@ db.once('open', function() {
         username    : 'user0',
         password    : 'pass0',
         email       : 'user0@hsr.ch',
-        status      : 'activated'
+        status      : 'Activated'
     }, function(err) {
         if (err) Log.error(err);
         else Log.info('User created successfully');
