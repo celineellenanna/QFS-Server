@@ -33,8 +33,11 @@ var controller = {
     findOpponent: function(req, res, next) {
         User.find({ _id : { $ne : req.params.id}, status: 'Activated'}, function(err, users) {
             if(err) next(err);
-            forEach(user in users)
+            users.each(function(err, user)
             {
+                if(err)
+                    next(err);
+
                 Quiz.findOne(
                     { $and: [
                         { $or: [
@@ -53,7 +56,7 @@ var controller = {
                             users.find({_id: user._id}).remove();
                     }
                         )
-            }
+            });
 
         });
     }
