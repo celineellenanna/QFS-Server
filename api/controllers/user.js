@@ -1,5 +1,6 @@
 var Log = require('../logs/index');
 var User = require('../models/index').User;
+var Quiz = require('../models/index').Quiz;
 
 var controller = {
     index: function(req, res, next) {
