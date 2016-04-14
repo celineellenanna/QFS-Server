@@ -157,12 +157,12 @@ var roundSchema = mongoose.Schema({
 });
 
 var quizSchema = mongoose.Schema({
-    user1: {
+    challengerId: {
         type: mongoose.Schema.ObjectId,
         ref: 'User',
         required: true
     },
-    user2: {
+    opponentId: {
         type: mongoose.Schema.ObjectId,
         ref: 'User',
         required: true
