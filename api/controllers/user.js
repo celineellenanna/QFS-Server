@@ -33,7 +33,7 @@ var controller = {
     findOpponent: function(req, res, next) {
         User.find({ _id : { $ne : req.params.id}, status: 'Activated'}, function(err, users) {
             if(err) next(err);
-            users.each(function(err, user)
+            users.forEach(function(err, user)
             {
                 if(err)
                     next(err);
