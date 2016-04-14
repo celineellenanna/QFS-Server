@@ -15,8 +15,8 @@ var controller = {
     },*/
     create: function(req, res, next) {
         Quiz.create({
-            user1: req.body.currentUserId,
-            user2: req.body.userId
+            challengerId: req.body.challengerId,
+            opponentId: req.body.opponentId
         }, function(err,quiz) {
         if (err)
             Log.error(err);
