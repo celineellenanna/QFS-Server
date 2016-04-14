@@ -29,6 +29,33 @@ var controller = {
             user.save();
             res.send({ "success" : true, "message" : "User gelöscht", data : null });
         });
+    },
+    findOpponent: function(req, res, next) {
+        User.find({ _id : { $ne : req.params.id}, status: 'Activated'}, function(err, users) {
+            if(err) next(err);
+            forEach(user in users)
+            {
+                Quiz.findOne(
+                    { $and: [
+                        { $or: [
+                            { $and: [{challengerId: req.params.id}, {opponentId: user._id}]},
+                            { $and: [{challengerId: user._id}, {opponentId: req.params.id}]}
+                            ]
+                        },
+                        { $or: [
+                            { status: 'Waiting'},
+                            { status: 'Started'}
+                        ]}
+
+                    ]}, function(err, quiz){
+                        if(err) next(err);
+                        if(quiz)
+                            users.find({_id: user._id}).remove();
+                    }
+                        )
+            }
+
+        });
     }
 };
 

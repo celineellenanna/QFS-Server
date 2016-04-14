@@ -5,5 +5,6 @@ var userController = require('../controllers/user');
 router.get('/', userController.index);
 router.get('/{id}', userController.get);
 router.delete('/{id}', userController.destroy);
+router.get('/findOpponent/', userController.findOpponent);
 
 module.exports = router;
