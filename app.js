@@ -47,6 +47,7 @@ app.use(express.static('./api/public'));
 app.use('/', indexRoute);
 app.use('/api/auth', authRoute);
 app.use('/api/users', userRoute);
+app.use('/api/quiz', quizRoute);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
