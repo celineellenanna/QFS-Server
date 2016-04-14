@@ -22,19 +22,7 @@ db.once('open', function() {
         if (err) Log.error(err);
         else Log.info('User created successfully');
     });
-
-    User.create({
-        firstname   : 'firstname_user0',
-        lastname    : 'lastname_user0',
-        username    : 'user0',
-        password    : 'pass0',
-        email       : 'user0@hsr.ch',
-        status      : 'Activated'
-    }, function(err) {
-        if (err) Log.error(err);
-        else Log.info('User created successfully');
-    });
-
+    
     User.create({
         firstname   : 'firstname_user1',
         lastname    : 'lastname_user1',

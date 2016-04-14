@@ -55,10 +55,9 @@ var controller = {
                         if(err) next(err);
                         if(quiz)
                             users.find({_id: user._id}).remove();
-                    }
-                        )
+                    });
             });
-
+            res.send({ "success" :true, "message" : "Gefundene Users", data : users});
         });
     }
 };
