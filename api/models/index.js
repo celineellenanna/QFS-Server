@@ -106,7 +106,8 @@ var questionSchema = mongoose.Schema({
     },
     status: {
         type: String,
-        enum: ['Created', 'Approved', 'Rejected', 'Deleted']
+        enum: ['Created', 'Approved', 'Rejected', 'Deleted'],
+        default: 'Created'
     },
     answers: [answerSchema]
 });
@@ -168,7 +169,8 @@ var quizSchema = mongoose.Schema({
     },
     status: {
         type: String,
-        enum: ['Started', 'Finished', 'Canceled', 'Waiting']
+        enum: ['Started', 'Finished', 'Canceled', 'Waiting'],
+        default: 'Started'
     },
     rounds: [roundSchema]
 
