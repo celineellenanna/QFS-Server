@@ -17,7 +17,31 @@ db.once('open', function() {
         username    : 'user0',
         password    : 'pass0',
         email       : 'user0@hsr.ch',
-        status      : 'activated'
+        status      : 'Activated'
+    }, function(err) {
+        if (err) Log.error(err);
+        else Log.info('User created successfully');
+    });
+    
+    User.create({
+        firstname   : 'firstname_user1',
+        lastname    : 'lastname_user1',
+        username    : 'user1',
+        password    : 'pass1',
+        email       : 'user1@hsr.ch',
+        status      : 'Activated'
+    }, function(err) {
+        if (err) Log.error(err);
+        else Log.info('User created successfully');
+    });
+
+    User.create({
+        firstname   : 'firstname_user2',
+        lastname    : 'lastname_user2',
+        username    : 'user2',
+        password    : 'pass2',
+        email       : 'user2@hsr.ch',
+        status      : 'Activated'
     }, function(err) {
         if (err) Log.error(err);
         else Log.info('User created successfully');
@@ -55,8 +79,8 @@ var userSchema = mongoose.Schema({
         },
         status: {
             type: String,
-            enum: ['registered', 'activated', 'deleted'],
-            default: 'registered'
+            enum: ['Registered', 'Activated', 'Deleted'],
+            default: 'Registered'
         },
         role: {
             type: String,
@@ -106,7 +130,8 @@ var questionSchema = mongoose.Schema({
     },
     status: {
         type: String,
-        enum: ['Created', 'Approved', 'Rejected', 'Deleted']
+        enum: ['Created', 'Approved', 'Rejected', 'Deleted'],
+        default: 'Created'
     },
     answers: [answerSchema]
 });
@@ -156,19 +181,20 @@ var roundSchema = mongoose.Schema({
 });
 
 var quizSchema = mongoose.Schema({
-    user1: {
+    challengerId: {
         type: mongoose.Schema.ObjectId,
         ref: 'User',
         required: true
     },
-    user2: {
+    opponentId: {
         type: mongoose.Schema.ObjectId,
         ref: 'User',
         required: true
     },
     status: {
         type: String,
-        enum: ['Started', 'Finished', 'Canceled', 'Waiting']
+        enum: ['Started', 'Finished', 'Canceled', 'Waiting'],
+        default: 'Started'
     },
     rounds: [roundSchema]
 

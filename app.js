@@ -14,6 +14,7 @@ var Log = require('./api/logs/index');
 var indexRoute = require('./api/routes/index');
 var authRoute = require('./api/routes/auth');
 var userRoute = require('./api/routes/user');
+var quizRoute = require('./api/routes/quiz');
 
 var app = express();
 
@@ -46,6 +47,7 @@ app.use(express.static('./api/public'));
 app.use('/', indexRoute);
 app.use('/api/auth', authRoute);
 app.use('/api/users', userRoute);
+app.use('/api/quiz', quizRoute);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

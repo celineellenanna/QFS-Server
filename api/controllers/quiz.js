@@ -13,6 +13,18 @@ var controller = {
             }
         });
     },*/
+    create: function(req, res, next) {
+        Quiz.create({
+            challengerId: req.body.challengerId,
+            opponentId: req.body.opponentId
+        }, function(err,quiz) {
+        if (err)
+            Log.error(err);
+        else
+            res.send({ "success" : true, "message" : "Quiz erstellt", data : quiz });
+        });
+
+    },
     get: function(req, res, next) {
         Quiz.findById(req.params.id, function(err, quiz) {
             if(err) next(err);

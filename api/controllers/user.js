@@ -1,5 +1,6 @@
 var Log = require('../logs/index');
 var User = require('../models/index').User;
+var Quiz = require('../models/index').Quiz;
 
 var controller = {
     index: function(req, res, next) {
@@ -28,6 +29,35 @@ var controller = {
             user.status = 'inactivated';
             user.save();
             res.send({ "success" : true, "message" : "User gelöscht", data : null });
+        });
+    },
+    findOpponent: function(req, res, next) {
+        User.find({ _id : { $ne : req.params.id}, status: 'Activated'}, function(err, users) {
+            if(err) next(err);
+            users.forEach(function(err, user)
+            {
+                if(err)
+                    next(err);
+
+                Quiz.findOne(
+                    { $and: [
+                        { $or: [
+                            { $and: [{challengerId: req.params.id}, {opponentId: user._id}]},
+                            { $and: [{challengerId: user._id}, {opponentId: req.params.id}]}
+                            ]
+                        },
+                        { $or: [
+                            { status: 'Waiting'},
+                            { status: 'Started'}
+                        ]}
+
+                    ]}, function(err, quiz){
+                        if(err) next(err);
+                        if(quiz)
+                            users.find({_id: user._id}).remove();
+                    });
+            });
+            res.send({ "success" :true, "message" : "Gefundene Users", data : users});
         });
     }
 };
