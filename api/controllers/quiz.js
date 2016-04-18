@@ -50,7 +50,6 @@ var controller = {
             quiz.save();
             res.send({ "success" : true, "message" : "Neue Runde erstellt", data : null });
         })
-as
     }
 };
 
