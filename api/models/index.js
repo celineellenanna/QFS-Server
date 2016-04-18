@@ -46,6 +46,18 @@ db.once('open', function() {
         if (err) Log.error(err);
         else Log.info('User created successfully');
     });
+
+    User.create({
+        firstname   : 'firstname_user3',
+        lastname    : 'lastname_user3',
+        username    : 'user3',
+        password    : 'pass3',
+        email       : 'user3@hsr.ch',
+        status      : 'Activated'
+    }, function(err) {
+        if (err) Log.error(err);
+        else Log.info('User created successfully');
+    });
 });
 
 var userSchema = mongoose.Schema({
