@@ -910,3 +910,19 @@ Tue Apr 12 2016 09:49:12 GMT+0200 (CEST) | Environment:development
 Tue Apr 12 2016 09:49:12 GMT+0200 (CEST) | Host:localhost
 Tue Apr 12 2016 09:49:12 GMT+0200 (CEST) | Port:3000
 Tue Apr 12 2016 09:49:12 GMT+0200 (CEST) | Database connection successfully
+Mon Apr 18 2016 19:52:17 GMT+0200 (Mitteleuropäische Sommerzeit) | QFS WEB API started
+Mon Apr 18 2016 19:52:17 GMT+0200 (Mitteleuropäische Sommerzeit) | Environment:development
+Mon Apr 18 2016 19:52:17 GMT+0200 (Mitteleuropäische Sommerzeit) | Host:localhost
+Mon Apr 18 2016 19:52:17 GMT+0200 (Mitteleuropäische Sommerzeit) | Port:3000
+Mon Apr 18 2016 19:52:17 GMT+0200 (Mitteleuropäische Sommerzeit) | Database connection successfully
+Mon Apr 18 2016 19:52:17 GMT+0200 (Mitteleuropäische Sommerzeit) | User created successfully
+Mon Apr 18 2016 19:52:17 GMT+0200 (Mitteleuropäische Sommerzeit) | User created successfully
+Mon Apr 18 2016 19:52:17 GMT+0200 (Mitteleuropäische Sommerzeit) | User created successfully
+Mon Apr 18 2016 19:52:17 GMT+0200 (Mitteleuropäische Sommerzeit) | User created successfully
+Mon Apr 18 2016 19:52:17 GMT+0200 (Mitteleuropäische Sommerzeit) | Category created successfully
+Mon Apr 18 2016 19:52:57 GMT+0200 (Mitteleuropäische Sommerzeit) | QFS WEB API started
+Mon Apr 18 2016 19:52:57 GMT+0200 (Mitteleuropäische Sommerzeit) | Environment:development
+Mon Apr 18 2016 19:52:57 GMT+0200 (Mitteleuropäische Sommerzeit) | Host:localhost
+Mon Apr 18 2016 19:52:57 GMT+0200 (Mitteleuropäische Sommerzeit) | Port:3000
+Mon Apr 18 2016 19:52:57 GMT+0200 (Mitteleuropäische Sommerzeit) | Database connection successfully
+Mon Apr 18 2016 19:52:57 GMT+0200 (Mitteleuropäische Sommerzeit) | Category created successfully
