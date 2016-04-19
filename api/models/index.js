@@ -890,6 +890,277 @@ db.once('open', function() {
             })
         ]
     }).save();
+
+    var infsi1 = new Category({
+        name        : 'Informationssicherheit1',
+        description : 'Category1 description',
+        questions   : [
+            new Question({
+                name        : 'Wie viele mögliche Schlüssel gibt es beim Caesar-Code, wenn k Zeichen aus einem Alphabet mit 26 Buchstaben verschlüsselt werden sollen?',
+                status      : 'Created',
+                answers     : [
+                    new Answer({
+                        text    : '26',
+                        correct : true
+                    }),
+                    new Answer({
+                        text    : '26*k',
+                        correct : false
+                    }),
+                    new Answer({
+                        text    : '26!',
+                        correct : false
+                    }),
+                    new Answer({
+                        text    : '26^2',
+                        correct : false
+                    })
+                ]
+            }),
+            new Question({
+                name        : 'Wie viele mögliche Schlüssel gibt es beim Vigenère-Code mit n Zeichen Schlüssellänge?',
+                status      : 'Created',
+                answers     : [
+                    new Answer({
+                        text    : '26^n',
+                        correct : true
+                    }),
+                    new Answer({
+                        text    : '26!',
+                        correct : false
+                    }),
+                    new Answer({
+                        text    : '2^n',
+                        correct : false
+                    }),
+                    new Answer({
+                        text    : '26*n',
+                        correct : false
+                    })
+                ]
+            }),
+            new Question({
+                name        : 'Bei welchem Verfahren zeigt die Autokorrelation der verschlüsselten Zeichenfolge des Märchentextes "Ali Baba und die 40 Räuber" in der Regel Periodizitäten?',
+                status      : 'Created',
+                answers     : [
+                    new Answer({
+                        text    : 'Vigenère',
+                        correct : true
+                    }),
+                    new Answer({
+                        text    : 'Caesar',
+                        correct : false
+                    }),
+                    new Answer({
+                        text    : '3DES',
+                        correct : false
+                    }),
+                    new Answer({
+                        text    : 'AES',
+                        correct : false
+                    })
+                ]
+            }),
+            new Question({
+                name        : 'Die Entropie einer Zeichenfolge (bzw. der mittlere Informationsgehalt der Zeichenfolge) ist dann am höchsten,...',
+                status      : 'Created',
+                answers     : [
+                    new Answer({
+                        text    : 'wenn alle Zeichen gleich häufig vorkommen',
+                        correct : true
+                    }),
+                    new Answer({
+                        text    : 'wenn einige Zeichen sehr selten vorkommen',
+                        correct : false
+                    }),
+                    new Answer({
+                        text    : 'wenn einige Zeichen sehr häufig vorkommen',
+                        correct : false
+                    }),
+                    new Answer({
+                        text    : 'wenn alle Zeichen gleich wenig vorkommen',
+                        correct : false
+                    })
+                ]
+            }),
+            new Question({
+                name        : 'Welchen Anteil Übereinstimmungen liefert die Autokorrelation einer sehr langen, zufälligen Zeichenfolge. Die Zeichenfolge sei 1000 Zeichen lang, wobei an jeder Stelle eines von 100 möglichen Zeichen zufällig ausgewählt wurde. Die Verschiebung beträgt mindestens ein Zeichen.',
+                status      : 'Created',
+                answers     : [
+                    new Answer({
+                        text    : '1%',
+                        correct : true
+                    }),
+                    new Answer({
+                        text    : '4%',
+                        correct : false
+                    }),
+                    new Answer({
+                        text    : '7%',
+                        correct : false
+                    }),
+                    new Answer({
+                        text    : '10%',
+                        correct : false
+                    })
+                ]
+            }),
+            new Question({
+                name        : 'Welche (effektive) Schlüssellänge wird bei "normaler" DES-Verschlüsselung verwendet?',
+                status      : 'Created',
+                answers     : [
+                    new Answer({
+                        text    : '56 Bit',
+                        correct : true
+                    }),
+                    new Answer({
+                        text    : '64 Bit',
+                        correct : false
+                    }),
+                    new Answer({
+                        text    : '128 Bit',
+                        correct : false
+                    }),
+                    new Answer({
+                        text    : '40 Bit',
+                        correct : false
+                    })
+                ]
+            }),
+            new Question({
+                name        : 'Welchen Teil des Schlüssels muss der Sender einer Nachricht bei der Verschlüsselung mit einem Public Key Verfahren verwenden?',
+                status      : 'Created',
+                answers     : [
+                    new Answer({
+                        text    : 'den Public Key des Empfängers',
+                        correct : true
+                    }),
+                    new Answer({
+                        text    : 'den Private Key des Empfängers',
+                        correct : false
+                    }),
+                    new Answer({
+                        text    : 'den Public Key des Senders',
+                        correct : false
+                    }),
+                    new Answer({
+                        text    : 'den Private Key des Senders',
+                        correct : false
+                    })
+                ]
+            }),
+            new Question({
+                name        : 'Welchen Teil des Schlüssels muss der Empfänger einer mit Public Key Verfahren verschlüsselten Nachricht zur Entschlüsselung verwenden?',
+                status      : 'Created',
+                answers     : [
+                    new Answer({
+                        text    : 'den Private Key des Empfängers',
+                        correct : true
+                    }),
+                    new Answer({
+                        text    : 'den Private Key des Senders',
+                        correct : false
+                    }),
+                    new Answer({
+                        text    : 'den Public Key des Empfängers',
+                        correct : false
+                    }),
+                    new Answer({
+                        text    : 'den Public Key des Senders',
+                        correct : false
+                    })
+                ]
+            }),
+            new Question({
+                name        : '43 mod (13) ist gleich',
+                status      : 'Created',
+                answers     : [
+                    new Answer({
+                        text    : '4',
+                        correct : true
+                    }),
+                    new Answer({
+                        text    : '1',
+                        correct : false
+                    }),
+                    new Answer({
+                        text    : '3',
+                        correct : false
+                    }),
+                    new Answer({
+                        text    : '8',
+                        correct : false
+                    })
+                ]
+            }),
+            new Question({
+                name        : 'Die (multiplikativ) inverse Zahl von 7 mod (9) ist gleich',
+                status      : 'Created',
+                answers     : [
+                    new Answer({
+                        text    : '4',
+                        correct : true
+                    }),
+                    new Answer({
+                        text    : '2',
+                        correct : false
+                    }),
+                    new Answer({
+                        text    : '5',
+                        correct : false
+                    }),
+                    new Answer({
+                        text    : '8',
+                        correct : false
+                    })
+                ]
+            }),
+            new Question({
+                name        : 'Um jemandem eine signierte Meldung schicken zu können, benötigt der Sender …',
+                status      : 'Created',
+                answers     : [
+                    new Answer({
+                        text    : 'den Private Key des Senders',
+                        correct : true
+                    }),
+                    new Answer({
+                        text    : 'den Public Key des Senders',
+                        correct : false
+                    }),
+                    new Answer({
+                        text    : 'den Private Key des Empfängers',
+                        correct : false
+                    }),
+                    new Answer({
+                        text    : 'den Public Key des Empfängers',
+                        correct : false
+                    })
+                ]
+            }),
+            new Question({
+                name        : 'Mittlerweile ist bekannt, dass folgende Personen die Erfinder des ersten Public Key Verschlüsselungsverfahrens waren:',
+                status      : 'Created',
+                answers     : [
+                    new Answer({
+                        text    : 'Ellis, Cocks, Williamson',
+                        correct : true
+                    }),
+                    new Answer({
+                        text    : 'Rivest, Shamir, Adleman',
+                        correct : false
+                    }),
+                    new Answer({
+                        text    : 'Diffie, Hellman',
+                        correct : false
+                    }),
+                    new Answer({
+                        text    : 'Jobs, Nadella',
+                        correct : false
+                    })
+                ]
+            })
+        ]
+    }).save();
 });
 
 var userSchema = mongoose.Schema({
