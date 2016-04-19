@@ -47,7 +47,30 @@ db.once('open', function() {
         else Log.info('User created successfully');
     });
 
-    test;
+    User.create({
+        firstname   : 'firstname_user3',
+        lastname    : 'lastname_user3',
+        username    : 'user3',
+        password    : 'pass3',
+        email       : 'user3@hsr.ch',
+        status      : 'Activated'
+    }, function(err) {
+        if (err) Log.error(err);
+        else Log.info('User created successfully');
+    });
+
+    Category.create({
+        name        :   'Computernetze1',
+        description :   'blablabla'
+    }, function(err, category) {
+        if (err) Log.error(err);
+
+        
+        else Log.info('Category created successfully');
+    });
+
+
+
 });
 
 var userSchema = mongoose.Schema({
@@ -103,18 +126,6 @@ userSchema.methods.validPassword = function(password) {
     return this.password === password;
 };
 
-var categorySchema = mongoose.Schema({
-    name: {
-        type: String,
-        required: true
-    },
-    description: {
-        type: String
-
-    },
-    moderator: [userSchema]
-});
-
 var answerSchema = mongoose.Schema({
     text: {
         type: String,
@@ -136,6 +147,18 @@ var questionSchema = mongoose.Schema({
         default: 'Created'
     },
     answers: [answerSchema]
+});
+
+var categorySchema = mongoose.Schema({
+    name: {
+        type: String,
+        required: true
+    },
+    description: {
+        type: String
+
+    },
+    questions: [questionSchema]
 });
 
 var userAnswerSchema = mongoose.Schema({
@@ -219,6 +242,9 @@ var ratingSchema = mongoose.Schema({
 
 var User = mongoose.model('User', userSchema);
 var Quiz = mongoose.model('Quiz', quizSchema);
+var Category = mongoose.model('Category', categorySchema);
+var Question = mongoose.model('Question', questionSchema);
+var Answer = mongoose.model('Answer', answerSchema);
 
 module.exports = {
     User        : User,
