@@ -14,7 +14,7 @@ var Log = require('./api/logs/index');
 var indexRoute = require('./api/routes/index');
 var authRoute = require('./api/routes/auth');
 var userRoute = require('./api/routes/user');
-var quizRoute = require('./api/routes/quiz')
+var quizRoute = require('./api/routes/quiz');
 
 var app = express();
 
