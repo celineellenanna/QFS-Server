@@ -59,7 +59,7 @@ db.once('open', function() {
         else Log.info('User created successfully');
     });
 
-    var c1 = new Category({
+    var datenbanken1 = new Category({
         name        : 'Datenbanken1',
         description : 'Architekturen und Funktionsweise von relationalen Datenbanksystemen kennen und verstehen..',
         questions   : [
@@ -106,7 +106,7 @@ db.once('open', function() {
                         correct : false
                     })
                 ]
-            })
+            }),
             new Question({
                 name        : 'Welche Datenbanken/Datenbanksysteme haben ein Datenmodell (Paradigma) in der Art eines Baums?',
                 status      : 'Created',
@@ -330,7 +330,7 @@ db.once('open', function() {
         ]
     }).save();
 
-    var c1 = new Category({
+    var wirtschaftsinformatik1 = new Category({
         name        : 'Wirschaftsinformatik1',
         description : 'Die Wirtschaft ist der mit Abstand grösste Anwendungsbereich der Informatik. Das Modul Wirtschaftsinformatik 1 erschliesst dieses Gebiet systematisch.',
         questions   : [
@@ -445,206 +445,155 @@ db.once('open', function() {
                 ]
             }),
             new Question({
-                name        : 'Frage1',
+                name        : 'Sie wollen die Kosten niedrig halten und gleichzeitig internationale Märkte verfolgen. Ihre Produkte haben nahezu jede Grösse und es handeln sich um Spezialgeräte bis hin zu überdimensionaler Fracht. Welches Produkt von UPS hilft ihrem Unternehmen am besten?',
                 status      : 'Created',
                 answers     : [
                     new Answer({
-                        text    : 'Antwort5',
+                        text    : 'Ocean Freight',
                         correct : true
                     }),
                     new Answer({
-                        text    : 'Antwort6',
+                        text    : 'Flex Global View',
                         correct : false
                     }),
                     new Answer({
-                        text    : 'Antwort7',
+                        text    : 'UPS Campus Ship',
                         correct : false
                     }),
                     new Answer({
-                        text    : 'Antwort8',
+                        text    : 'UPS World Ease',
                         correct : false
                     })
                 ]
             }),
             new Question({
-                name        : 'Frage2',
+                name        : 'Aus welchem Grund ging J.C. Penney eine Verbindung mit TAL ein obwohl es davor auch funktionierte?',
                 status      : 'Created',
                 answers     : [
                     new Answer({
-                        text    : 'Antwort1',
+                        text    : 'Da TAL mit seinen günstigen Produktionsstätten zu niedrigeren Preisen produzieren und liefern kann.',
                         correct : true
                     }),
                     new Answer({
-                        text    : 'Antwort2',
+                        text    : 'Da TAL eine Erfindung von J.C. Penney ist. J.C. Penney erhoffte sich so eine übersichtlichere Firmenstruktur.',
                         correct : false
                     }),
                     new Answer({
-                        text    : 'Antwort3',
+                        text    : 'Da sich die Geschäftsleitung von J.C. Penney und der CEO von TAL gut gekannt haben.',
                         correct : false
                     }),
                     new Answer({
-                        text    : 'Antwort4',
+                        text    : 'Da TAL ein Monopol wurde, war J.C. Penney fast schon gezwungen mit ihnen eine Verbindung einzugehen.',
                         correct : false
                     })
                 ]
             }),
             new Question({
-                name        : 'Frage3',
+                name        : 'Warum bietet jedes Logistikunternehmen ein gratis Track&Trace an?',
                 status      : 'Created',
                 answers     : [
                     new Answer({
-                        text    : 'Antwort5',
+                        text    : 'Die Firmenkunden sparen Geld weil der Kunde die Lieferinformationen jederzeit online einsehen kann',
                         correct : true
                     }),
                     new Answer({
-                        text    : 'Antwort6',
+                        text    : 'Die Logistikunternehmen wollen den Kunden ein Zusatzdienst verkaufen',
                         correct : false
                     }),
                     new Answer({
-                        text    : 'Antwort7',
+                        text    : 'Das Track & Trace ist nur eine Marketingsache, es bietet keinen Mehrwert',
                         correct : false
                     }),
                     new Answer({
-                        text    : 'Antwort8',
+                        text    : 'Das Track & Trace ist ein Indikator für die Globalisierung',
                         correct : false
                     })
                 ]
             }),
             new Question({
-                name        : 'Frage4',
+                name        : 'Welche der folgenden Anforderungen gehört nicht zwingend zu den Aktivitäten eines Geschäftsprozesses?',
                 status      : 'Created',
                 answers     : [
                     new Answer({
-                        text    : 'Antwort1',
+                        text    : 'Aktivitäten müssen die Mitarbeitenden motivieren',
                         correct : true
                     }),
                     new Answer({
-                        text    : 'Antwort2',
+                        text    : 'Aktivitäten müssen einen Beitrag zur Wertschöpfung leisten',
                         correct : false
                     }),
                     new Answer({
-                        text    : 'Antwort3',
+                        text    : 'Aktivitäten müssen einen definierten Anfang und ein definiertes Ende haben',
                         correct : false
                     }),
                     new Answer({
-                        text    : 'Antwort4',
+                        text    : 'Aktivitäten müssen wiederholt durchgeführt werden',
                         correct : false
                     })
                 ]
             }),
             new Question({
-                name        : 'Frage5',
+                name        : 'Welche Vorteile bietet das Unternehmen TAL den Händlern, die Hemden verkaufen?',
                 status      : 'Created',
                 answers     : [
                     new Answer({
-                        text    : 'Antwort5',
+                        text    : 'Gewinnsteigerung Händler - Händler kann sich auf seine Kernkompetenz (Handel) konzentrieren - Händler erhält Empfehlung für Hemden, die gut verkauft werden.',
                         correct : true
                     }),
                     new Answer({
-                        text    : 'Antwort6',
+                        text    : 'Alle Daten von TAL kann man als Händler runterladen - TAL garantiert eine 100% fehlerfreie Produktion.',
                         correct : false
                     }),
                     new Answer({
-                        text    : 'Antwort7',
+                        text    : 'TAL speichert keine Kundendaten und garantiert 100% Anonymität - TAL versendet innerhalb von Tagen tausende neu produzierte Hemden an den Händler.',
                         correct : false
                     }),
                     new Answer({
-                        text    : 'Antwort8',
+                        text    : 'TAL übernimmt den gesamten Prozess von der Herstellung bis zum Verkauf der Waren an den Endkunden.',
                         correct : false
                     })
                 ]
             }),
             new Question({
-                name        : 'Frage6',
+                name        : 'Innovation kann sich in den Bereichen People, Business und/oder Technology auswirken. Wie wird die Innovation genannt, die sich in allen drei Bereichen auswirkt?',
                 status      : 'Created',
                 answers     : [
                     new Answer({
-                        text    : 'Antwort1',
+                        text    : 'Experience Innovation',
                         correct : true
                     }),
                     new Answer({
-                        text    : 'Antwort2',
+                        text    : 'Process Innovation',
                         correct : false
                     }),
                     new Answer({
-                        text    : 'Antwort3',
+                        text    : 'Emotional Innovation',
                         correct : false
                     }),
                     new Answer({
-                        text    : 'Antwort4',
+                        text    : 'Functional Innovation',
                         correct : false
                     })
                 ]
             }),
             new Question({
-                name        : 'Frage7',
+                name        : 'Ein Anwendungssystem beinhaltet gegenüber einem Informationssystem auch:',
                 status      : 'Created',
                 answers     : [
                     new Answer({
-                        text    : 'Antwort5',
+                        text    : 'Organisation',
                         correct : true
                     }),
                     new Answer({
-                        text    : 'Antwort6',
+                        text    : 'Daten',
                         correct : false
                     }),
                     new Answer({
-                        text    : 'Antwort7',
+                        text    : 'Hardware',
                         correct : false
                     }),
                     new Answer({
-                        text    : 'Antwort8',
-                        correct : false
-                    })
-                ]
-            })
-        ]
-    }).save();
-
-    var c1 = new Category({
-        name        : 'Category1',
-        description : 'Category1 description',
-        questions   : [
-            new Question({
-                name        : 'Frage1',
-                status      : 'Created',
-                answers     : [
-                    new Answer({
-                        text    : 'Antwort1',
-                        correct : true
-                    }),
-                    new Answer({
-                        text    : 'Antwort2',
-                        correct : false
-                    }),
-                    new Answer({
-                        text    : 'Antwort3',
-                        correct : false
-                    }),
-                    new Answer({
-                        text    : 'Antwort4',
-                        correct : false
-                    })
-                ]
-            }),
-            new Question({
-                name        : 'Frage2',
-                status      : 'Created',
-                answers     : [
-                    new Answer({
-                        text    : 'Antwort5',
-                        correct : true
-                    }),
-                    new Answer({
-                        text    : 'Antwort6',
-                        correct : false
-                    }),
-                    new Answer({
-                        text    : 'Antwort7',
-                        correct : false
-                    }),
-                    new Answer({
-                        text    : 'Antwort8',
+                        text    : 'Software',
                         correct : false
                     })
                 ]
