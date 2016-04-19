@@ -59,7 +59,7 @@ db.once('open', function() {
         else Log.info('User created successfully');
     });
 
-    var datenbanken1 = new Category({
+    var db1 = new Category({
         name        : 'Datenbanken1',
         description : 'Architekturen und Funktionsweise von relationalen Datenbanksystemen kennen und verstehen..',
         questions   : [
@@ -330,7 +330,7 @@ db.once('open', function() {
         ]
     }).save();
 
-    var wirtschaftsinformatik1 = new Category({
+    var wi1 = new Category({
         name        : 'Wirschaftsinformatik1',
         description : 'Die Wirtschaft ist der mit Abstand grösste Anwendungsbereich der Informatik. Das Modul Wirtschaftsinformatik 1 erschliesst dieses Gebiet systematisch.',
         questions   : [
