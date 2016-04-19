@@ -1,6 +1,7 @@
 var Log = require('../logs/index');
 
 var mongoose = require('mongoose');
+var random = require('mongoose-random');
 mongoose.connect(process.db.connection);
 
 var db = mongoose.connection;
@@ -59,7 +60,54 @@ db.once('open', function() {
         else Log.info('User created successfully');
     });
 
-    var db1 = new Category({
+    var cc = new Category({
+        name    : 'test',
+        description : 'etst'
+    });
+
+    var q = new Question({
+        name        : 'Bei welchen Datenbanken/Datenbanksysteme werden die Daten und ihre Beziehungen in Tabellen (Relationen) abgebildet?',
+        status      : 'Created',
+        
+        _category : cc._id
+    });
+
+    var a1 = new Answer({
+        text    : 'relationalen Datenbanksysteme (RDBS)',
+        correct : true,
+        _question : q._id
+    });
+
+    var a2 = new Answer({
+        text    : 'objektrelationale Datenbanksysteme (ORDBS)',
+        correct : false,
+        _question : q._id
+    });
+
+    var a3 = new Answer({
+        text    : 'objektorientierte Datenbanksysteme (OODBS)',
+        correct : false,
+        _question : q._id
+    });
+
+    var a4 = Answer({
+        text    : 'hierarchischen Datenbanken',
+        correct : false,
+        _question : q._id
+    });
+    q.answers.push(a1._id, a2._id, a3._id, a4._id);
+    cc.questions.push(q._id);
+
+    a1.save();
+    a2.save();
+    a3.save();
+    a4.save();
+
+    q.save();
+    cc.save();
+
+
+    /*var db1 = new Category({
         name        : 'Datenbanken1',
         description : 'Architekturen und Funktionsweise von relationalen Datenbanksystemen kennen und verstehen..',
         questions   : [
@@ -599,7 +647,7 @@ db.once('open', function() {
                 ]
             })
         ]
-    }).save();
+    }).save();*/
 });
 
 var userSchema = mongoose.Schema({
@@ -662,6 +710,10 @@ var answerSchema = mongoose.Schema({
     },
     correct: {
         type: Boolean
+    },
+    _question : {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Question'
     }
 });
 
@@ -675,8 +727,19 @@ var questionSchema = mongoose.Schema({
         enum: ['Created', 'Approved', 'Rejected', 'Deleted'],
         default: 'Created'
     },
-    answers: [answerSchema]
+    answers: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Question'
+    }],
+    _category : { 
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: 'Category' 
+    }
+
 });
+
+questionSchema.plugin(random, { path: 'r' });
+
 
 var categorySchema = mongoose.Schema({
     name: {
@@ -687,8 +750,15 @@ var categorySchema = mongoose.Schema({
         type: String
 
     },
-    questions: [questionSchema]
+    
+    questions : [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Question'
+    }]
 });
+
+categorySchema.plugin(random, { path: 'r' });
+//categorySchema.questions.plugin(random, {path:'r'});
 
 var userAnswerSchema = mongoose.Schema({
     timeToAnswer: {
@@ -777,5 +847,8 @@ var Answer = mongoose.model('Answer', answerSchema);
 
 module.exports = {
     User        : User,
-    Quiz        : Quiz
+    Quiz        : Quiz,
+    Category    : Category,
+    Question    : Question
+    
 }
