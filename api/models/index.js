@@ -46,6 +46,8 @@ db.once('open', function() {
         if (err) Log.error(err);
         else Log.info('User created successfully');
     });
+
+    test;
 });
 
 var userSchema = mongoose.Schema({
