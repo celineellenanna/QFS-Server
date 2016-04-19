@@ -23,14 +23,6 @@ var controller = {
             }
         });
     },
-    destroy: function(req, res, next) {
-        User.findById(req.params.id, function(err, user) {
-            if(err) next(err);
-            user.status = 'inactivated';
-            user.save();
-            res.send({ "success" : true, "message" : "User gelöscht", data : null });
-        });
-    },
     findOpponent: function(req, res, next) {
         User.find({ _id : { $ne : req.params.id}, status: 'Activated'}, function(err, users) {
             if(err) next(err);
@@ -44,7 +36,7 @@ var controller = {
                         { $or: [
                             { $and: [{challengerId: req.params.id}, {opponentId: user._id}]},
                             { $and: [{challengerId: user._id}, {opponentId: req.params.id}]}
-                            ]
+                        ]
                         },
                         { $or: [
                             { status: 'Waiting'},
@@ -55,7 +47,6 @@ var controller = {
                         if(err) next(err);
                         if(quiz)
                             users.find({_id: user._id}).remove();
-
                     });
             });
             res.send({ "success" :true, "message" : "Gefundene Users", data : users});
