@@ -1308,10 +1308,6 @@ var categorySchema = mongoose.Schema({
         type: String,
         required: true
     },
-    description: {
-        type: String
-
-    },
     
     questions : [{
         type: mongoose.Schema.Types.ObjectId,
