@@ -61,7 +61,6 @@ db.once('open', function() {
 
     var db1 = new Category({
         name        : 'Datenbanken1',
-        description : 'Architekturen und Funktionsweise von relationalen Datenbanksystemen kennen und verstehen..',
         questions   : [
             new Question({
                 name        : 'Bei welchen Datenbanken/Datenbanksysteme werden die Daten und ihre Beziehungen in Tabellen (Relationen) abgebildet?',
@@ -332,7 +331,6 @@ db.once('open', function() {
 
     var wi1 = new Category({
         name        : 'Wirschaftsinformatik1',
-        description : 'Die Wirtschaft ist der mit Abstand grösste Anwendungsbereich der Informatik. Das Modul Wirtschaftsinformatik 1 erschliesst dieses Gebiet systematisch.',
         questions   : [
             new Question({
                 name        : 'Warum werden Dienstleistungen / Produktionen ins Ausland ausgelagert?',
@@ -600,6 +598,298 @@ db.once('open', function() {
             })
         ]
     }).save();
+
+    var cn1 = new Category({
+        name        : 'Computernetze1',
+        questions   : [
+            new Question({
+                name        : 'Wie gross ist bei Ethernet die MTU?',
+                status      : 'Created',
+                answers     : [
+                    new Answer({
+                        text    : '1500B',
+                        correct : true
+                    }),
+                    new Answer({
+                        text    : '64B',
+                        correct : false
+                    }),
+                    new Answer({
+                        text    : '1460B',
+                        correct : false
+                    }),
+                    new Answer({
+                        text    : '1480B',
+                        correct : false
+                    })
+                ]
+            }),
+            new Question({
+                name        : 'Wie gross ist die maximale IPv4-SDU?',
+                status      : 'Created',
+                answers     : [
+                    new Answer({
+                        text    : '1480B',
+                        correct : true
+                    }),
+                    new Answer({
+                        text    : '1500B',
+                        correct : false
+                    }),
+                    new Answer({
+                        text    : '1460B',
+                        correct : false
+                    }),
+                    new Answer({
+                        text    : '64B',
+                        correct : false
+                    })
+                ]
+            }),
+            new Question({
+                name        : 'Wie gross ist eine IPv6-Adresse?',
+                status      : 'Created',
+                answers     : [
+                    new Answer({
+                        text    : '16B',
+                        correct : true
+                    }),
+                    new Answer({
+                        text    : '4B',
+                        correct : false
+                    }),
+                    new Answer({
+                        text    : '8B',
+                        correct : false
+                    }),
+                    new Answer({
+                        text    : '32B',
+                        correct : false
+                    })
+                ]
+            }),
+            new Question({
+                name        : 'Zu welchem IPv4-Feld gibt es kein entsprechendes IPv6-Feld?',
+                status      : 'Created',
+                answers     : [
+                    new Answer({
+                        text    : 'Header Lenght',
+                        correct : true
+                    }),
+                    new Answer({
+                        text    : 'TTL',
+                        correct : false
+                    }),
+                    new Answer({
+                        text    : 'Protocol Type',
+                        correct : false
+                    }),
+                    new Answer({
+                        text    : 'Datagram Länge',
+                        correct : false
+                    })
+                ]
+            }),
+            new Question({
+                name        : 'In welchem Portnummernbereich liegen die „Ephemerial bzw. Dynamischen Ports“?',
+                status      : 'Created',
+                answers     : [
+                    new Answer({
+                        text    : '49152-65335',
+                        correct : true
+                    }),
+                    new Answer({
+                        text    : '1024-49151',
+                        correct : false
+                    }),
+                    new Answer({
+                        text    : '0-1023',
+                        correct : false
+                    }),
+                    new Answer({
+                        text    : '65336-16777216',
+                        correct : false
+                    })
+                ]
+            }),
+            new Question({
+                name        : 'Welches Anwendungsprotokoll nutzt typisch TCP?',
+                status      : 'Created',
+                answers     : [
+                    new Answer({
+                        text    : 'FTP',
+                        correct : true
+                    }),
+                    new Answer({
+                        text    : 'TFTP',
+                        correct : false
+                    }),
+                    new Answer({
+                        text    : 'RTP',
+                        correct : false
+                    }),
+                    new Answer({
+                        text    : 'DNS',
+                        correct : false
+                    })
+                ]
+            }),
+            new Question({
+                name        : 'Welches Anwendungsprotokoll nutzt typisch UDP?',
+                status      : 'Created',
+                answers     : [
+                    new Answer({
+                        text    : 'DNS',
+                        correct : true
+                    }),
+                    new Answer({
+                        text    : 'SMTP',
+                        correct : false
+                    }),
+                    new Answer({
+                        text    : 'HTTP',
+                        correct : false
+                    }),
+                    new Answer({
+                        text    : 'FTP',
+                        correct : false
+                    })
+                ]
+            }),
+            new Question({
+                name        : 'Welcher Parameter legt bi TCP für die sendende Station fest, wie gross die TCP-SDU maximal sein darf?',
+                status      : 'Created',
+                answers     : [
+                    new Answer({
+                        text    : 'Maximum Segment Size',
+                        correct : true
+                    }),
+                    new Answer({
+                        text    : 'Receive Window Size',
+                        correct : false
+                    }),
+                    new Answer({
+                        text    : 'Congestion Window Size',
+                        correct : false
+                    }),
+                    new Answer({
+                        text    : 'Window Scale Factor',
+                        correct : false
+                    })
+                ]
+            }),
+            new Question({
+                name        : 'Mit welchem Resource Recourd Type wird der "echte Namen" eines Rechners angegeben?',
+                status      : 'Created',
+                answers     : [
+                    new Answer({
+                        text    : 'CNAME',
+                        correct : true
+                    }),
+                    new Answer({
+                        text    : 'MX',
+                        correct : false
+                    }),
+                    new Answer({
+                        text    : 'NS',
+                        correct : false
+                    }),
+                    new Answer({
+                        text    : 'ALIAS',
+                        correct : false
+                    })
+                ]
+            }),
+            new Question({
+                name        : 'Bei welchem FTP-Mode baut der Server die Verbindung zum Client auf für den Datentransfer?',
+                status      : 'Created',
+                answers     : [
+                    new Answer({
+                        text    : 'Active Mode',
+                        correct : true
+                    }),
+                    new Answer({
+                        text    : 'Passive Mode',
+                        correct : false
+                    }),
+                    new Answer({
+                        text    : 'TFTP Mode',
+                        correct : false
+                    }),
+                    new Answer({
+                        text    : 'Anonymous',
+                        correct : false
+                    })
+                ]
+            }),
+            new Question({
+                name        : 'Welche dieser Top Level Domains ist für Organisationen in den USA vorbehalten?',
+                status      : 'Created',
+                answers     : [
+                    new Answer({
+                        text    : 'EDU',
+                        correct : true
+                    }),
+                    new Answer({
+                        text    : 'COM',
+                        correct : false
+                    }),
+                    new Answer({
+                        text    : 'ORG',
+                        correct : false
+                    }),
+                    new Answer({
+                        text    : 'CH',
+                        correct : false
+                    })
+                ]
+            }),
+            new Question({
+                name        : 'Wie nennt man die übertragene Einheit auf dem Application Layer?',
+                status      : 'Created',
+                answers     : [
+                    new Answer({
+                        text    : 'Message',
+                        correct : true
+                    }),
+                    new Answer({
+                        text    : 'Segment',
+                        correct : false
+                    }),
+                    new Answer({
+                        text    : 'Datagram',
+                        correct : false
+                    }),
+                    new Answer({
+                        text    : 'Bit',
+                        correct : false
+                    })
+                ]
+            }),
+            new Question({
+                name        : 'Wie nennt man die übertragene Einheit auf dem Data Link Layer?',
+                status      : 'Created',
+                answers     : [
+                    new Answer({
+                        text    : 'Frame',
+                        correct : true
+                    }),
+                    new Answer({
+                        text    : 'Bit',
+                        correct : false
+                    }),
+                    new Answer({
+                        text    : 'Datagram',
+                        correct : false
+                    }),
+                    new Answer({
+                        text    : 'Segment',
+                        correct : false
+                    })
+                ]
+            })
+        ]
+    }).save();
 });
 
 var userSchema = mongoose.Schema({
@@ -682,10 +972,6 @@ var categorySchema = mongoose.Schema({
     name: {
         type: String,
         required: true
-    },
-    description: {
-        type: String
-
     },
     questions: [questionSchema]
 });
