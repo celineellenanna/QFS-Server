@@ -23,41 +23,37 @@ var controller = {
             }
         });
     },
-    destroy: function(req, res, next) {
-        User.findById(req.params.id, function(err, user) {
-            if(err) next(err);
-            user.status = 'inactivated';
-            user.save();
-            res.send({ "success" : true, "message" : "User gelöscht", data : null });
-        });
-    },
     findOpponent: function(req, res, next) {
-        User.find({ _id : { $ne : req.params.id}, status: 'Activated'}, function(err, users) {
-            if(err) next(err);
-            users.forEach(function(err, user)
-            {
-                if(err)
-                    next(err);
+        var users = User.find({ _id: { $ne : req.params.id}, status: 'Activated'}).exec();
 
-                Quiz.findOne(
-                    { $and: [
-                        { $or: [
-                            { $and: [{challengerId: req.params.id}, {opponentId: user._id}]},
-                            { $and: [{challengerId: user._id}, {opponentId: req.params.id}]}
-                            ]
-                        },
-                        { $or: [
-                            { status: 'Waiting'},
-                            { status: 'Started'}
-                        ]}
+        users.then(function(users) {
+            users.forEach(function(err, user) {
+               var quiz = Quiz.findOne(
+                   { $and: [
+                       { $or: [
+                           { $and: [{challengerId: req.params.id}, {opponentId: user._id}]},
+                           { $and: [{challengerId: user._id}, {opponentId: req.params.id}]}
+                       ]
+                       },
+                       { $or: [
+                           { status: 'Waiting'},
+                           { status: 'Started'}
+                       ]}
 
-                    ]}, function(err, quiz){
-                        if(err) next(err);
-                        if(quiz)
-                            users.find({_id: user._id}).remove();
-                    });
+                   ]}).exec();
+
+                quiz.then(function(quiz) {
+                    if(quiz) {
+                        users.find({_id: user._id}).remove();
+                    }
+                }, function(err) {
+                    console.log(err);
+                });
             });
-            res.send({ "success" :true, "message" : "Gefundene Users", data : users});
+            res.send({ "success" : false, "message" : "User nicht gefunden", data : users });
+
+        }, function(err) {
+            console.log(err);
         });
     }
 };

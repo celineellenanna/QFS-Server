@@ -59,16 +59,56 @@ db.once('open', function() {
         else Log.info('User created successfully');
     });
 
-    Category.create({
-        name        :   'Computernetze1',
-        description :   'blablabla'
-    }, function(err, category) {
-        if (err) Log.error(err);
-
-        
-        else Log.info('Category created successfully');
-    });
-
+    var c1 = new Category({
+        name        : 'Category1',
+        description : 'Category1 description',
+        questions   : [
+            new Question({
+                name        : 'Frage1',
+                status      : 'Created',
+                answers     : [
+                    new Answer({
+                        text    : 'Antwort1',
+                        correct : true
+                    }),
+                    new Answer({
+                        text    : 'Antwort2',
+                        correct : false
+                    }),
+                    new Answer({
+                        text    : 'Antwort3',
+                        correct : false
+                    }),
+                    new Answer({
+                        text    : 'Antwort4',
+                        correct : false
+                    })
+                ]
+            }),
+            new Question({
+                name        : 'Frage2',
+                status      : 'Created',
+                answers     : [
+                    new Answer({
+                        text    : 'Antwort5',
+                        correct : true
+                    }),
+                    new Answer({
+                        text    : 'Antwort6',
+                        correct : false
+                    }),
+                    new Answer({
+                        text    : 'Antwort7',
+                        correct : false
+                    }),
+                    new Answer({
+                        text    : 'Antwort8',
+                        correct : false
+                    })
+                ]
+            })
+        ]
+    }).save();
 
 
 });

@@ -3,8 +3,7 @@ var router = express.Router();
 var userController = require('../controllers/user');
 
 router.get('/', userController.index);
-router.get('/{id}', userController.get);
-router.delete('/{id}', userController.destroy);
-router.get('/findOpponent/', userController.findOpponent);
+router.get('/:id', userController.get);
+router.get('/findOpponent/:id', userController.findOpponent);
 
 module.exports = router;

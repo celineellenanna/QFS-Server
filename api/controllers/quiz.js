@@ -2,17 +2,6 @@ var Log = require('../logs/index');
 var Quiz = require('../models/index').Quiz;
 
 var controller = {
-    // Index überhaupt benötigt?
-   /* index: function(req, res, next) {
-        Quiz.find(function(err, users) {
-            if(err) next(err);
-            if(users) {
-                res.send({ "success" : true, "message" : "User gefunden", data : users });
-            } else {
-                res.send({ "success" : false, "message" : "User nicht gefunden", data : null });
-            }
-        });
-    },*/
     create: function(req, res, next) {
         Quiz.create({
             challengerId: req.body.challengerId,
