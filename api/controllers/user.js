@@ -47,13 +47,13 @@ var controller = {
                         users.find({_id: user._id}).remove();
                     }
                 }, function(err) {
-                    console.log(err);
+                    next(err);
                 });
             });
-            res.send({ "success" : false, "message" : "User nicht gefunden", data : users });
+            res.send({ "success" : true, "message" : "User nicht gefunden", data : users });
 
         }, function(err) {
-            console.log(err);
+            next(err);
         });
     }
 };
