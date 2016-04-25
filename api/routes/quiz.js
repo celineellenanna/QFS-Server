@@ -6,7 +6,11 @@ router.post('/', quizController.create);
 router.get('/category', quizController.getCategories);
 router.get('/category/:id', quizController.getQuestions);
 router.get('/:id', quizController.get);
-router.delete('/:id', quizController.cancel);
+router.post('/:id', quizController.putAnswer);
+router.post('/:id/accept', quizController.accept);
+router.post('/:id/cancel', quizController.cancel);
+router.post('/:id/category/:cid', quizController.createRound);
+//router.delete('/:id', quizController.cancel);
 
 
 

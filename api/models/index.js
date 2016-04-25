@@ -208,6 +208,7 @@ var Quiz = mongoose.model('Quiz', quizSchema);
 var Category = mongoose.model('Category', categorySchema);
 var Question = mongoose.model('Question', questionSchema);
 var Answer = mongoose.model('Answer', answerSchema);
+var Round = mongoose.model('Round', roundSchema);
 
 var Data = require('./data')(db, User, Quiz, Category, Question, Answer);
 
@@ -216,5 +217,6 @@ module.exports = {
     Quiz        : Quiz,
     Category    : Category,
     Question    : Question,
-    Answer      : Answer
+    Answer      : Answer,
+    Round       : Round
 }
