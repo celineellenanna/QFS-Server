@@ -8,6 +8,4 @@ router.get('/category/:id', quizController.getQuestions);
 router.get('/:id', quizController.get);
 router.delete('/:id', quizController.cancel);
 
-
-
 module.exports = router;

@@ -34,7 +34,7 @@ var controller = {
             res.send({ "success" : true, "message" : "Quiz beendet", data : null });
         });
     },
-    newRound: function (req, res, next) {
+    createRound: function (req, res, next) {
         Quiz.findById(req.params.id, function(err, quiz){
             if(err) next(err);
             quiz.rounds.push();
