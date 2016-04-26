@@ -32,8 +32,8 @@ var controller = {
                         $and: [
                             {
                                 $or: [
-                                    {challengerId: req.params.id, opponentId: user._id},
-                                    {challengerId: user._id, opponentId: req.params.id}
+                                    {_challengerId: req.params.id, _opponentId: user._id},
+                                    {_challengerId: user._id, _opponentId: req.params.id}
                                 ]
                             },
                             {

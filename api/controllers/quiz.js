@@ -7,8 +7,8 @@ var Round = require('../models/index').Round;
 var controller = {
     create: function(req, res, next) {
         Quiz.create({
-            challengerId: req.body.challengerId,
-            opponentId: req.body.opponentId
+            _challengerId: req.body.challengerId,
+            _opponentId: req.body.opponentId
         }, function(err,quiz) {
         if (err)
             Log.error(err);
