@@ -47,9 +47,7 @@ var controller = {
         var round = Round.create({
             start: Date.now(),
             _category: req.params.cid
-        }).exec();
-
-        round.then(function (round) {
+        }).then(function (round) {
             var quiz = Quiz.findById(req.params.id, function (err, quiz) {
                 if(err) next(err);
                 quiz.rounds.push(round._id);
