@@ -27,6 +27,18 @@ var controller = {
             }
         });
     },
+    getRequests: function (req, res, next) {
+        Quiz.find({_opponentId: req.params.id, status: 'Started'}, function (err, quizzes) {
+            if(err) next(err);
+            if (quizzes) {
+                res.send({ "success" : true, "message" : "Quizzes gefunden", data : quizzes });
+            } else {
+                res.send({ "success" : false, "message" : "Keine Quiz gefunden", data : null });
+            }
+            
+        })
+
+    },
     cancel: function(req, res, next) {
         Quiz.findById(req.params.id, function(err, quiz) {
             if(err) next(err);
