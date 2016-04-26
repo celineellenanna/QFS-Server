@@ -44,25 +44,22 @@ var controller = {
         });
     },
     createRound: function (req, res, next) {
-        Round.create({
+        var round = Round.create({
             start: Date.now(),
             _category: req.params.cid
+        }).exec();
 
-        }, function (err, round) {
-            if (err)
-                Log.error(err);
-            else{
+        round.then(function (round) {
+            var quiz = Quiz.findById(req.params.id, function (err, quiz) {
+                if(err) next(err);
+                quiz.rounds.push(round._id);
+                quiz.save();
+                res.send({ "success" : true, "message" : "Runde hinzugefügt", data : null });
+            });
 
-            }
-
+        }, function(err) {
+            next(err);
         });
-        Quiz.findById(req.params.id, function(err, quiz){
-            if(err) next(err);
-            var r = new Round();
-            quiz.rounds.push();
-            quiz.save();
-            res.send({ "success" : true, "message" : "Neue Runde erstellt", data : null });
-        })
     },
     getCategories: function (req, res, next) {
         Category.findRandom().limit(3).exec(function (err, categories) {
