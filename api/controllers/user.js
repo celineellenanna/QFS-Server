@@ -46,6 +46,7 @@ var controller = {
                     }).then(function (quiz) {
                         if (quiz) {
                             users.splice(index, 1);
+                            index = index - 1;
                         }
                         cb();
                     });
