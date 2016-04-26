@@ -1,6 +1,7 @@
 var Log = require('../logs/index');
 var User = require('../models/index').User;
 var Quiz = require('../models/index').Quiz;
+var async = require('async');
 
 var controller = {
     index: function(req, res, next) {
@@ -24,37 +25,34 @@ var controller = {
         });
     },
     findOpponent: function(req, res, next) {
-        var users = User.find({ _id: { $ne : req.params.id}, status: 'Activated'}).exec();
-
-        users.then(function(users) {
-            users.forEach(function(err, user) {
-                var quiz = Quiz.findOne(
-                    { $and: [
-                        { $or: [
-                            { $and: [{challengerId: req.params.id}, {opponentId: user._id}]},
-                            { $and: [{challengerId: user._id}, {opponentId: req.params.id}]}
+        User.find({_id: {$ne: req.params.id}, status: 'Activated'})
+            .then(function (users) {
+                async.forEachOf(users, function(user, index, cb) {
+                    Quiz.findOne({
+                        $and: [
+                            {
+                                $or: [
+                                    {challengerId: req.params.id, opponentId: user._id},
+                                    {challengerId: user._id, opponentId: req.params.id}
+                                ]
+                            },
+                            {
+                                $or: [
+                                    {status: 'Started'},
+                                    {status: 'Waiting'}
+                                ]
+                            }
                         ]
-                        },
-                        { $or: [
-                            { status: 'Waiting'},
-                            { status: 'Started'}
-                        ]}
-
-                    ]}).exec();
-
-                quiz.then(function(quiz) {
-                    if(quiz) {
-                        users.find({_id: user._id}).remove();
-                    }
+                    }).then(function (quiz) {
+                        if (quiz) {
+                            users.splice(index, 1);
+                        }
+                        cb();
+                    });
                 }, function(err) {
-                    next(err);
+                    res.send({ "success" : true, "message" : "User nicht gefunden", data : users });
                 });
             });
-            res.send({ "success" : true, "message" : "User nicht gefunden", data : users });
-
-        }, function(err) {
-            next(err);
-        });
     }
 };
 

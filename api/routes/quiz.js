@@ -12,6 +12,4 @@ router.post('/:id/cancel', quizController.cancel);
 router.post('/:id/category/:cid', quizController.createRound);
 //router.delete('/:id', quizController.cancel);
 
-
-
 module.exports = router;
