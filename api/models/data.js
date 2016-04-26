@@ -237,8 +237,8 @@ module.exports = function(db, User, Quiz, Category, Question, Answer) {
         });
 
         var db1Q7 = new Question({
-            name        : 'Abkürzung für ein objektorientiertes Datenbanksystem.',
-            status      : 'Created',
+            name    : 'Abkürzung für ein objektorientiertes Datenbanksystem.',
+            status  : 'Created',
             _category : db1._id
         });
 
@@ -267,8 +267,8 @@ module.exports = function(db, User, Quiz, Category, Question, Answer) {
         });
 
         var db1Q8 = new Question({
-            name        : 'Ein Attribut einer Entity-Menge, welches Primärschlüssel einer anderen Entity-Menge ist, bezeichnet man als Fremdschlüssel. Was ist gemeint?',
-            status      : 'Created',
+            name    : 'Ein Attribut einer Entity-Menge, welches Primärschlüssel einer anderen Entity-Menge ist, bezeichnet man als Fremdschlüssel. Was ist gemeint?',
+            status  : 'Created',
             _category : db1._id
         });
 
@@ -297,8 +297,8 @@ module.exports = function(db, User, Quiz, Category, Question, Answer) {
         });
 
         var db1Q9 = new Question({
-            name        : 'Was gibt es zwischen Entitäten, die auch Attribute haben können?',
-            status      : 'Created',
+            name    : 'Was gibt es zwischen Entitäten, die auch Attribute haben können?',
+            status  : 'Created',
             _category : db1._id
         });
 
@@ -327,8 +327,8 @@ module.exports = function(db, User, Quiz, Category, Question, Answer) {
         });
 
         var db1Q10 = new Question({
-            name        : 'Welcher Typ versteht man als elementare, nicht zusammengesetzte Wertebereiche, wie z.B. INTEGER für ganze Zahlen oder DECIMAL für Zahlen mit Nachkommastellen?',
-            status      : 'Created',
+            name    : 'Welcher Typ versteht man als elementare, nicht zusammengesetzte Wertebereiche, wie z.B. INTEGER für ganze Zahlen oder DECIMAL für Zahlen mit Nachkommastellen?',
+            status  : 'Created',
             _category : db1._id
         });
 
@@ -357,8 +357,8 @@ module.exports = function(db, User, Quiz, Category, Question, Answer) {
         });
 
         var db1Q11 = new Question({
-            name        : 'Wie kann man Zeilen aus einer bestehenden Relation auswählen?',
-            status      : 'Created',
+            name    : 'Wie kann man Zeilen aus einer bestehenden Relation auswählen?',
+            status  : 'Created',
             _category : db1._id
         });
 
@@ -387,8 +387,8 @@ module.exports = function(db, User, Quiz, Category, Question, Answer) {
         });
 
         var db1Q12 = new Question({
-            name        : 'Welches sind klassische Mengenoperationen?',
-            status      : 'Created',
+            name    : 'Welches sind klassische Mengenoperationen?',
+            status  : 'Created',
             _category : db1._id
         });
 
@@ -692,8 +692,8 @@ module.exports = function(db, User, Quiz, Category, Question, Answer) {
         });
 
         var wi1Q7 = new Question({
-            name        : 'Welche Vorteile bietet das Unternehmen TAL den Händlern, die Hemden verkaufen?',
-            status      : 'Created',
+            name    : 'Welche Vorteile bietet das Unternehmen TAL den Händlern, die Hemden verkaufen?',
+            status  : 'Created',
             _category : wi1._id
         });
 
@@ -722,8 +722,8 @@ module.exports = function(db, User, Quiz, Category, Question, Answer) {
         });
 
         var wi1Q8 = new Question({
-            name        : 'Innovation kann sich in den Bereichen People, Business und/oder Technology auswirken. Wie wird die Innovation genannt, die sich in allen drei Bereichen auswirkt?',
-            status      : 'Created',
+            name    : 'Innovation kann sich in den Bereichen People, Business und/oder Technology auswirken. Wie wird die Innovation genannt, die sich in allen drei Bereichen auswirkt?',
+            status  : 'Created',
             _category : wi1._id
         });
 
@@ -752,8 +752,8 @@ module.exports = function(db, User, Quiz, Category, Question, Answer) {
         });
 
         var wi1Q9 = new Question({
-            name        : 'Ein Anwendungssystem beinhaltet gegenüber einem Informationssystem auch:',
-            status      : 'Created',
+            name    : 'Ein Anwendungssystem beinhaltet gegenüber einem Informationssystem auch:',
+            status  : 'Created',
             _category : wi1._id
         });
 
@@ -782,8 +782,8 @@ module.exports = function(db, User, Quiz, Category, Question, Answer) {
         });
 
         var wi1Q10 = new Question({
-            name        : 'Aus welchem Grund ging J.C. Penney eine Verbindung mit TAL ein obwohl es davor auch funktionierte?',
-            status      : 'Created',
+            name    : 'Aus welchem Grund ging J.C. Penney eine Verbindung mit TAL ein obwohl es davor auch funktionierte?',
+            status  : 'Created',
             _category : wi1._id
         });
 
@@ -812,8 +812,8 @@ module.exports = function(db, User, Quiz, Category, Question, Answer) {
         });
 
         var wi1Q11 = new Question({
-            name        : 'Sie wollen die Kosten niedrig halten und gleichzeitig internationale Märkte verfolgen. Ihre Produkte haben nahezu jede Grösse und es handeln sich um Spezialgeräte bis hin zu überdimensionaler Fracht. Welches Produkt von UPS hilft ihrem Unternehmen am besten?',
-            status      : 'Created',
+            name    : 'Sie wollen die Kosten niedrig halten und gleichzeitig internationale Märkte verfolgen. Ihre Produkte haben nahezu jede Grösse und es handeln sich um Spezialgeräte bis hin zu überdimensionaler Fracht. Welches Produkt von UPS hilft ihrem Unternehmen am besten?',
+            status  : 'Created',
             _category : wi1._id
         });
 
@@ -842,8 +842,8 @@ module.exports = function(db, User, Quiz, Category, Question, Answer) {
         });
 
         var wi1Q12 = new Question({
-            name        : 'Eines der genannten Systeme basiert auf einer Folge integrierter Softwaremodule und einer gemeinsam genutzten Datenbank:',
-            status      : 'Created',
+            name    : 'Eines der genannten Systeme basiert auf einer Folge integrierter Softwaremodule und einer gemeinsam genutzten Datenbank:',
+            status  : 'Created',
             _category : wi1._id
         });
 
@@ -1147,8 +1147,8 @@ module.exports = function(db, User, Quiz, Category, Question, Answer) {
         });
 
         var cn1Q7 = new Question({
-            name        : 'Welches Anwendungsprotokoll nutzt typisch UDP?',
-            status      : 'Created',
+            name    : 'Welches Anwendungsprotokoll nutzt typisch UDP?',
+            status  : 'Created',
             _category : cn1._id
         });
 
@@ -1177,8 +1177,8 @@ module.exports = function(db, User, Quiz, Category, Question, Answer) {
         });
 
         var cn1Q8 = new Question({
-            name        : 'Welcher Parameter legt bi TCP für die sendende Station fest, wie gross die TCP-SDU maximal sein darf?',
-            status      : 'Created',
+            name    : 'Welcher Parameter legt bi TCP für die sendende Station fest, wie gross die TCP-SDU maximal sein darf?',
+            status  : 'Created',
             _category : cn1._id
         });
 
@@ -1207,8 +1207,8 @@ module.exports = function(db, User, Quiz, Category, Question, Answer) {
         });
 
         var cn1Q9 = new Question({
-            name        : 'Mit welchem Resource Recourd Type wird der "echte Namen" eines Rechners angegeben?',
-            status      : 'Created',
+            name    : 'Mit welchem Resource Recourd Type wird der "echte Namen" eines Rechners angegeben?',
+            status  : 'Created',
             _category : cn1._id
         });
 
@@ -1237,8 +1237,8 @@ module.exports = function(db, User, Quiz, Category, Question, Answer) {
         });
 
         var cn1Q10 = new Question({
-            name        : 'Bei welchem FTP-Mode baut der Server die Verbindung zum Client auf für den Datentransfer?',
-            status      : 'Created',
+            name    : 'Bei welchem FTP-Mode baut der Server die Verbindung zum Client auf für den Datentransfer?',
+            status  : 'Created',
             _category : cn1._id
         });
 
@@ -1267,8 +1267,8 @@ module.exports = function(db, User, Quiz, Category, Question, Answer) {
         });
 
         var cn1Q11 = new Question({
-            name        : 'Welche dieser Top Level Domains ist für Organisationen in den USA vorbehalten?',
-            status      : 'Created',
+            name    : 'Welche dieser Top Level Domains ist für Organisationen in den USA vorbehalten?',
+            status  : 'Created',
             _category : cn1._id
         });
 
@@ -1297,8 +1297,8 @@ module.exports = function(db, User, Quiz, Category, Question, Answer) {
         });
 
         var cn1Q12 = new Question({
-            name        : 'Wie nennt man die übertragene Einheit auf dem Application Layer?',
-            status      : 'Created',
+            name    : 'Wie nennt man die übertragene Einheit auf dem Application Layer?',
+            status  : 'Created',
             _category : cn1._id
         });
 
@@ -1602,8 +1602,8 @@ module.exports = function(db, User, Quiz, Category, Question, Answer) {
         });
 
         var infsi1Q7 = new Question({
-            name        : 'Welchen Teil des Schlüssels muss der Sender einer Nachricht bei der Verschlüsselung mit einem Public Key Verfahren verwenden?',
-            status      : 'Created',
+            name    : 'Welchen Teil des Schlüssels muss der Sender einer Nachricht bei der Verschlüsselung mit einem Public Key Verfahren verwenden?',
+            status  : 'Created',
             _category : infsi1._id
         });
 
@@ -1632,8 +1632,8 @@ module.exports = function(db, User, Quiz, Category, Question, Answer) {
         });
 
         var infsi1Q8 = new Question({
-            name        : 'Welchen Teil des Schlüssels muss der Empfänger einer mit Public Key Verfahren verschlüsselten Nachricht zur Entschlüsselung verwenden?',
-            status      : 'Created',
+            name    : 'Welchen Teil des Schlüssels muss der Empfänger einer mit Public Key Verfahren verschlüsselten Nachricht zur Entschlüsselung verwenden?',
+            status  : 'Created',
             _category : infsi1._id
         });
 
@@ -1662,8 +1662,8 @@ module.exports = function(db, User, Quiz, Category, Question, Answer) {
         });
 
         var infsi1Q9 = new Question({
-            name        : '43 mod (13) ist gleich',
-            status      : 'Created',
+            name    : '43 mod (13) ist gleich',
+            status  : 'Created',
             _category : infsi1._id
         });
 
@@ -1692,8 +1692,8 @@ module.exports = function(db, User, Quiz, Category, Question, Answer) {
         });
 
         var infsi1Q10 = new Question({
-            name        : 'Die (multiplikativ) inverse Zahl von 7 mod (9) ist gleich',
-            status      : 'Created',
+            name    : 'Die (multiplikativ) inverse Zahl von 7 mod (9) ist gleich',
+            status  : 'Created',
             _category : infsi1._id
         });
 
@@ -1713,7 +1713,7 @@ module.exports = function(db, User, Quiz, Category, Question, Answer) {
             text    : '5',
             correct : false,
             _question : infsi1Q10._id
-         });
+        });
 
         var infsi1A40 = Answer({
             text    : '8',
@@ -1722,8 +1722,8 @@ module.exports = function(db, User, Quiz, Category, Question, Answer) {
         });
 
         var infsi1Q11 = new Question({
-            name        : 'Um jemandem eine signierte Meldung schicken zu können, benötigt der Sender...',
-            status      : 'Created',
+            name    : 'Um jemandem eine signierte Meldung schicken zu können, benötigt der Sender...',
+            status  : 'Created',
             _category : infsi1._id
         });
 
@@ -1752,8 +1752,8 @@ module.exports = function(db, User, Quiz, Category, Question, Answer) {
         });
 
         var infsi1Q12 = new Question({
-            name        : 'Mittlerweile ist bekannt, dass folgende Personen die Erfinder des ersten Public Key Verschlüsselungsverfahrens waren:',
-            status      : 'Created',
+            name    : 'Mittlerweile ist bekannt, dass folgende Personen die Erfinder des ersten Public Key Verschlüsselungsverfahrens waren:',
+            status  : 'Created',
 
             _category : infsi1._id
         });
@@ -1872,5 +1872,916 @@ module.exports = function(db, User, Quiz, Category, Question, Answer) {
 
         infsi1.save();
 
+
+        var allgHSR = new Category({
+            name    : 'Allgemein HSR'
+        });
+
+        var allgHSRQ1 = new Question({
+            name    : 'Welches ist das Campus-Tier?',
+            status  : 'Created',
+            _category : allgHSR._id
+        });
+
+        var allgHSRA1 = new Answer({
+            text    : 'Katze',
+            correct : true,
+            _question : allgHSRQ1._id
+        });
+
+        var allgHSRA2 = new Answer({
+            text    : 'Hund',
+            correct : false,
+            _question : allgHSRQ1._id
+        });
+
+        var allgHSRA3 = new Answer({
+            text    : 'Hamster',
+            correct : false,
+            _question : allgHSRQ1._id
+        });
+
+        var allgHSRA4 = Answer({
+            text    : 'Krokodil',
+            correct : false,
+            _question : allgHSRQ1._id
+        });
+
+        var allgHSRQ2 = new Question({
+            name    : 'An wen wende ich mich, wenn ich mich von Modulen an- oder abmelden möchte?',
+            status  : 'Created',
+            _category : allgHSR._id
+        });
+
+        var allgHSRA5 = new Answer({
+            text    : 'unterricht(at)hsr.ch',
+            correct : true,
+            _question : allgHSRQ2._id
+        });
+
+        var allgHSRA6 = new Answer({
+            text    : 'office(at)hsr.ch',
+            correct : false,
+            _question : allgHSRQ2._id
+        });
+
+        var allgHSRA7 = new Answer({
+            text    : 'sekretariat(at)hsr.ch',
+            correct : false,
+            _question : allgHSRQ2._id
+        });
+
+        var allgHSRA8 = Answer({
+            text    : 'servicedesk(at)hsr.ch',
+            correct : false,
+            _question : allgHSRQ2._id
+        });
+
+        var allgHSRQ3 = new Question({
+            name    : 'Microsoft Software gibt es für Studenten der HSR kostenlos bei...',
+            status  : 'Created',
+            _category : allgHSR._id
+        });
+
+        var allgHSRA9 = new Answer({
+            text    : 'DreamSpark',
+            correct : true,
+            _question : allgHSRQ3._id
+        });
+
+        var allgHSRA10 = new Answer({
+            text    : 'Torrent',
+            correct : false,
+            _question : allgHSRQ3._id
+        });
+
+        var allgHSRA11 = new Answer({
+            text    : 'Usenet',
+            correct : false,
+            _question : allgHSRQ3._id
+        });
+
+        var allgHSRA12 = Answer({
+            text    : 'EMule',
+            correct : false,
+            _question : allgHSRQ3._id
+        });
+
+        var allgHSRQ4 = new Question({
+            name    : 'Wie viele Studierende studieren an der HSR?',
+            status  : 'Created',
+            _category : allgHSR._id
+        });
+
+        var allgHSRA13 = new Answer({
+            text    : '1500',
+            correct : true,
+            _question : allgHSRQ4._id
+        });
+
+        var allgHSRA14 = new Answer({
+            text    : '1400',
+            correct : false,
+            _question : allgHSRQ4._id
+        });
+
+        var allgHSRA15 = new Answer({
+            text    : '1300',
+            correct : false,
+            _question : allgHSRQ4._id
+        });
+
+        var allgHSRA16 = Answer({
+            text    : '1600',
+            correct : false,
+            _question : allgHSRQ4._id
+        });
+
+        var allgHSRQ5 = new Question({
+            name    : 'Welcher Alkohol wird an der HSR produziert?',
+            status  : 'Created',
+            _category : allgHSR._id
+        });
+
+        var allgHSRA17 = new Answer({
+            text    : 'Bier',
+            correct : true,
+            _question : allgHSRQ5._id
+        });
+
+        var allgHSRA18 = new Answer({
+            text    : 'Wein',
+            correct : false,
+            _question : allgHSRQ5._id
+        });
+
+        var allgHSRA19 = new Answer({
+            text    : 'Vodka',
+            correct : false,
+            _question : allgHSRQ5._id
+        });
+
+        var allgHSRA20 = Answer({
+            text    : 'Whisky',
+            correct : false,
+            _question : allgHSRQ5._id
+        });
+
+        var allgHSRQ6 = new Question({
+            name    : 'An wen wende ich mich, wenn ich meinen Badge verloren habe?',
+            status  : 'Created',
+            _category : allgHSR._id
+        });
+
+        var allgHSRA21 = new Answer({
+            text    : 'Empfang',
+            correct : true,
+            _question : allgHSRQ6._id
+        });
+
+        var allgHSRA22 = new Answer({
+            text    : 'Studiengangsekretariat',
+            correct : false,
+            _question : allgHSRQ6._id
+        });
+
+        var allgHSRA23 = new Answer({
+            text    : 'Helpdesk',
+            correct : false,
+            _question : allgHSRQ6._id
+        });
+
+        var allgHSRA24 = Answer({
+            text    : 'Gebäudemanagement',
+            correct : false,
+            _question : allgHSRQ6._id
+        });
+
+        var allgHSRQ7 = new Question({
+            name    : 'Wie viele Studiengänge gibt es an der HSR?',
+            status  : 'Created',
+            _category : allgHSR._id
+        });
+
+        var allgHSRA25 = new Answer({
+            text    : '8',
+            correct : true,
+            _question : allgHSRQ7._id
+        });
+
+        var allgHSRA26 = new Answer({
+            text    : '6',
+            correct : false,
+            _question : allgHSRQ7._id
+        });
+
+        var allgHSRA27 = new Answer({
+            text    : '7',
+            correct : false,
+            _question : allgHSRQ7._id
+        });
+
+        var allgHSRA28 = Answer({
+            text    : '5',
+            correct : false,
+            _question : allgHSRQ7._id
+        });
+
+        var allgHSRQ8 = new Question({
+            name    : 'Wo informiere ich mich über das Wohnungsangebot für Studierende?',
+            status  : 'Created',
+            _category : allgHSR._id
+        });
+
+        var allgHSRA29 = new Answer({
+            text    : 'Web > Leben an der HSR',
+            correct : true,
+            _question : allgHSRQ8._id
+        });
+
+        var allgHSRA30 = new Answer({
+            text    : 'Empfang',
+            correct : false,
+            _question : allgHSRQ8._id
+        });
+
+        var allgHSRA31 = new Answer({
+            text    : 'Comparis',
+            correct : false,
+            _question : allgHSRQ8._id
+        });
+
+        var allgHSRA32 = Answer({
+            text    : 'Studiengangsekretariat',
+            correct : false,
+            _question : allgHSRQ8._id
+        });
+
+        var allgHSRQ9 = new Question({
+            name    : 'An wen wende ich mich für die Abwicklung eines Studienunterbruchs?',
+            status  : 'Created',
+            _category : allgHSR._id
+        });
+
+        var allgHSRA33 = new Answer({
+            text    : 'office(at)hsr.ch',
+            correct : true,
+            _question : allgHSRQ9._id
+        });
+
+        var allgHSRA34 = new Answer({
+            text    : 'unterricht(at)hsr.ch',
+            correct : false,
+            _question : allgHSRQ9._id
+        });
+
+        var allgHSRA35 = new Answer({
+            text    : 'sekretariat.i(at)hsr.ch',
+            correct : false,
+            _question : allgHSRQ9._id
+        });
+
+        var allgHSRA36 = Answer({
+            text    : 'servicedesk(at)hsr.ch',
+            correct : false,
+            _question : allgHSRQ9._id
+        });
+
+        var allgHSRQ10 = new Question({
+            name    : 'Die HSR liegt direkt am Ufer des...',
+            status  : 'Created',
+            _category : allgHSR._id
+        });
+
+        var allgHSRA37 = new Answer({
+            text    : 'Obersee',
+            correct : true,
+            _question : allgHSRQ10._id
+        });
+
+        var allgHSRA38 = new Answer({
+            text    : 'Zürisee',
+            correct : false,
+            _question : allgHSRQ10._id
+        });
+
+        var allgHSRA39 = new Answer({
+            text    : 'Greifensee',
+            correct : false,
+            _question : allgHSRQ10._id
+        });
+
+        var allgHSRA40 = Answer({
+            text    : 'Jonersee',
+            correct : false,
+            _question : allgHSRQ10._id
+        });
+
+        var allgHSRQ11 = new Question({
+            name    : 'Wann habe ich Zutritt zur HSR?',
+            status  : 'Created',
+            _category : allgHSR._id
+        });
+
+        var allgHSRA41 = new Answer({
+            text    : 'An 365 Tagen von 5 – 24 Uhr',
+            correct : true,
+            _question : allgHSRQ11._id
+        });
+
+        var allgHSRA42 = new Answer({
+            text    : 'An 365 Tagen von 5 – 22 Uhr',
+            correct : false,
+            _question : allgHSRQ11._id
+        });
+
+        var allgHSRA43 = new Answer({
+            text    : 'An 365 Tagen von 6 – 24 Uhr',
+            correct : false,
+            _question : allgHSRQ11._id
+        });
+
+        var allgHSRA44 = Answer({
+            text    : 'An 365 Tagen von 6 – 22 Uhr',
+            correct : false,
+            _question : allgHSRQ11._id
+        });
+
+        var allgHSRQ12 = new Question({
+            name    : 'Wo werden kleinere Fundgegenstände aufbewahrt?',
+            status  : 'Created',
+            _category : allgHSR._id
+        });
+
+        var allgHSRA45 = new Answer({
+            text    : 'Empfang',
+            correct : true,
+            _question : allgHSRQ12._id
+        });
+
+        var allgHSRA46 = new Answer({
+            text    : 'Helpdesk',
+            correct : false,
+            _question : allgHSRQ12._id
+        });
+
+        var allgHSRA47 = new Answer({
+            text    : 'Studiengangsekretariat',
+            correct : false,
+            _question : allgHSRQ12._id
+        });
+
+        var allgHSRA48 = Answer({
+            text    : 'Gebäudemanagement',
+            correct : false,
+            _question : allgHSRQ12._id
+        });
+
+        allgHSRQ1.answers.push(allgHSRA1._id, allgHSRA2._id, allgHSRA3._id, allgHSRA4._id);
+        allgHSRQ2.answers.push(allgHSRA5._id, allgHSRA6._id, allgHSRA7._id, allgHSRA8._id);
+        allgHSRQ3.answers.push(allgHSRA9._id, allgHSRA10._id, allgHSRA11._id, allgHSRA12._id);
+        allgHSRQ4.answers.push(allgHSRA13._id, allgHSRA14._id, allgHSRA15._id, allgHSRA16._id);
+        allgHSRQ5.answers.push(allgHSRA17._id, allgHSRA18._id, allgHSRA19._id, allgHSRA20._id);
+        allgHSRQ6.answers.push(allgHSRA21._id, allgHSRA22._id, allgHSRA23._id, allgHSRA24._id);
+        allgHSRQ7.answers.push(allgHSRA25._id, allgHSRA26._id, allgHSRA27._id, allgHSRA28._id);
+        allgHSRQ8.answers.push(allgHSRA29._id, allgHSRA30._id, allgHSRA31._id, allgHSRA32._id);
+        allgHSRQ9.answers.push(allgHSRA33._id, allgHSRA34._id, allgHSRA35._id, allgHSRA36._id);
+        allgHSRQ10.answers.push(allgHSRA37._id, allgHSRA38._id, allgHSRA39._id, allgHSRA40._id);
+        allgHSRQ11.answers.push(allgHSRA41._id, allgHSRA42._id, allgHSRA43._id, allgHSRA44._id);
+        allgHSRQ12.answers.push(allgHSRA45._id, allgHSRA46._id, allgHSRA47._id, allgHSRA48._id);
+
+        allgHSR.questions.push(allgHSRQ1._id);
+        allgHSR.questions.push(allgHSRQ2._id);
+        allgHSR.questions.push(allgHSRQ3._id);
+        allgHSR.questions.push(allgHSRQ4._id);
+        allgHSR.questions.push(allgHSRQ5._id);
+        allgHSR.questions.push(allgHSRQ6._id);
+        allgHSR.questions.push(allgHSRQ7._id);
+        allgHSR.questions.push(allgHSRQ8._id);
+        allgHSR.questions.push(allgHSRQ9._id);
+        allgHSR.questions.push(allgHSRQ10._id);
+        allgHSR.questions.push(allgHSRQ11._id);
+        allgHSR.questions.push(allgHSRQ12._id);
+
+        allgHSRA1.save();
+        allgHSRA2.save();
+        allgHSRA3.save();
+        allgHSRA4.save();
+        allgHSRA5.save();
+        allgHSRA6.save();
+        allgHSRA7.save();
+        allgHSRA8.save();
+        allgHSRA9.save();
+        allgHSRA10.save();
+        allgHSRA11.save();
+        allgHSRA12.save();
+        allgHSRA13.save();
+        allgHSRA14.save();
+        allgHSRA15.save();
+        allgHSRA16.save();
+        allgHSRA17.save();
+        allgHSRA18.save();
+        allgHSRA19.save();
+        allgHSRA20.save();
+        allgHSRA21.save();
+        allgHSRA22.save();
+        allgHSRA23.save();
+        allgHSRA24.save();
+        allgHSRA25.save();
+        allgHSRA26.save();
+        allgHSRA27.save();
+        allgHSRA28.save();
+        allgHSRA29.save();
+        allgHSRA30.save();
+        allgHSRA31.save();
+        allgHSRA32.save();
+        allgHSRA33.save();
+        allgHSRA34.save();
+        allgHSRA35.save();
+        allgHSRA36.save();
+        allgHSRA37.save();
+        allgHSRA38.save();
+        allgHSRA39.save();
+        allgHSRA40.save();
+        allgHSRA41.save();
+        allgHSRA42.save();
+        allgHSRA43.save();
+        allgHSRA44.save();
+        allgHSRA45.save();
+        allgHSRA46.save();
+        allgHSRA47.save();
+        allgHSRA48.save();
+
+        allgHSRQ1.save();
+        allgHSRQ2.save();
+        allgHSRQ3.save();
+        allgHSRQ4.save();
+        allgHSRQ5.save();
+        allgHSRQ6.save();
+        allgHSRQ7.save();
+        allgHSRQ8.save();
+        allgHSRQ9.save();
+        allgHSRQ10.save();
+        allgHSRQ11.save();
+        allgHSRQ12.save();
+
+        allgHSR.save();
+
+        
+        /* Template
+        var cat1 = new Category({
+            name    : 'Category1'
+        });
+
+        var cat1Q1 = new Question({
+            name    : '',
+            status  : 'Created',
+            _category : cat1._id
+        });
+
+        var cat1A1 = new Answer({
+            text    : '',
+            correct : true,
+            _question : cat1Q1._id
+        });
+
+        var cat1A2 = new Answer({
+            text    : '',
+            correct : false,
+            _question : cat1Q1._id
+        });
+
+        var cat1A3 = new Answer({
+            text    : '',
+            correct : false,
+            _question : cat1Q1._id
+        });
+
+        var cat1A4 = Answer({
+            text    : '',
+            correct : false,
+            _question : cat1Q1._id
+        });
+
+        var cat1Q2 = new Question({
+            name    : '',
+            status  : 'Created',
+            _category : cat1._id
+        });
+
+        var cat1A5 = new Answer({
+            text    : '',
+            correct : true,
+            _question : cat1Q2._id
+        });
+
+        var cat1A6 = new Answer({
+            text    : '',
+            correct : false,
+            _question : cat1Q2._id
+        });
+
+        var cat1A7 = new Answer({
+            text    : '',
+            correct : false,
+            _question : cat1Q2._id
+        });
+
+        var cat1A8 = Answer({
+            text    : '',
+            correct : false,
+            _question : cat1Q2._id
+        });
+
+        var cat1Q3 = new Question({
+            name    : '',
+            status  : 'Created',
+            _category : cat1._id
+        });
+
+        var cat1A9 = new Answer({
+            text    : '',
+            correct : true,
+            _question : cat1Q3._id
+        });
+
+        var cat1A10 = new Answer({
+            text    : '',
+            correct : false,
+            _question : cat1Q3._id
+        });
+
+        var cat1A11 = new Answer({
+            text    : '',
+            correct : false,
+            _question : cat1Q3._id
+        });
+
+        var cat1A12 = Answer({
+            text    : '',
+            correct : false,
+            _question : cat1Q3._id
+        });
+
+        var cat1Q4 = new Question({
+            name    : '',
+            status  : 'Created',
+            _category : cat1._id
+        });
+
+        var cat1A13 = new Answer({
+            text    : '',
+            correct : true,
+            _question : cat1Q4._id
+        });
+
+        var cat1A14 = new Answer({
+            text    : '',
+            correct : false,
+            _question : cat1Q4._id
+        });
+
+        var cat1A15 = new Answer({
+            text    : '',
+            correct : false,
+            _question : cat1Q4._id
+        });
+
+        var cat1A16 = Answer({
+            text    : '',
+            correct : false,
+            _question : cat1Q4._id
+        });
+
+        var cat1Q5 = new Question({
+            name    : '',
+            status  : 'Created',
+            _category : cat1._id
+        });
+
+        var cat1A17 = new Answer({
+            text    : '',
+            correct : true,
+            _question : cat1Q5._id
+        });
+
+        var cat1A18 = new Answer({
+            text    : '',
+            correct : false,
+            _question : cat1Q5._id
+        });
+
+        var cat1A19 = new Answer({
+            text    : '',
+            correct : false,
+            _question : cat1Q5._id
+        });
+
+        var cat1A20 = Answer({
+            text    : '',
+            correct : false,
+            _question : cat1Q5._id
+        });
+
+        var cat1Q6 = new Question({
+            name    : '',
+            status  : 'Created',
+            _category : cat1._id
+        });
+
+        var cat1A21 = new Answer({
+            text    : '',
+            correct : true,
+            _question : cat1Q6._id
+        });
+
+        var cat1A22 = new Answer({
+            text    : '',
+            correct : false,
+            _question : cat1Q6._id
+        });
+
+        var cat1A23 = new Answer({
+            text    : '',
+            correct : false,
+            _question : cat1Q6._id
+        });
+
+        var cat1A24 = Answer({
+            text    : '',
+            correct : false,
+            _question : cat1Q6._id
+        });
+
+        var cat1Q7 = new Question({
+            name    : '',
+            status  : 'Created',
+            _category : cat1._id
+        });
+
+        var cat1A25 = new Answer({
+            text    : '',
+            correct : true,
+            _question : cat1Q7._id
+        });
+
+        var cat1A26 = new Answer({
+            text    : '',
+            correct : false,
+            _question : cat1Q7._id
+        });
+
+        var cat1A27 = new Answer({
+            text    : '',
+            correct : false,
+            _question : cat1Q7._id
+        });
+
+        var cat1A28 = Answer({
+            text    : '',
+            correct : false,
+            _question : cat1Q7._id
+        });
+
+        var cat1Q8 = new Question({
+            name    : '',
+            status  : 'Created',
+            _category : cat1._id
+        });
+
+        var cat1A29 = new Answer({
+            text    : '',
+            correct : true,
+            _question : cat1Q8._id
+        });
+
+        var cat1A30 = new Answer({
+            text    : '',
+            correct : false,
+            _question : cat1Q8._id
+        });
+
+        var cat1A31 = new Answer({
+            text    : '',
+            correct : false,
+            _question : cat1Q8._id
+        });
+
+        var cat1A32 = Answer({
+            text    : '',
+            correct : false,
+            _question : cat1Q8._id
+        });
+
+        var cat1Q9 = new Question({
+            name    : '',
+            status  : 'Created',
+            _category : cat1._id
+        });
+
+        var cat1A33 = new Answer({
+            text    : '',
+            correct : true,
+            _question : cat1Q9._id
+        });
+
+        var cat1A34 = new Answer({
+            text    : '',
+            correct : false,
+            _question : cat1Q9._id
+        });
+
+        var cat1A35 = new Answer({
+            text    : '',
+            correct : false,
+            _question : cat1Q9._id
+        });
+
+        var cat1A36 = Answer({
+            text    : '',
+            correct : false,
+            _question : cat1Q9._id
+        });
+
+        var cat1Q10 = new Question({
+            name    : '',
+            status  : 'Created',
+            _category : cat1._id
+        });
+
+        var cat1A37 = new Answer({
+            text    : '',
+            correct : true,
+            _question : cat1Q10._id
+        });
+
+        var cat1A38 = new Answer({
+            text    : '',
+            correct : false,
+            _question : cat1Q10._id
+        });
+
+        var cat1A39 = new Answer({
+            text    : '',
+            correct : false,
+            _question : cat1Q10._id
+        });
+
+        var cat1A40 = Answer({
+            text    : '',
+            correct : false,
+            _question : cat1Q10._id
+        });
+
+        var cat1Q11 = new Question({
+            name    : '',
+            status  : 'Created',
+            _category : cat1._id
+        });
+
+        var cat1A41 = new Answer({
+            text    : '',
+            correct : true,
+            _question : cat1Q11._id
+        });
+
+        var cat1A42 = new Answer({
+            text    : '',
+            correct : false,
+            _question : cat1Q11._id
+        });
+
+        var cat1A43 = new Answer({
+            text    : '',
+            correct : false,
+            _question : cat1Q11._id
+        });
+
+        var cat1A44 = Answer({
+            text    : '',
+            correct : false,
+            _question : cat1Q11._id
+        });
+
+        var cat1Q12 = new Question({
+            name    : '',
+            status  : 'Created',
+            _category : cat1._id
+        });
+
+        var cat1A45 = new Answer({
+            text    : '',
+            correct : true,
+            _question : cat1Q12._id
+        });
+
+        var cat1A46 = new Answer({
+            text    : '',
+            correct : false,
+            _question : cat1Q12._id
+        });
+
+        var cat1A47 = new Answer({
+            text    : '',
+            correct : false,
+            _question : cat1Q12._id
+        });
+
+        var cat1A48 = Answer({
+            text    : '',
+            correct : false,
+            _question : cat1Q12._id
+        });
+
+        cat1Q1.answers.push(cat1A1._id, cat1A2._id, cat1A3._id, cat1A4._id);
+        cat1Q2.answers.push(cat1A5._id, cat1A6._id, cat1A7._id, cat1A8._id);
+        cat1Q3.answers.push(cat1A9._id, cat1A10._id, cat1A11._id, cat1A12._id);
+        cat1Q4.answers.push(cat1A13._id, cat1A14._id, cat1A15._id, cat1A16._id);
+        cat1Q5.answers.push(cat1A17._id, cat1A18._id, cat1A19._id, cat1A20._id);
+        cat1Q6.answers.push(cat1A21._id, cat1A22._id, cat1A23._id, cat1A24._id);
+        cat1Q7.answers.push(cat1A25._id, cat1A26._id, cat1A27._id, cat1A28._id);
+        cat1Q8.answers.push(cat1A29._id, cat1A30._id, cat1A31._id, cat1A32._id);
+        cat1Q9.answers.push(cat1A33._id, cat1A34._id, cat1A35._id, cat1A36._id);
+        cat1Q10.answers.push(cat1A37._id, cat1A38._id, cat1A39._id, cat1A40._id);
+        cat1Q11.answers.push(cat1A41._id, cat1A42._id, cat1A43._id, cat1A44._id);
+        cat1Q12.answers.push(cat1A45._id, cat1A46._id, cat1A47._id, cat1A48._id);
+
+        cat1.questions.push(cat1Q1._id);
+        cat1.questions.push(cat1Q2._id);
+        cat1.questions.push(cat1Q3._id);
+        cat1.questions.push(cat1Q4._id);
+        cat1.questions.push(cat1Q5._id);
+        cat1.questions.push(cat1Q6._id);
+        cat1.questions.push(cat1Q7._id);
+        cat1.questions.push(cat1Q8._id);
+        cat1.questions.push(cat1Q9._id);
+        cat1.questions.push(cat1Q10._id);
+        cat1.questions.push(cat1Q11._id);
+        cat1.questions.push(cat1Q12._id);
+
+        cat1A1.save();
+        cat1A2.save();
+        cat1A3.save();
+        cat1A4.save();
+        cat1A5.save();
+        cat1A6.save();
+        cat1A7.save();
+        cat1A8.save();
+        cat1A9.save();
+        cat1A10.save();
+        cat1A11.save();
+        cat1A12.save();
+        cat1A13.save();
+        cat1A14.save();
+        cat1A15.save();
+        cat1A16.save();
+        cat1A17.save();
+        cat1A18.save();
+        cat1A19.save();
+        cat1A20.save();
+        cat1A21.save();
+        cat1A22.save();
+        cat1A23.save();
+        cat1A24.save();
+        cat1A25.save();
+        cat1A26.save();
+        cat1A27.save();
+        cat1A28.save();
+        cat1A29.save();
+        cat1A30.save();
+        cat1A31.save();
+        cat1A32.save();
+        cat1A33.save();
+        cat1A34.save();
+        cat1A35.save();
+        cat1A36.save();
+        cat1A37.save();
+        cat1A38.save();
+        cat1A39.save();
+        cat1A40.save();
+        cat1A41.save();
+        cat1A42.save();
+        cat1A43.save();
+        cat1A44.save();
+        cat1A45.save();
+        cat1A46.save();
+        cat1A47.save();
+        cat1A48.save();
+
+        cat1Q1.save();
+        cat1Q2.save();
+        cat1Q3.save();
+        cat1Q4.save();
+        cat1Q5.save();
+        cat1Q6.save();
+        cat1Q7.save();
+        cat1Q8.save();
+        cat1Q9.save();
+        cat1Q10.save();
+        cat1Q11.save();
+        cat1Q12.save();
+
+        cat1.save();
+*/
     });
 }

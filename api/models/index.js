@@ -120,13 +120,13 @@ var userAnswerSchema = mongoose.Schema({
         type: Date,
         required: true
     },
-    answer: {
-        type: mongoose.Schema.ObjectId,
+    _answer: {
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'Answer',
         required: true
     },
-    user: {
-        type: mongoose.Schema.ObjectId,
+    _user: {
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
         required: true
     }
@@ -137,12 +137,15 @@ var roundQuestionSchema = mongoose.Schema({
         type: Number,
         required: true
     },
-    question: {
-        type: mongoose.Schema.ObjectId,
+    _question: {
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'Question',
         required: true
     },
-    userAnswers: [userAnswerSchema]
+    userAnswers: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'UserAnswer'
+    }]
 });
 
 var roundSchema = mongoose.Schema({
@@ -152,20 +155,23 @@ var roundSchema = mongoose.Schema({
     end: {
         type: Date
     },
-    category: {
+    _category: {
         type: mongoose.Schema.ObjectId,
         ref: 'Category'
     },
-    questions: [roundQuestionSchema]
+    userAnswers: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Question'
+    }]
 });
 
 var quizSchema = mongoose.Schema({
-    challengerId: {
+    _challengerId: {
         type: mongoose.Schema.ObjectId,
         ref: 'User',
         required: true
     },
-    opponentId: {
+    _opponentId: {
         type: mongoose.Schema.ObjectId,
         ref: 'User',
         required: true
@@ -175,7 +181,10 @@ var quizSchema = mongoose.Schema({
         enum: ['Started', 'Finished', 'Canceled', 'Waiting'],
         default: 'Started'
     },
-    rounds: [roundSchema]
+    rounds: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Round'
+    }]
 
 });
 
@@ -187,7 +196,7 @@ var ratingSchema = mongoose.Schema({
     comment: {
         type: String
     },
-    user: {
+    _user: {
         type: mongoose.Schema.ObjectId,
         ref: 'User',
         required: true
@@ -199,6 +208,7 @@ var Quiz = mongoose.model('Quiz', quizSchema);
 var Category = mongoose.model('Category', categorySchema);
 var Question = mongoose.model('Question', questionSchema);
 var Answer = mongoose.model('Answer', answerSchema);
+var Round = mongoose.model('Round', roundSchema);
 
 var Data = require('./data')(db, User, Quiz, Category, Question, Answer);
 
@@ -207,5 +217,6 @@ module.exports = {
     Quiz        : Quiz,
     Category    : Category,
     Question    : Question,
-    Answer      : Answer
+    Answer      : Answer,
+    Round       : Round
 }
