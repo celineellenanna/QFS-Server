@@ -45,8 +45,7 @@ var controller = {
                         ]
                     }).then(function (quiz) {
                         if (quiz) {
-                            users.splice(index, 1);
-                            index = index - 1;
+                            users.splice(users.indexOf(user), 1);
                         }
                         cb();
                     });
