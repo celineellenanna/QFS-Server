@@ -49,18 +49,35 @@ var controller = {
             }
         });
     },
-    cancel: function(req, res, next) {
-        Quiz.findById(req.params.id, function(err, quiz) {
+    getRunning: function (req, res, next) {
+        Quiz.find({
+                $or: [
+                    {_challengerId: req.params.id, status: 'Warten'},
+                    {_opponentId: req.params.id, status: 'Warten'}
+                ]
+            })
+            .populate('_challengerId')
+            .populate('_opponentId').exec(function(err, quizzes) {
             if(err) next(err);
-            quiz.status = 'Canceled';
+            if (quizzes) {
+                res.send({ "success" : true, "message" : "Quizzes gefunden", data : quizzes });
+            } else {
+                res.send({ "success" : false, "message" : "Keine Quiz gefunden", data : null });
+            }
+        });
+    },
+    reject: function(req, res, next) {
+        Quiz.findById(req.body.id, function(err, quiz) {
+            if(err) next(err);
+            quiz.status = 'Abgebrochen';
             quiz.save();
             res.send({ "success" : true, "message" : "Quiz beendet", data : null });
         });
     },
     accept: function(req, res, next) {
-        Quiz.findById(req.params.id, function(err, quiz) {
+        Quiz.findById(req.body.id, function(err, quiz) {
             if(err) next(err);
-            quiz.status = 'Waiting';
+            quiz.status = 'Warten';
             quiz.save();
             res.send({ "success" : true, "message" : "Quiz gestartet", data : null });
         });

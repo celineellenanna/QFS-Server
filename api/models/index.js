@@ -185,7 +185,8 @@ var quizSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Round'
     }]
-
+}, {
+    timestamps: true
 });
 
 var ratingSchema = mongoose.Schema({
