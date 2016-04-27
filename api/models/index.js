@@ -178,8 +178,8 @@ var quizSchema = mongoose.Schema({
     },
     status: {
         type: String,
-        enum: ['Started', 'Finished', 'Canceled', 'Waiting'],
-        default: 'Started'
+        enum: ['Offen', 'Beendet', 'Abgebrochen', 'Warten'],
+        default: 'Offen'
     },
     rounds: [{
         type: mongoose.Schema.Types.ObjectId,

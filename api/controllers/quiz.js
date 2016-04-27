@@ -9,13 +9,18 @@ var controller = {
         Quiz.create({
             _challengerId: req.body.challengerId,
             _opponentId: req.body.opponentId
-        }, function(err,quiz) {
-        if (err)
-            Log.error(err);
-        else
-            res.send({ "success" : true, "message" : "Quiz erstellt", data : quiz });
+        }, function(err, quiz) {
+            Quiz.findOne(quiz)
+                .populate('_challengerId')
+                .populate('_opponentId')
+                .exec(function(err, quiz) {
+                    if (err) {
+                        res.send({"success": false, "message": "Quiz nicht erstellt", data: null });
+                    } else {
+                        res.send({"success": true, "message": "Quiz erstellt", data: quiz});
+                    }
+             });
         });
-
     },
     get: function(req, res, next) {
         Quiz.findById(req.params.id, function(err, quiz) {
@@ -27,17 +32,22 @@ var controller = {
             }
         });
     },
-    getRequests: function (req, res, next) {
-        Quiz.find({_opponentId: req.params.id, status: 'Started'}, function (err, quizzes) {
+    getOpen: function (req, res, next) {
+        Quiz.find({
+            $or: [
+                {_challengerId: req.params.id, status: 'Offen'},
+                {_opponentId: req.params.id, status: 'Offen'}
+            ]
+        })
+        .populate('_challengerId')
+        .populate('_opponentId').exec(function(err, quizzes) {
             if(err) next(err);
             if (quizzes) {
                 res.send({ "success" : true, "message" : "Quizzes gefunden", data : quizzes });
             } else {
                 res.send({ "success" : false, "message" : "Keine Quiz gefunden", data : null });
             }
-            
-        })
-
+        });
     },
     cancel: function(req, res, next) {
         Quiz.findById(req.params.id, function(err, quiz) {
@@ -86,7 +96,6 @@ var controller = {
     },
     putAnswer: function (req, res, next) {
         //Quiz.f
-        
     }
     
 };

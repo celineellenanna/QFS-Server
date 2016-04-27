@@ -38,8 +38,8 @@ var controller = {
                             },
                             {
                                 $or: [
-                                    {status: 'Started'},
-                                    {status: 'Waiting'}
+                                    {status: 'Offen'},
+                                    {status: 'Warten'}
                                 ]
                             }
                         ]
@@ -50,7 +50,7 @@ var controller = {
                         cb();
                     });
                 }, function(err) {
-                    res.send({ "success" : true, "message" : "User nicht gefunden", data : users });
+                    res.send({ "success" : true, "message" : "Gegner gefunden", data : users });
                 });
             });
     }
