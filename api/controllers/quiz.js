@@ -1,8 +1,10 @@
 var Log = require('../logs/index');
+var async = require('async');
 var Quiz = require('../models/index').Quiz;
 var Category = require('../models/index').Category;
 var Question = require('../models/index').Question;
 var Round = require('../models/index').Round;
+var RoundQuestion = require('../models/index').RoundQuestion;
 
 var controller = {
     create: function(req, res, next) {
@@ -104,19 +106,34 @@ var controller = {
         });
     },
     createRound: function (req, res, next) {
-        var round = Round.create({
-            start: Date.now(),
-            _category: req.params.cid
-        }).then(function (round) {
-            var quiz = Quiz.findById(req.params.id, function (err, quiz) {
-                if(err) next(err);
-                quiz.rounds.push(round._id);
-                quiz.save();
-                res.send({ "success" : true, "message" : "Runde hinzugefügt", data : null });
-            });
+        var quizId = req.body.quizId;
+        var categoryId = req.body.categoryId;
+        var increment = 0;
 
-        }, function(err) {
-            next(err);
+        Round.create({
+            _category: categoryId
+        }).then(function(round) {
+            Question.findRandom({ _category: req.params.id })
+                .limit(3)
+                .then(function (err, questions) {
+                    async.forEachOf(questions, function(question, index, cb) {
+                        RoundQuestion.create({
+                            sequeceNo: increment++,
+                            _question: question._id
+                        }).then(function() {
+                            round.push(round._id);
+                            cb();
+                        });
+                    }), function() {
+                        Quiz.findById(quizId, function (err, quiz) {
+                            if(err) next(err);
+                            quiz.rounds.push(round._id);
+                            quiz.save();
+                        }).then(function() {
+                            res.send({ "success" : true, "message" : "3 Fragen", data: questions});
+                        });
+                    };
+                });
         });
     },
     getCategories: function (req, res, next) {
