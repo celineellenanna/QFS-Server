@@ -2608,3 +2608,27 @@ Wed Apr 27 2016 17:48:49 GMT+0200 (CEST) | User created successfully
 Wed Apr 27 2016 17:48:49 GMT+0200 (CEST) | User created successfully
 Wed Apr 27 2016 17:48:49 GMT+0200 (CEST) | User created successfully
 Wed Apr 27 2016 17:48:49 GMT+0200 (CEST) | User created successfully
+Wed Apr 27 2016 18:19:49 GMT+0200 (CEST) | QFS WEB API started
+Wed Apr 27 2016 18:19:49 GMT+0200 (CEST) | Environment:development
+Wed Apr 27 2016 18:19:49 GMT+0200 (CEST) | Port:3000
+Wed Apr 27 2016 18:19:49 GMT+0200 (CEST) | Host:localhost
+Wed Apr 27 2016 18:19:49 GMT+0200 (CEST) | Database connection successfully
+Wed Apr 27 2016 18:24:13 GMT+0200 (CEST) | User HansMuster erfolgreich registriert
+Wed Apr 27 2016 18:28:46 GMT+0200 (CEST) | QFS WEB API started
+Wed Apr 27 2016 18:28:46 GMT+0200 (CEST) | Environment:development
+Wed Apr 27 2016 18:28:46 GMT+0200 (CEST) | Host:localhost
+Wed Apr 27 2016 18:28:46 GMT+0200 (CEST) | Port:3000
+Wed Apr 27 2016 18:28:46 GMT+0200 (CEST) | Database connection successfully
+Thu Apr 28 2016 11:29:09 GMT+0200 (CEST) | QFS WEB API started
+Thu Apr 28 2016 11:29:09 GMT+0200 (CEST) | Environment:development
+Thu Apr 28 2016 11:29:09 GMT+0200 (CEST) | Host:localhost
+Thu Apr 28 2016 11:29:09 GMT+0200 (CEST) | Port:3000
+Thu Apr 28 2016 11:30:25 GMT+0200 (CEST) | QFS WEB API started
+Thu Apr 28 2016 11:30:25 GMT+0200 (CEST) | Environment:development
+Thu Apr 28 2016 11:30:25 GMT+0200 (CEST) | Host:localhost
+Thu Apr 28 2016 11:30:25 GMT+0200 (CEST) | Port:3000
+Thu Apr 28 2016 11:30:25 GMT+0200 (CEST) | Database connection successfully
+Thu Apr 28 2016 11:30:26 GMT+0200 (CEST) | User created successfully
+Thu Apr 28 2016 11:30:26 GMT+0200 (CEST) | User created successfully
+Thu Apr 28 2016 11:30:26 GMT+0200 (CEST) | User created successfully
+Thu Apr 28 2016 11:30:26 GMT+0200 (CEST) | User created successfully

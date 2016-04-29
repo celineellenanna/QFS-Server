@@ -5,6 +5,7 @@ var quizController = require('../controllers/quiz');
 router.post('/', quizController.create);
 router.get('/open/:id', quizController.getOpen);
 router.get('/running/:id', quizController.getRunning);
+router.get('/finished/:id', quizController.getFinished);
 router.get('/category', quizController.getCategories);
 router.get('/category/:id', quizController.getQuestions);
 router.post('/accept', quizController.accept);
