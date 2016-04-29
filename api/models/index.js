@@ -142,27 +142,24 @@ var roundQuestionSchema = mongoose.Schema({
         ref: 'Question',
         required: true
     },
-    userAnswers: [{
+    _userAnswers: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'UserAnswer'
     }]
 });
 
 var roundSchema = mongoose.Schema({
-    start: {
-        type: Date
-    },
-    end: {
-        type: Date
-    },
     _category: {
         type: mongoose.Schema.ObjectId,
         ref: 'Category'
     },
-    userAnswers: [{
+    _roundQuestions: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Question'
+        ref: 'roundQuestion'
     }]
+    
+}, {
+    timestamps: true
 });
 
 var quizSchema = mongoose.Schema({
@@ -210,6 +207,7 @@ var Category = mongoose.model('Category', categorySchema);
 var Question = mongoose.model('Question', questionSchema);
 var Answer = mongoose.model('Answer', answerSchema);
 var Round = mongoose.model('Round', roundSchema);
+var RoundQuestion = mongoose.model('RoundQuestion', roundQuestionSchema);
 
 var Data = require('./data')(db, User, Quiz, Category, Question, Answer);
 
@@ -219,5 +217,6 @@ module.exports = {
     Category    : Category,
     Question    : Question,
     Answer      : Answer,
-    Round       : Round
+    Round       : Round,
+    RoundQuestion : RoundQuestion
 }
