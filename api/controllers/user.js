@@ -38,8 +38,9 @@ var controller = {
                             },
                             {
                                 $or: [
-                                    {status: 'Offen'},
-                                    {status: 'Warten'}
+                                    {status: 'Open'},
+                                    {status: 'WaitingForChallenger'},
+                                    {status: 'WaitingForOpponent'}
                                 ]
                             }
                         ]

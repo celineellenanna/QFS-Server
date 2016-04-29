@@ -35,8 +35,8 @@ var controller = {
     getOpen: function (req, res, next) {
         Quiz.find({
             $or: [
-                {_challengerId: req.params.id, status: 'Offen'},
-                {_opponentId: req.params.id, status: 'Offen'}
+                {_challengerId: req.params.id, status: 'Open'},
+                {_opponentId: req.params.id, status: 'Open'}
             ]
         })
         .populate('_challengerId')
@@ -52,8 +52,10 @@ var controller = {
     getRunning: function (req, res, next) {
         Quiz.find({
                 $or: [
-                    {_challengerId: req.params.id, status: 'Warten'},
-                    {_opponentId: req.params.id, status: 'Warten'}
+                    {_challengerId: req.params.id, status: 'WaitingForOpponent'},
+                    {_challengerId: req.params.id, status: 'WaitingForChallenger'},
+                    {_opponentId: req.params.id, status: 'WaitingForOpponent'},
+                    {_opponentId: req.params.id, status: 'WaitingForOpponent'}
                 ]
             })
             .populate('_challengerId')
@@ -69,10 +71,10 @@ var controller = {
     getFinished: function (req, res, next) {
         Quiz.find({
                 $or: [
-                    {_challengerId: req.params.id, status: 'Abgebrochen'},
-                    {_opponentId: req.params.id, status: 'Abgebrochen'},
-                    {_challengerId: req.params.id, status: 'Beendet'},
-                    {_opponentId: req.params.id, status: 'Beendet'},
+                    {_challengerId: req.params.id, status: 'Canceled'},
+                    {_opponentId: req.params.id, status: 'Canceled'},
+                    {_challengerId: req.params.id, status: 'Finished'},
+                    {_opponentId: req.params.id, status: 'Finished'}
                 ]
             })
             .populate('_challengerId')
@@ -88,7 +90,7 @@ var controller = {
     reject: function(req, res, next) {
         Quiz.findById(req.body.id, function(err, quiz) {
             if(err) next(err);
-            quiz.status = 'Abgebrochen';
+            quiz.status = 'Canceled';
             quiz.save();
             res.send({ "success" : true, "message" : "Quiz beendet", data : null });
         });
@@ -96,7 +98,7 @@ var controller = {
     accept: function(req, res, next) {
         Quiz.findById(req.body.id, function(err, quiz) {
             if(err) next(err);
-            quiz.status = 'Warten';
+            quiz.status = 'WaitingForOpponent';
             quiz.save();
             res.send({ "success" : true, "message" : "Quiz gestartet", data : null });
         });
