@@ -142,11 +142,14 @@ var controller = {
 
         });
     },
-    getQuestions: function (req, res, next) {
-        Question.findRandom({ _category: req.params.id }).limit(3).exec(function (err, questions) {
-            res.send({ "success" : true, "message" : "3 Kategorien", data: questions});
-
-        });
+    getRoundQuestions: function (req, res, next) {
+        Round.findById(req.params.id)
+            .populate('_roundQuestions')
+            .populate('_roundQuestions._question')
+            .populate('_roundQuestions._question.answers')
+            .exec(function(err, round){
+                res.send({ "success" : true, "message" : "3 Kategorien", data: round._roundQuestions });
+            });
     },
     putAnswer: function (req, res, next) {
         //Quiz.f

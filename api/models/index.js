@@ -155,7 +155,7 @@ var roundSchema = mongoose.Schema({
     },
     _roundQuestions: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'roundQuestion'
+        ref: 'RoundQuestion'
     }]
     
 }, {
