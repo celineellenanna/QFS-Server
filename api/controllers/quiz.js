@@ -25,14 +25,18 @@ var controller = {
         });
     },
     get: function(req, res, next) {
-        Quiz.findById(req.params.id, function(err, quiz) {
-            if(err) next(err);
-            if(quiz) {
-                res.send({ "success" : true, "message" : "Quiz gefunden", data : quiz });
-            } else {
-                res.send({ "success" : false, "message" : "Quiz nicht gefunden", data : null });
-            }
-        });
+        Quiz.findById(req.params.id)
+            .populate('_opponentId')
+            .populate('_challengerId')
+            .populate('_rounds')
+            .exec(function(err, quiz) {
+                if(err) next(err);
+                if(quiz) {
+                    res.send({ "success" : true, "message" : "Quiz gefunden", data : quiz });
+                } else {
+                    res.send({ "success" : false, "message" : "Quiz nicht gefunden", data : null });
+                }
+            });
     },
     getOpen: function (req, res, next) {
         Quiz.find({

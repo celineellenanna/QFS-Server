@@ -3321,3 +3321,18 @@ Mon May 02 2016 15:27:04 GMT+0200 (CEST) | Environment:development
 Mon May 02 2016 15:27:04 GMT+0200 (CEST) | Host:localhost
 Mon May 02 2016 15:27:04 GMT+0200 (CEST) | Port:3000
 Mon May 02 2016 15:27:04 GMT+0200 (CEST) | Database connection successfully
+Mon May 02 2016 18:04:31 GMT+0200 (Mitteleuropäische Sommerzeit) | QFS WEB API started
+Mon May 02 2016 18:04:31 GMT+0200 (Mitteleuropäische Sommerzeit) | Environment:development
+Mon May 02 2016 18:04:31 GMT+0200 (Mitteleuropäische Sommerzeit) | Host:localhost
+Mon May 02 2016 18:04:31 GMT+0200 (Mitteleuropäische Sommerzeit) | Port:3000
+Mon May 02 2016 18:04:31 GMT+0200 (Mitteleuropäische Sommerzeit) | Database connection successfully
+Mon May 02 2016 18:36:01 GMT+0200 (Mitteleuropäische Sommerzeit) | QFS WEB API started
+Mon May 02 2016 18:36:01 GMT+0200 (Mitteleuropäische Sommerzeit) | Environment:development
+Mon May 02 2016 18:36:01 GMT+0200 (Mitteleuropäische Sommerzeit) | Host:localhost
+Mon May 02 2016 18:36:01 GMT+0200 (Mitteleuropäische Sommerzeit) | Port:3000
+Mon May 02 2016 18:36:01 GMT+0200 (Mitteleuropäische Sommerzeit) | Database connection successfully
+Mon May 02 2016 18:42:06 GMT+0200 (Mitteleuropäische Sommerzeit) | QFS WEB API started
+Mon May 02 2016 18:42:06 GMT+0200 (Mitteleuropäische Sommerzeit) | Environment:development
+Mon May 02 2016 18:42:06 GMT+0200 (Mitteleuropäische Sommerzeit) | Host:localhost
+Mon May 02 2016 18:42:06 GMT+0200 (Mitteleuropäische Sommerzeit) | Port:3000
+Mon May 02 2016 18:42:06 GMT+0200 (Mitteleuropäische Sommerzeit) | Database connection successfully
