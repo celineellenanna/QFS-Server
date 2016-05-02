@@ -130,7 +130,12 @@ var controller = {
                             if(err) next(err);
                             quiz.rounds.push(round._id);
                             quiz.save();
-                            res.send({ "success" : true, "message" : "Runde gestartet", data: round });
+                            Round.findById(round._id)
+                                .populate('_category')
+                                .populate({path : '_roundQuestions', model: 'RoundQuestion', populate: {path: '_question', model: 'Question', populate: {path: 'answers', model: 'Answer'}}})
+                                .exec(function(err, round) {
+                                    res.send({"success": true, "message": "Runde gestartet", data: round});
+                            });
                         });
                     });
                 });
@@ -142,13 +147,13 @@ var controller = {
 
         });
     },
-    getRoundQuestions: function (req, res, next) {
+    getRound: function (req, res, next) {
+        console.log("getROund");
         Round.findById(req.params.id)
-            .populate('_roundQuestions')
-            .populate('_roundQuestions._question')
-            .populate('_roundQuestions._question.answers')
+            .populate('_category')
+            .populate({path : '_roundQuestions', model: 'RoundQuestion', populate: {path: '_question', model: 'Question', populate: {path: 'answers', model: 'Answer'}}})
             .exec(function(err, round){
-                res.send({ "success" : true, "message" : "3 Kategorien", data: round._roundQuestions });
+                res.send({ "success" : true, "message" : "Runde gefunden", data: round });
             });
     },
     putAnswer: function (req, res, next) {

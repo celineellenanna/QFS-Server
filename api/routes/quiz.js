@@ -6,7 +6,7 @@ router.post('/', quizController.create);
 router.get('/open/:id', quizController.getOpen);
 router.get('/running/:id', quizController.getRunning);
 router.get('/finished/:id', quizController.getFinished);
-router.get('/roundQuestion/:id', quizController.getRoundQuestions);
+router.get('/round/:id', quizController.getRound);
 router.get('/category', quizController.getCategories);
 router.post('/accept', quizController.accept);
 router.post('/reject', quizController.reject);
