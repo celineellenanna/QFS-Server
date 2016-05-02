@@ -130,7 +130,7 @@ var controller = {
                             if(err) next(err);
                             quiz.rounds.push(round._id);
                             quiz.save();
-                            res.send({ "success" : true, "message" : "3 Fragen", data: questions });
+                            res.send({ "success" : true, "message" : "Runde gestartet", data: round });
                         });
                     });
                 });

@@ -12,6 +12,6 @@ router.post('/accept', quizController.accept);
 router.post('/reject', quizController.reject);
 router.get('/:id', quizController.get);
 router.post('/round/answer', quizController.putAnswer);
-router.post('/round', quizController.createRound);
+router.post('/round/', quizController.createRound);
 
 module.exports = router;
