@@ -148,7 +148,6 @@ var controller = {
         });
     },
     getRound: function (req, res, next) {
-        console.log("getROund");
         Round.findById(req.params.id)
             .populate('_category')
             .populate({path : '_roundQuestions', model: 'RoundQuestion', populate: {path: '_question', model: 'Question', populate: {path: 'answers', model: 'Answer'}}})
