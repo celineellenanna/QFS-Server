@@ -108,31 +108,33 @@ var controller = {
     createRound: function (req, res, next) {
         var quizId = req.body.quizId;
         var categoryId = req.body.categoryId;
-        var increment = 0;
+        var increment = 1;
 
         Round.create({
             _category: categoryId
         }).then(function(round) {
-            Question.findRandom({ _category: req.params.id })
-                .limit(3)
-                .then(function (err, questions) {
+            Question.findRandom({ _category: categoryId })
+                .limit(3).exec(function (err, questions) {
                     async.forEachOf(questions, function(question, index, cb) {
                         RoundQuestion.create({
-                            sequeceNo: increment++,
+                            sequenceNo: increment++,
                             _question: question._id
-                        }).then(function() {
-                            round.push(round._id);
+                        }, function(err, roundQuestion) {
+                            round._roundQuestions.push(roundQuestion._id);
+                            round.save();
+
                             cb();
                         });
-                    }), function() {
-                        Quiz.findById(quizId, function (err, quiz) {
+                    }, function(err) {
+                        Quiz.findOne({ _id: quizId }, function(err, quiz) {
                             if(err) next(err);
-                            quiz.rounds.push(round._id);
-                            quiz.save();
-                        }).then(function() {
-                            res.send({ "success" : true, "message" : "3 Fragen", data: questions});
+                            quiz[0].rounds.push(round._id);
+                            quiz[0].save();
+                        }, function(err, quiz) {
+                            console.log(quiz);
+                            res.send({ "success" : true, "message" : "3 Fragen", data: questions });
                         });
-                    };
+                    });
                 });
         });
     },
