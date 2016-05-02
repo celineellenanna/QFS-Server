@@ -3003,3 +3003,94 @@ Mon May 02 2016 10:25:31 GMT+0200 (CEST) | Environment:development
 Mon May 02 2016 10:25:31 GMT+0200 (CEST) | Host:localhost
 Mon May 02 2016 10:25:31 GMT+0200 (CEST) | Port:3000
 Mon May 02 2016 10:25:31 GMT+0200 (CEST) | Database connection successfully
+Mon May 02 2016 10:32:00 GMT+0200 (CEST) | QFS WEB API started
+Mon May 02 2016 10:32:00 GMT+0200 (CEST) | Environment:development
+Mon May 02 2016 10:32:00 GMT+0200 (CEST) | Host:localhost
+Mon May 02 2016 10:32:00 GMT+0200 (CEST) | Port:3000
+Mon May 02 2016 10:32:00 GMT+0200 (CEST) | Database connection successfully
+Mon May 02 2016 10:32:21 GMT+0200 (CEST) | QFS WEB API started
+Mon May 02 2016 10:32:21 GMT+0200 (CEST) | Environment:development
+Mon May 02 2016 10:32:21 GMT+0200 (CEST) | Host:localhost
+Mon May 02 2016 10:32:21 GMT+0200 (CEST) | Port:3000
+Mon May 02 2016 10:32:21 GMT+0200 (CEST) | Database connection successfully
+Mon May 02 2016 10:33:31 GMT+0200 (CEST) | QFS WEB API started
+Mon May 02 2016 10:33:31 GMT+0200 (CEST) | Environment:development
+Mon May 02 2016 10:33:31 GMT+0200 (CEST) | Host:localhost
+Mon May 02 2016 10:33:31 GMT+0200 (CEST) | Port:3000
+Mon May 02 2016 10:33:31 GMT+0200 (CEST) | Database connection successfully
+Mon May 02 2016 10:33:46 GMT+0200 (CEST) | QFS WEB API started
+Mon May 02 2016 10:33:46 GMT+0200 (CEST) | Environment:development
+Mon May 02 2016 10:33:46 GMT+0200 (CEST) | Host:localhost
+Mon May 02 2016 10:33:46 GMT+0200 (CEST) | Port:3000
+Mon May 02 2016 10:33:46 GMT+0200 (CEST) | Database connection successfully
+Mon May 02 2016 10:34:00 GMT+0200 (CEST) | QFS WEB API started
+Mon May 02 2016 10:34:00 GMT+0200 (CEST) | Environment:development
+Mon May 02 2016 10:34:00 GMT+0200 (CEST) | Host:localhost
+Mon May 02 2016 10:34:00 GMT+0200 (CEST) | Port:3000
+Mon May 02 2016 10:34:00 GMT+0200 (CEST) | Database connection successfully
+Mon May 02 2016 10:34:18 GMT+0200 (CEST) | QFS WEB API started
+Mon May 02 2016 10:34:18 GMT+0200 (CEST) | Environment:development
+Mon May 02 2016 10:34:18 GMT+0200 (CEST) | Host:localhost
+Mon May 02 2016 10:34:18 GMT+0200 (CEST) | Port:3000
+Mon May 02 2016 10:34:18 GMT+0200 (CEST) | Database connection successfully
+Mon May 02 2016 10:34:36 GMT+0200 (CEST) | QFS WEB API started
+Mon May 02 2016 10:34:36 GMT+0200 (CEST) | Environment:development
+Mon May 02 2016 10:34:36 GMT+0200 (CEST) | Host:localhost
+Mon May 02 2016 10:34:36 GMT+0200 (CEST) | Port:3000
+Mon May 02 2016 10:34:36 GMT+0200 (CEST) | Database connection successfully
+Mon May 02 2016 10:35:09 GMT+0200 (CEST) | QFS WEB API started
+Mon May 02 2016 10:35:09 GMT+0200 (CEST) | Environment:development
+Mon May 02 2016 10:35:09 GMT+0200 (CEST) | Host:localhost
+Mon May 02 2016 10:35:09 GMT+0200 (CEST) | Port:3000
+Mon May 02 2016 10:35:09 GMT+0200 (CEST) | Database connection successfully
+Mon May 02 2016 10:35:19 GMT+0200 (CEST) | QFS WEB API started
+Mon May 02 2016 10:35:19 GMT+0200 (CEST) | Environment:development
+Mon May 02 2016 10:35:19 GMT+0200 (CEST) | Host:localhost
+Mon May 02 2016 10:35:19 GMT+0200 (CEST) | Port:3000
+Mon May 02 2016 10:35:19 GMT+0200 (CEST) | Database connection successfully
+Mon May 02 2016 10:35:39 GMT+0200 (CEST) | QFS WEB API started
+Mon May 02 2016 10:35:39 GMT+0200 (CEST) | Environment:development
+Mon May 02 2016 10:35:39 GMT+0200 (CEST) | Host:localhost
+Mon May 02 2016 10:35:39 GMT+0200 (CEST) | Port:3000
+Mon May 02 2016 10:35:39 GMT+0200 (CEST) | Database connection successfully
+Mon May 02 2016 10:35:39 GMT+0200 (CEST) | User created successfully
+Mon May 02 2016 10:35:39 GMT+0200 (CEST) | User created successfully
+Mon May 02 2016 10:35:39 GMT+0200 (CEST) | User created successfully
+Mon May 02 2016 10:35:39 GMT+0200 (CEST) | User created successfully
+Mon May 02 2016 10:40:01 GMT+0200 (CEST) | QFS WEB API started
+Mon May 02 2016 10:40:01 GMT+0200 (CEST) | Environment:development
+Mon May 02 2016 10:40:01 GMT+0200 (CEST) | Host:localhost
+Mon May 02 2016 10:40:01 GMT+0200 (CEST) | Port:3000
+Mon May 02 2016 10:40:01 GMT+0200 (CEST) | Database connection successfully
+Mon May 02 2016 10:40:01 GMT+0200 (CEST) | User created successfully
+Mon May 02 2016 10:40:01 GMT+0200 (CEST) | User created successfully
+Mon May 02 2016 10:40:01 GMT+0200 (CEST) | User created successfully
+Mon May 02 2016 10:40:01 GMT+0200 (CEST) | User created successfully
+Mon May 02 2016 10:41:40 GMT+0200 (CEST) | QFS WEB API started
+Mon May 02 2016 10:41:40 GMT+0200 (CEST) | Environment:development
+Mon May 02 2016 10:41:40 GMT+0200 (CEST) | Host:localhost
+Mon May 02 2016 10:41:40 GMT+0200 (CEST) | Port:3000
+Mon May 02 2016 10:41:40 GMT+0200 (CEST) | Database connection successfully
+Mon May 02 2016 10:41:50 GMT+0200 (CEST) | QFS WEB API started
+Mon May 02 2016 10:41:50 GMT+0200 (CEST) | Environment:development
+Mon May 02 2016 10:41:50 GMT+0200 (CEST) | Port:3000
+Mon May 02 2016 10:41:50 GMT+0200 (CEST) | Host:localhost
+Mon May 02 2016 10:41:50 GMT+0200 (CEST) | Database connection successfully
+Mon May 02 2016 10:41:50 GMT+0200 (CEST) | User created successfully
+Mon May 02 2016 10:41:50 GMT+0200 (CEST) | User created successfully
+Mon May 02 2016 10:41:50 GMT+0200 (CEST) | User created successfully
+Mon May 02 2016 10:41:50 GMT+0200 (CEST) | User created successfully
+Mon May 02 2016 10:44:08 GMT+0200 (CEST) | QFS WEB API started
+Mon May 02 2016 10:44:08 GMT+0200 (CEST) | Environment:development
+Mon May 02 2016 10:44:08 GMT+0200 (CEST) | Host:localhost
+Mon May 02 2016 10:44:08 GMT+0200 (CEST) | Port:3000
+Mon May 02 2016 10:44:08 GMT+0200 (CEST) | Database connection successfully
+Mon May 02 2016 10:44:13 GMT+0200 (CEST) | QFS WEB API started
+Mon May 02 2016 10:44:13 GMT+0200 (CEST) | Environment:development
+Mon May 02 2016 10:44:13 GMT+0200 (CEST) | Host:localhost
+Mon May 02 2016 10:44:13 GMT+0200 (CEST) | Port:3000
+Mon May 02 2016 10:44:13 GMT+0200 (CEST) | Database connection successfully
+Mon May 02 2016 10:44:14 GMT+0200 (CEST) | User created successfully
+Mon May 02 2016 10:44:14 GMT+0200 (CEST) | User created successfully
+Mon May 02 2016 10:44:14 GMT+0200 (CEST) | User created successfully
+Mon May 02 2016 10:44:14 GMT+0200 (CEST) | User created successfully

@@ -108,7 +108,7 @@ var controller = {
     createRound: function (req, res, next) {
         var quizId = req.body.quizId;
         var categoryId = req.body.categoryId;
-        var increment = 1;
+        var increment = 0;
 
         Round.create({
             _category: categoryId
@@ -121,17 +121,15 @@ var controller = {
                             _question: question._id
                         }, function(err, roundQuestion) {
                             round._roundQuestions.push(roundQuestion._id);
-                            round.save();
-
+                        }).then(function(err) {
                             cb();
                         });
                     }, function(err) {
-                        Quiz.findOne({ _id: quizId }, function(err, quiz) {
+                        round.save();
+                        Quiz.findById(quizId, function(err, quiz) {
                             if(err) next(err);
-                            quiz[0].rounds.push(round._id);
-                            quiz[0].save();
-                        }, function(err, quiz) {
-                            console.log(quiz);
+                            quiz.rounds.push(round._id);
+                            quiz.save();
                             res.send({ "success" : true, "message" : "3 Fragen", data: questions });
                         });
                     });
@@ -140,7 +138,6 @@ var controller = {
     },
     getCategories: function (req, res, next) {
         Category.findRandom().limit(3).exec(function (err, categories) {
-            console.log(categories);
             res.send({ "success" : true, "message" : "3 Kategorien", data: categories});
 
         });
