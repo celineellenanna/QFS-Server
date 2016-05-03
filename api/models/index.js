@@ -87,7 +87,7 @@ var questionSchema = mongoose.Schema({
         enum: ['Created', 'Approved', 'Rejected', 'Deleted'],
         default: 'Created'
     },
-    answers: [{
+    _answers: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Question'
     }],
@@ -107,7 +107,7 @@ var categorySchema = mongoose.Schema({
         required: true
     },
     
-    questions : [{
+    _questions : [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Question'
     }]
@@ -163,12 +163,12 @@ var roundSchema = mongoose.Schema({
 });
 
 var quizSchema = mongoose.Schema({
-    _challengerId: {
+    _challenger: {
         type: mongoose.Schema.ObjectId,
         ref: 'User',
         required: true
     },
-    _opponentId: {
+    _opponent: {
         type: mongoose.Schema.ObjectId,
         ref: 'User',
         required: true
@@ -178,7 +178,7 @@ var quizSchema = mongoose.Schema({
         enum: ['Open', 'Finished', 'Canceled', 'WaitingForChallenger', 'WaitingForOpponent'],
         default: 'Open'
     },
-    rounds: [{
+    _rounds: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Round'
     }]
