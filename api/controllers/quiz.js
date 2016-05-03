@@ -5,6 +5,7 @@ var Category = require('../models/index').Category;
 var Question = require('../models/index').Question;
 var Round = require('../models/index').Round;
 var RoundQuestion = require('../models/index').RoundQuestion;
+var UserAnswer = require('../models/index').UserAnswer;
 
 var controller = {
     create: function(req, res, next) {
@@ -179,8 +180,23 @@ var controller = {
                 res.send({ "success" : true, "message" : "Runde gefunden", data: round });
             });
     },
-    putAnswer: function (req, res, next) {
-        //Quiz.f
+    createUserAnswer: function (req, res, next) {
+        UserAnswer.create({
+            timeToAnswer: req.body.timeToAnswer,
+            _answer: req.body.answer,
+            _user: req.body.user
+        }).then(function(answer) {
+            RoundQuestion.findById(req.body.roundQuestion, function (err, roundQuestion) {
+                if (err) {
+                    res.send({"success": false, "message": "UserAnswer nicht erstellt", data: null });
+                } else {
+                    roundQuestion._userAnswers.push(answer._id);
+                    roundQuestion.save();
+                    res.send({"success": true, "message": "UserAnswer erstellt", data: answer});
+                }
+
+            });
+        });
     }
     
 };

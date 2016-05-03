@@ -207,6 +207,7 @@ var Question = mongoose.model('Question', questionSchema);
 var Answer = mongoose.model('Answer', answerSchema);
 var Round = mongoose.model('Round', roundSchema);
 var RoundQuestion = mongoose.model('RoundQuestion', roundQuestionSchema);
+var UserAnswer = mongoose.model('UserAnswer', userAnswerSchema);
 
 var Data = require('./data')(db, User, Quiz, Category, Question, Answer);
 
@@ -217,5 +218,6 @@ module.exports = {
     Question    : Question,
     Answer      : Answer,
     Round       : Round,
-    RoundQuestion : RoundQuestion
+    RoundQuestion : RoundQuestion,
+    UserAnswer  : UserAnswer
 }
