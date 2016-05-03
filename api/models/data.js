@@ -2327,7 +2327,7 @@ module.exports = function(db, User, Quiz, Category, Question, Answer) {
 
         allgHSR.save();
 
-        
+
         /* Template
         var cat1 = new Category({
             name    : 'Category1'

@@ -3336,3 +3336,40 @@ Mon May 02 2016 18:42:06 GMT+0200 (Mitteleuropäische Sommerzeit) | Environment:
 Mon May 02 2016 18:42:06 GMT+0200 (Mitteleuropäische Sommerzeit) | Host:localhost
 Mon May 02 2016 18:42:06 GMT+0200 (Mitteleuropäische Sommerzeit) | Port:3000
 Mon May 02 2016 18:42:06 GMT+0200 (Mitteleuropäische Sommerzeit) | Database connection successfully
+Tue May 03 2016 11:12:00 GMT+0200 (Mitteleuropäische Sommerzeit) | QFS WEB API started
+Tue May 03 2016 11:12:00 GMT+0200 (Mitteleuropäische Sommerzeit) | Environment:development
+Tue May 03 2016 11:12:00 GMT+0200 (Mitteleuropäische Sommerzeit) | Host:localhost
+Tue May 03 2016 11:12:00 GMT+0200 (Mitteleuropäische Sommerzeit) | Port:3000
+Tue May 03 2016 11:12:00 GMT+0200 (Mitteleuropäische Sommerzeit) | Database connection successfully
+Tue May 03 2016 11:12:01 GMT+0200 (Mitteleuropäische Sommerzeit) | User created successfully
+Tue May 03 2016 11:12:01 GMT+0200 (Mitteleuropäische Sommerzeit) | User created successfully
+Tue May 03 2016 11:12:01 GMT+0200 (Mitteleuropäische Sommerzeit) | User created successfully
+Tue May 03 2016 11:12:01 GMT+0200 (Mitteleuropäische Sommerzeit) | User created successfully
+Tue May 03 2016 11:27:31 GMT+0200 (Mitteleuropäische Sommerzeit) | QFS WEB API started
+Tue May 03 2016 11:27:31 GMT+0200 (Mitteleuropäische Sommerzeit) | Environment:development
+Tue May 03 2016 11:27:31 GMT+0200 (Mitteleuropäische Sommerzeit) | Host:localhost
+Tue May 03 2016 11:27:31 GMT+0200 (Mitteleuropäische Sommerzeit) | Port:3000
+Tue May 03 2016 11:27:31 GMT+0200 (Mitteleuropäische Sommerzeit) | Database connection successfully
+Tue May 03 2016 11:27:31 GMT+0200 (Mitteleuropäische Sommerzeit) | User created successfully
+Tue May 03 2016 11:27:31 GMT+0200 (Mitteleuropäische Sommerzeit) | User created successfully
+Tue May 03 2016 11:27:31 GMT+0200 (Mitteleuropäische Sommerzeit) | User created successfully
+Tue May 03 2016 11:27:31 GMT+0200 (Mitteleuropäische Sommerzeit) | User created successfully
+Tue May 03 2016 11:33:21 GMT+0200 (Mitteleuropäische Sommerzeit) | QFS WEB API started
+Tue May 03 2016 11:33:21 GMT+0200 (Mitteleuropäische Sommerzeit) | Environment:development
+Tue May 03 2016 11:33:21 GMT+0200 (Mitteleuropäische Sommerzeit) | Host:localhost
+Tue May 03 2016 11:33:21 GMT+0200 (Mitteleuropäische Sommerzeit) | Port:3000
+Tue May 03 2016 11:33:21 GMT+0200 (Mitteleuropäische Sommerzeit) | Database connection successfully
+Tue May 03 2016 11:35:54 GMT+0200 (Mitteleuropäische Sommerzeit) | QFS WEB API started
+Tue May 03 2016 11:35:54 GMT+0200 (Mitteleuropäische Sommerzeit) | Environment:development
+Tue May 03 2016 11:35:54 GMT+0200 (Mitteleuropäische Sommerzeit) | Port:3000
+Tue May 03 2016 11:35:54 GMT+0200 (Mitteleuropäische Sommerzeit) | Host:localhost
+Tue May 03 2016 11:35:54 GMT+0200 (Mitteleuropäische Sommerzeit) | Database connection successfully
+Tue May 03 2016 11:40:25 GMT+0200 (Mitteleuropäische Sommerzeit) | QFS WEB API started
+Tue May 03 2016 11:40:25 GMT+0200 (Mitteleuropäische Sommerzeit) | Environment:development
+Tue May 03 2016 11:40:25 GMT+0200 (Mitteleuropäische Sommerzeit) | Host:localhost
+Tue May 03 2016 11:40:25 GMT+0200 (Mitteleuropäische Sommerzeit) | Port:3000
+Tue May 03 2016 11:40:25 GMT+0200 (Mitteleuropäische Sommerzeit) | Database connection successfully
+Tue May 03 2016 11:40:25 GMT+0200 (Mitteleuropäische Sommerzeit) | User created successfully
+Tue May 03 2016 11:40:25 GMT+0200 (Mitteleuropäische Sommerzeit) | User created successfully
+Tue May 03 2016 11:40:25 GMT+0200 (Mitteleuropäische Sommerzeit) | User created successfully
+Tue May 03 2016 11:40:25 GMT+0200 (Mitteleuropäische Sommerzeit) | User created successfully

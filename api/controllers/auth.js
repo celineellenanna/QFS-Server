@@ -53,7 +53,9 @@ var controller = {
             password    : req.body.password,
             email       : req.body.email
         }, function(err, user) {
+            console.log(err);
             if(!user) {
+                console.log(err);
                 Log.error("User Registrierung fehlgeschlagen");
                 res.send({ "success" : false, "message" : "Registrierung ist fehlgeschlagen", "data" : null });
             } else {

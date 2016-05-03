@@ -28,10 +28,11 @@ var controller = {
         Quiz.findById(req.params.id)
             .populate('_opponentId')
             .populate('_challengerId')
-            .populate('_rounds')
+            .populate({path : '_rounds', model: 'Round', populate: {path: '_category', model: 'Category' , populate: {path : '_roundQuestions', model: 'RoundQuestion', populate: {path: '_question', model: 'Question', populate: {path: 'answers', model: 'Answer'}}}}})
             .exec(function(err, quiz) {
                 if(err) next(err);
                 if(quiz) {
+                    console.log(Quiz);
                     res.send({ "success" : true, "message" : "Quiz gefunden", data : quiz });
                 } else {
                     res.send({ "success" : false, "message" : "Quiz nicht gefunden", data : null });
