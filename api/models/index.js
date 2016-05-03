@@ -89,7 +89,7 @@ var questionSchema = mongoose.Schema({
     },
     _answers: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Question'
+        ref: 'Answer'
     }],
     _category : { 
         type: mongoose.Schema.Types.ObjectId, 
@@ -116,7 +116,7 @@ categorySchema.plugin(random, { path: 'r' });
 
 var userAnswerSchema = mongoose.Schema({
     timeToAnswer: {
-        type: Date,
+        type: Number,
         required: true
     },
     _answer: {

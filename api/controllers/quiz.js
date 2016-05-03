@@ -34,8 +34,6 @@ var controller = {
             .populate('_challenger')
             .populate({path: '_rounds', model: 'Round', populate: {path: '_category', model: 'Category', populate: {path: '_questions', model: 'Question', populate: {path: '_answers', model: 'Answer'}}}})
             .populate({path: '_rounds', model: 'Round', populate: {path: '_roundQuestion', model: 'RoundQuestion', populate: {path: '_question', model: 'Question', populate: {path: '_answers', model: 'Answer'}}}})
-            //{path : '_roundQuestions', model: 'RoundQuestion', populate: {path: '_question', model: 'Question', populate: {path: '_answers', model: 'Answer'}}}]})
-            //.populate({path: '_rounds', model: 'Round', populate: {path : '_roundQuestions', model: 'RoundQuestion', populate: {path: '_question', model: 'Question', populate: {path: '_answers', model: 'Answer'}}}})
             .exec(function(err, quiz) {
                 if(err) next(err);
                 if(quiz) {
@@ -183,16 +181,16 @@ var controller = {
     createUserAnswer: function (req, res, next) {
         UserAnswer.create({
             timeToAnswer: req.body.timeToAnswer,
-            _answer: req.body.answer,
-            _user: req.body.user
+            _answer: req.body.answerId,
+            _user: req.body.userId
         }).then(function(answer) {
-            RoundQuestion.findById(req.body.roundQuestion, function (err, roundQuestion) {
+            RoundQuestion.findById(req.body.roundQuestionId, function (err, roundQuestion) {
                 if (err) {
                     res.send({"success": false, "message": "UserAnswer nicht erstellt", data: null });
                 } else {
                     roundQuestion._userAnswers.push(answer._id);
                     roundQuestion.save();
-                    res.send({"success": true, "message": "UserAnswer erstellt", data: answer});
+                    res.send({"success": true, "message": "UserAnswer erstellt", data: null});
                 }
 
             });
