@@ -106,7 +106,6 @@ var categorySchema = mongoose.Schema({
         type: String,
         required: true
     },
-    
     _questions : [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Question'

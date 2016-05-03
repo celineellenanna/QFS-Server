@@ -133,7 +133,7 @@ var controller = {
                         round.save();
                         Quiz.findById(quizId, function(err, quiz) {
                             if(err) next(err);
-                            quiz.rounds.push(round._id);
+                            quiz._rounds.push(round._id);
                             quiz.save();
                             Round.findById(round._id)
                                 .populate('_category')
