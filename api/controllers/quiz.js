@@ -16,6 +16,8 @@ var controller = {
             Quiz.findOne(quiz)
                 .populate('_challenger')
                 .populate('_opponent')
+                .populate({path: '_rounds', model: 'Round', populate: {path: '_category', model: 'Category', populate: {path: '_questions', model: 'Question', populate: {path: '_answers', model: 'Answer'}}}})
+                .populate({path: '_rounds', model: 'Round', populate: {path: '_roundQuestion', model: 'RoundQuestion', populate: {path: '_question', model: 'Question', populate: {path: '_answers', model: 'Answer'}}}})
                 .exec(function(err, quiz) {
                     if (err) {
                         res.send({"success": false, "message": "Quiz nicht erstellt", data: null });
@@ -29,11 +31,14 @@ var controller = {
         Quiz.findById(req.params.id)
             .populate('_opponent')
             .populate('_challenger')
-            .populate({path : '_rounds', model: 'Round', populate: {path: '_category', model: 'Category' , populate: {path : '_roundQuestions', model: 'RoundQuestion', populate: {path: '_question', model: 'Question', populate: {path: '_answers', model: 'Answer'}}}}})
+            .populate({path: '_rounds', model: 'Round', populate: {path: '_category', model: 'Category', populate: {path: '_questions', model: 'Question', populate: {path: '_answers', model: 'Answer'}}}})
+            .populate({path: '_rounds', model: 'Round', populate: {path: '_roundQuestion', model: 'RoundQuestion', populate: {path: '_question', model: 'Question', populate: {path: '_answers', model: 'Answer'}}}})
+            //{path : '_roundQuestions', model: 'RoundQuestion', populate: {path: '_question', model: 'Question', populate: {path: '_answers', model: 'Answer'}}}]})
+            //.populate({path: '_rounds', model: 'Round', populate: {path : '_roundQuestions', model: 'RoundQuestion', populate: {path: '_question', model: 'Question', populate: {path: '_answers', model: 'Answer'}}}})
             .exec(function(err, quiz) {
                 if(err) next(err);
                 if(quiz) {
-                    console.log(Quiz);
+                    console.log(quiz);
                     res.send({ "success" : true, "message" : "Quiz gefunden", data : quiz });
                 } else {
                     res.send({ "success" : false, "message" : "Quiz nicht gefunden", data : null });
@@ -48,7 +53,10 @@ var controller = {
             ]
         })
         .populate('_challenger')
-        .populate('_opponent').exec(function(err, quizzes) {
+        .populate('_opponent')
+        .populate({path: '_rounds', model: 'Round', populate: {path: '_category', model: 'Category', populate: {path: '_questions', model: 'Question', populate: {path: '_answers', model: 'Answer'}}}})
+        .populate({path: '_rounds', model: 'Round', populate: {path: '_roundQuestion', model: 'RoundQuestion', populate: {path: '_question', model: 'Question', populate: {path: '_answers', model: 'Answer'}}}})
+        .exec(function(err, quizzes) {
             if(err) next(err);
             if (quizzes) {
                 res.send({ "success" : true, "message" : "Quizzes gefunden", data : quizzes });
@@ -67,13 +75,16 @@ var controller = {
                 ]
             })
             .populate('_challenger')
-            .populate('_opponent').exec(function(err, quizzes) {
-            if(err) next(err);
-            if (quizzes) {
-                res.send({ "success" : true, "message" : "Quizzes gefunden", data : quizzes });
-            } else {
-                res.send({ "success" : false, "message" : "Keine Quiz gefunden", data : null });
-            }
+            .populate('_opponent')
+            .populate({path: '_rounds', model: 'Round', populate: {path: '_category', model: 'Category', populate: {path: '_questions', model: 'Question', populate: {path: '_answers', model: 'Answer'}}}})
+            .populate({path: '_rounds', model: 'Round', populate: {path: '_roundQuestion', model: 'RoundQuestion', populate: {path: '_question', model: 'Question', populate: {path: '_answers', model: 'Answer'}}}})
+            .exec(function(err, quizzes) {
+                if(err) next(err);
+                if (quizzes) {
+                    res.send({ "success" : true, "message" : "Quizzes gefunden", data : quizzes });
+                } else {
+                    res.send({ "success" : false, "message" : "Keine Quiz gefunden", data : null });
+                }
         });
     },
     getFinished: function (req, res, next) {
@@ -86,13 +97,16 @@ var controller = {
                 ]
             })
             .populate('_challenger')
-            .populate('_opponent').exec(function(err, quizzes) {
-            if(err) next(err);
-            if (quizzes) {
-                res.send({ "success" : true, "message" : "Quizzes gefunden", data : quizzes });
-            } else {
-                res.send({ "success" : false, "message" : "Keine Quiz gefunden", data : null });
-            }
+            .populate('_opponent')
+            .populate({path: '_rounds', model: 'Round', populate: {path: '_category', model: 'Category', populate: {path: '_questions', model: 'Question', populate: {path: '_answers', model: 'Answer'}}}})
+            .populate({path: '_rounds', model: 'Round', populate: {path: '_roundQuestion', model: 'RoundQuestion', populate: {path: '_question', model: 'Question', populate: {path: '_answers', model: 'Answer'}}}})
+            .exec(function(err, quizzes) {
+                if(err) next(err);
+                if (quizzes) {
+                    res.send({ "success" : true, "message" : "Quizzes gefunden", data : quizzes });
+                } else {
+                    res.send({ "success" : false, "message" : "Keine Quiz gefunden", data : null });
+                }
         });
     },
     reject: function(req, res, next) {
