@@ -9,26 +9,27 @@ var RoundQuestion = require('../models/index').RoundQuestion;
 var controller = {
     create: function(req, res, next) {
         Quiz.create({
-            _challengerId: req.body.challengerId,
-            _opponentId: req.body.opponentId
+            _challenger: req.body.challengerId,
+            _opponent: req.body.opponentId
         }, function(err, quiz) {
+            if(err) next(err);
             Quiz.findOne(quiz)
-                .populate('_challengerId')
-                .populate('_opponentId')
+                .populate('_challenger')
+                .populate('_opponent')
                 .exec(function(err, quiz) {
                     if (err) {
                         res.send({"success": false, "message": "Quiz nicht erstellt", data: null });
                     } else {
                         res.send({"success": true, "message": "Quiz erstellt", data: quiz});
                     }
-             });
+                });
         });
     },
     get: function(req, res, next) {
         Quiz.findById(req.params.id)
-            .populate('_opponentId')
-            .populate('_challengerId')
-            .populate({path : '_rounds', model: 'Round', populate: {path: '_category', model: 'Category' , populate: {path : '_roundQuestions', model: 'RoundQuestion', populate: {path: '_question', model: 'Question', populate: {path: 'answers', model: 'Answer'}}}}})
+            .populate('_opponent')
+            .populate('_challenger')
+            .populate({path : '_rounds', model: 'Round', populate: {path: '_category', model: 'Category' , populate: {path : '_roundQuestions', model: 'RoundQuestion', populate: {path: '_question', model: 'Question', populate: {path: '_answers', model: 'Answer'}}}}})
             .exec(function(err, quiz) {
                 if(err) next(err);
                 if(quiz) {
@@ -42,12 +43,12 @@ var controller = {
     getOpen: function (req, res, next) {
         Quiz.find({
             $or: [
-                {_challengerId: req.params.id, status: 'Open'},
-                {_opponentId: req.params.id, status: 'Open'}
+                {_challenger: req.params.id, status: 'Open'},
+                {_opponent: req.params.id, status: 'Open'}
             ]
         })
-        .populate('_challengerId')
-        .populate('_opponentId').exec(function(err, quizzes) {
+        .populate('_challenger')
+        .populate('_opponent').exec(function(err, quizzes) {
             if(err) next(err);
             if (quizzes) {
                 res.send({ "success" : true, "message" : "Quizzes gefunden", data : quizzes });
@@ -59,14 +60,14 @@ var controller = {
     getRunning: function (req, res, next) {
         Quiz.find({
                 $or: [
-                    {_challengerId: req.params.id, status: 'WaitingForOpponent'},
-                    {_challengerId: req.params.id, status: 'WaitingForChallenger'},
-                    {_opponentId: req.params.id, status: 'WaitingForOpponent'},
-                    {_opponentId: req.params.id, status: 'WaitingForOpponent'}
+                    {_challenger: req.params.id, status: 'WaitingForOpponent'},
+                    {_challenger: req.params.id, status: 'WaitingForChallenger'},
+                    {_opponent: req.params.id, status: 'WaitingForOpponent'},
+                    {_opponent: req.params.id, status: 'WaitingForOpponent'}
                 ]
             })
-            .populate('_challengerId')
-            .populate('_opponentId').exec(function(err, quizzes) {
+            .populate('_challenger')
+            .populate('_opponent').exec(function(err, quizzes) {
             if(err) next(err);
             if (quizzes) {
                 res.send({ "success" : true, "message" : "Quizzes gefunden", data : quizzes });
@@ -78,14 +79,14 @@ var controller = {
     getFinished: function (req, res, next) {
         Quiz.find({
                 $or: [
-                    {_challengerId: req.params.id, status: 'Canceled'},
-                    {_opponentId: req.params.id, status: 'Canceled'},
-                    {_challengerId: req.params.id, status: 'Finished'},
-                    {_opponentId: req.params.id, status: 'Finished'}
+                    {_challenger: req.params.id, status: 'Canceled'},
+                    {_opponent: req.params.id, status: 'Canceled'},
+                    {_challenger: req.params.id, status: 'Finished'},
+                    {_opponent: req.params.id, status: 'Finished'}
                 ]
             })
-            .populate('_challengerId')
-            .populate('_opponentId').exec(function(err, quizzes) {
+            .populate('_challenger')
+            .populate('_opponent').exec(function(err, quizzes) {
             if(err) next(err);
             if (quizzes) {
                 res.send({ "success" : true, "message" : "Quizzes gefunden", data : quizzes });
@@ -136,9 +137,10 @@ var controller = {
                             quiz._rounds.push(round._id);
                             quiz.save();
                             Round.findById(round._id)
-                                .populate('_category')
-                                .populate({path : '_roundQuestions', model: 'RoundQuestion', populate: {path: '_question', model: 'Question', populate: {path: 'answers', model: 'Answer'}}})
+                                .populate({path: '_category', model: 'Category', populate: {path: '_questions', model: 'Question', populate: {path: '_answers', model: 'Answer'}}})
+                                .populate({path: '_roundQuestions', model: 'RoundQuestion', populate: {path: '_userAnswers', model: 'UserAnswers', populate: {path: '_answer', model: 'answer'}, populate: {path: '_user', model: 'User'}}, populate: {path: '_question', model: 'Question', populate: {path: '_answers', model: 'Answer'}}})
                                 .exec(function(err, round) {
+                                    console.log(round);
                                     res.send({"success": true, "message": "Runde gestartet", data: round});
                             });
                         });
@@ -147,15 +149,18 @@ var controller = {
         });
     },
     getCategories: function (req, res, next) {
-        Category.findRandom().limit(3).exec(function (err, categories) {
-            res.send({ "success" : true, "message" : "3 Kategorien", data: categories});
-
-        });
+        Category.findRandom()
+            .limit(3)
+            .populate({path: '_questions', model: 'Question', populate: {path: '_answers', model: 'Answer'}})
+            .exec(function (err, categories) {
+                console.log(categories);
+                res.send({ "success" : true, "message" : "3 Kategorien", data: categories});
+            });
     },
     getRound: function (req, res, next) {
         Round.findById(req.params.id)
-            .populate('_category')
-            .populate({path : '_roundQuestions', model: 'RoundQuestion', populate: {path: '_question', model: 'Question', populate: {path: 'answers', model: 'Answer'}}})
+            .populate({path: '_category', model: 'Category', populate: {path: '_questions', model: 'Question', populate: {path: '_answers', model: 'Answer'}}})
+            .populate({path : '_roundQuestions', model: 'RoundQuestion', populate: {path: '_question', model: 'Question', populate: {path: '_answers', model: 'Answer'}}})
             .exec(function(err, round){
                 res.send({ "success" : true, "message" : "Runde gefunden", data: round });
             });

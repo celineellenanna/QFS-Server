@@ -3394,3 +3394,67 @@ Tue May 03 2016 12:01:11 GMT+0200 (CEST) | User created successfully
 Tue May 03 2016 12:01:11 GMT+0200 (CEST) | User created successfully
 Tue May 03 2016 12:01:11 GMT+0200 (CEST) | User created successfully
 Tue May 03 2016 12:01:11 GMT+0200 (CEST) | User created successfully
+Tue May 03 2016 12:12:45 GMT+0200 (CEST) | QFS WEB API started
+Tue May 03 2016 12:12:45 GMT+0200 (CEST) | Environment:development
+Tue May 03 2016 12:12:45 GMT+0200 (CEST) | Port:3000
+Tue May 03 2016 12:12:45 GMT+0200 (CEST) | Host:localhost
+Tue May 03 2016 12:12:45 GMT+0200 (CEST) | Database connection successfully
+Tue May 03 2016 12:12:45 GMT+0200 (CEST) | User created successfully
+Tue May 03 2016 12:12:45 GMT+0200 (CEST) | User created successfully
+Tue May 03 2016 12:12:45 GMT+0200 (CEST) | User created successfully
+Tue May 03 2016 12:12:45 GMT+0200 (CEST) | User created successfully
+Tue May 03 2016 12:13:40 GMT+0200 (CEST) | QFS WEB API started
+Tue May 03 2016 12:13:40 GMT+0200 (CEST) | Environment:development
+Tue May 03 2016 12:13:40 GMT+0200 (CEST) | Host:localhost
+Tue May 03 2016 12:13:40 GMT+0200 (CEST) | Port:3000
+Tue May 03 2016 12:13:40 GMT+0200 (CEST) | Database connection successfully
+Tue May 03 2016 12:18:35 GMT+0200 (CEST) | QFS WEB API started
+Tue May 03 2016 12:18:35 GMT+0200 (CEST) | Environment:development
+Tue May 03 2016 12:18:35 GMT+0200 (CEST) | Host:localhost
+Tue May 03 2016 12:18:35 GMT+0200 (CEST) | Port:3000
+Tue May 03 2016 12:18:35 GMT+0200 (CEST) | Database connection successfully
+Tue May 03 2016 12:20:31 GMT+0200 (CEST) | QFS WEB API started
+Tue May 03 2016 12:20:31 GMT+0200 (CEST) | Environment:development
+Tue May 03 2016 12:20:31 GMT+0200 (CEST) | Port:3000
+Tue May 03 2016 12:20:31 GMT+0200 (CEST) | Host:localhost
+Tue May 03 2016 12:20:31 GMT+0200 (CEST) | Database connection successfully
+Tue May 03 2016 12:21:22 GMT+0200 (CEST) | QFS WEB API started
+Tue May 03 2016 12:21:22 GMT+0200 (CEST) | Environment:development
+Tue May 03 2016 12:21:22 GMT+0200 (CEST) | Host:localhost
+Tue May 03 2016 12:21:22 GMT+0200 (CEST) | Port:3000
+Tue May 03 2016 12:21:22 GMT+0200 (CEST) | Database connection successfully
+Tue May 03 2016 12:21:44 GMT+0200 (CEST) | QFS WEB API started
+Tue May 03 2016 12:21:44 GMT+0200 (CEST) | Environment:development
+Tue May 03 2016 12:21:44 GMT+0200 (CEST) | Host:localhost
+Tue May 03 2016 12:21:44 GMT+0200 (CEST) | Port:3000
+Tue May 03 2016 12:21:44 GMT+0200 (CEST) | Database connection successfully
+Tue May 03 2016 12:29:12 GMT+0200 (CEST) | QFS WEB API started
+Tue May 03 2016 12:29:12 GMT+0200 (CEST) | Environment:development
+Tue May 03 2016 12:29:12 GMT+0200 (CEST) | Host:localhost
+Tue May 03 2016 12:29:12 GMT+0200 (CEST) | Port:3000
+Tue May 03 2016 12:29:12 GMT+0200 (CEST) | Database connection successfully
+Tue May 03 2016 12:32:04 GMT+0200 (CEST) | QFS WEB API started
+Tue May 03 2016 12:32:04 GMT+0200 (CEST) | Environment:development
+Tue May 03 2016 12:32:04 GMT+0200 (CEST) | Host:localhost
+Tue May 03 2016 12:32:04 GMT+0200 (CEST) | Port:3000
+Tue May 03 2016 12:32:04 GMT+0200 (CEST) | Database connection successfully
+Tue May 03 2016 12:32:24 GMT+0200 (CEST) | QFS WEB API started
+Tue May 03 2016 12:32:24 GMT+0200 (CEST) | Environment:development
+Tue May 03 2016 12:32:24 GMT+0200 (CEST) | Host:localhost
+Tue May 03 2016 12:32:24 GMT+0200 (CEST) | Port:3000
+Tue May 03 2016 12:32:24 GMT+0200 (CEST) | Database connection successfully
+Tue May 03 2016 12:34:58 GMT+0200 (CEST) | QFS WEB API started
+Tue May 03 2016 12:34:58 GMT+0200 (CEST) | Environment:development
+Tue May 03 2016 12:34:58 GMT+0200 (CEST) | Host:localhost
+Tue May 03 2016 12:34:58 GMT+0200 (CEST) | Port:3000
+Tue May 03 2016 12:34:58 GMT+0200 (CEST) | Database connection successfully
+Tue May 03 2016 12:36:50 GMT+0200 (CEST) | QFS WEB API started
+Tue May 03 2016 12:36:50 GMT+0200 (CEST) | Environment:development
+Tue May 03 2016 12:36:50 GMT+0200 (CEST) | Host:localhost
+Tue May 03 2016 12:36:50 GMT+0200 (CEST) | Port:3000
+Tue May 03 2016 12:36:50 GMT+0200 (CEST) | Database connection successfully
+Tue May 03 2016 12:37:26 GMT+0200 (CEST) | QFS WEB API started
+Tue May 03 2016 12:37:26 GMT+0200 (CEST) | Environment:development
+Tue May 03 2016 12:37:26 GMT+0200 (CEST) | Host:localhost
+Tue May 03 2016 12:37:26 GMT+0200 (CEST) | Port:3000
+Tue May 03 2016 12:37:26 GMT+0200 (CEST) | Database connection successfully
