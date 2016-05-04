@@ -6,6 +6,8 @@ var Question = require('../models/index').Question;
 var Round = require('../models/index').Round;
 var RoundQuestion = require('../models/index').RoundQuestion;
 var UserAnswer = require('../models/index').UserAnswer;
+var fs = require('fs');
+
 
 var controller = {
     create: function(req, res, next) {
@@ -17,8 +19,24 @@ var controller = {
             Quiz.findOne(quiz)
                 .populate('_challenger')
                 .populate('_opponent')
-                .populate({path: '_rounds', model: 'Round', populate: {path: '_category', model: 'Category', populate: {path: '_questions', model: 'Question', populate: {path: '_answers', model: 'Answer'}}}})
-                .populate({path: '_rounds', model: 'Round', populate: {path: '_roundQuestion', model: 'RoundQuestion', populate: {path: '_question', model: 'Question', populate: {path: '_answers', model: 'Answer'}}}})
+                .populate({path: '_rounds', model: 'Round',
+                    populate: {path: '_category', model: 'Category',
+                        populate: {path: '_questions', model: 'Question',
+                            populate: {path: '_answers', model: 'Answer'}
+                        }
+                    }
+                })
+                .populate({path: '_rounds', model: 'Round',
+                    populate: {path: '_roundQuestions', model: 'RoundQuestion',
+                        populate: {path: '_question', model: 'Question',
+                            populate: {path: '_answers', model: 'Answer'}
+                        },
+                        populate: {path: '_userAnswers', model: 'UserAnswer',
+                            populate: {path: '_user', model: 'User'},
+                            populate: {path: '_answer', model: 'Answer'}
+                        }
+                    }
+                })
                 .exec(function(err, quiz) {
                     if (err) {
                         res.send({"success": false, "message": "Quiz nicht erstellt", data: null });
@@ -32,12 +50,25 @@ var controller = {
         Quiz.findById(req.params.id)
             .populate('_opponent')
             .populate('_challenger')
-            .populate({path: '_rounds', model: 'Round', populate: {path: '_category', model: 'Category', populate: {path: '_questions', model: 'Question', populate: {path: '_answers', model: 'Answer'}}}})
-            .populate({path: '_rounds', model: 'Round', populate: {path: '_roundQuestion', model: 'RoundQuestion', populate: {path: '_question', model: 'Question', populate: {path: '_answers', model: 'Answer'}}}})
+            .populate({path: '_rounds', model: 'Round',
+                populate: {path: '_category', model: 'Category',
+                    populate: {path: '_questions', model: 'Question',
+                        populate: {path: '_answers', model: 'Answer'}
+                    }
+                }
+            })
+            .populate({path: '_rounds', model: 'Round',
+                populate: {path: '_roundQuestions', model: 'RoundQuestion',
+                    populate: {path: '_question', model: 'Question',
+                        populate: {path: '_answers', model: 'Answer'}
+                    },
+                    populate: {path: '_userAnswers', model: 'UserAnswer',
+                        populate: {path: '_user', model: 'User'},
+                        populate: {path: '_answer', model: 'Answer'}
+            }}})
             .exec(function(err, quiz) {
                 if(err) next(err);
                 if(quiz) {
-                    console.log(quiz);
                     res.send({ "success" : true, "message" : "Quiz gefunden", data : quiz });
                 } else {
                     res.send({ "success" : false, "message" : "Quiz nicht gefunden", data : null });
@@ -53,8 +84,22 @@ var controller = {
         })
         .populate('_challenger')
         .populate('_opponent')
-        .populate({path: '_rounds', model: 'Round', populate: {path: '_category', model: 'Category', populate: {path: '_questions', model: 'Question', populate: {path: '_answers', model: 'Answer'}}}})
-        .populate({path: '_rounds', model: 'Round', populate: {path: '_roundQuestion', model: 'RoundQuestion', populate: {path: '_question', model: 'Question', populate: {path: '_answers', model: 'Answer'}}}})
+        .populate({path: '_rounds', model: 'Round',
+            populate: {path: '_category', model: 'Category',
+                populate: {path: '_questions', model: 'Question',
+                    populate: {path: '_answers', model: 'Answer'}
+                }
+            }
+        })
+        .populate({path: '_rounds', model: 'Round',
+            populate: {path: '_roundQuestions', model: 'RoundQuestion',
+                populate: {path: '_question', model: 'Question',
+                    populate: {path: '_answers', model: 'Answer'}
+                },
+                populate: {path: '_userAnswers', model: 'UserAnswer',
+                    populate: {path: '_user', model: 'User'},
+                    populate: {path: '_answer', model: 'Answer'}
+                }}})
         .exec(function(err, quizzes) {
             if(err) next(err);
             if (quizzes) {
@@ -75,8 +120,22 @@ var controller = {
             })
             .populate('_challenger')
             .populate('_opponent')
-            .populate({path: '_rounds', model: 'Round', populate: {path: '_category', model: 'Category', populate: {path: '_questions', model: 'Question', populate: {path: '_answers', model: 'Answer'}}}})
-            .populate({path: '_rounds', model: 'Round', populate: {path: '_roundQuestion', model: 'RoundQuestion', populate: {path: '_question', model: 'Question', populate: {path: '_answers', model: 'Answer'}}}})
+            .populate({path: '_rounds', model: 'Round',
+                populate: {path: '_category', model: 'Category',
+                    populate: {path: '_questions', model: 'Question',
+                        populate: {path: '_answers', model: 'Answer'}
+                    }
+                }
+            })
+            .populate({path: '_rounds', model: 'Round',
+                populate: {path: '_roundQuestions', model: 'RoundQuestion',
+                    populate: {path: '_question', model: 'Question',
+                        populate: {path: '_answers', model: 'Answer'}
+                    },
+                    populate: {path: '_userAnswers', model: 'UserAnswer',
+                        populate: {path: '_user', model: 'User'},
+                        populate: {path: '_answer', model: 'Answer'}
+            }}})
             .exec(function(err, quizzes) {
                 if(err) next(err);
                 if (quizzes) {
@@ -97,8 +156,22 @@ var controller = {
             })
             .populate('_challenger')
             .populate('_opponent')
-            .populate({path: '_rounds', model: 'Round', populate: {path: '_category', model: 'Category', populate: {path: '_questions', model: 'Question', populate: {path: '_answers', model: 'Answer'}}}})
-            .populate({path: '_rounds', model: 'Round', populate: {path: '_roundQuestion', model: 'RoundQuestion', populate: {path: '_question', model: 'Question', populate: {path: '_answers', model: 'Answer'}}}})
+            .populate({path: '_rounds', model: 'Round',
+                populate: {path: '_category', model: 'Category',
+                    populate: {path: '_questions', model: 'Question',
+                        populate: {path: '_answers', model: 'Answer'}
+                    }
+                }
+            })
+            .populate({path: '_rounds', model: 'Round',
+                populate: {path: '_roundQuestions', model: 'RoundQuestion',
+                    populate: {path: '_question', model: 'Question',
+                        populate: {path: '_answers', model: 'Answer'}
+                    },
+                    populate: {path: '_userAnswers', model: 'UserAnswer',
+                        populate: {path: '_user', model: 'User'},
+                        populate: {path: '_answer', model: 'Answer'}
+            }}})
             .exec(function(err, quizzes) {
                 if(err) next(err);
                 if (quizzes) {
@@ -132,50 +205,104 @@ var controller = {
         Round.create({
             _category: categoryId
         }).then(function(round) {
-            Question.findRandom({ _category: categoryId })
-                .limit(3).exec(function (err, questions) {
-                    async.forEachOf(questions, function(question, index, cb) {
-                        RoundQuestion.create({
-                            sequenceNo: increment++,
-                            _question: question._id
-                        }, function(err, roundQuestion) {
-                            round._roundQuestions.push(roundQuestion._id);
-                        }).then(function(err) {
-                            cb();
-                        });
-                    }, function(err) {
-                        round.save();
-                        Quiz.findById(quizId, function(err, quiz) {
-                            if(err) next(err);
-                            quiz._rounds.push(round._id);
-                            quiz.save();
-                            Round.findById(round._id)
-                                .populate({path: '_category', model: 'Category', populate: {path: '_questions', model: 'Question', populate: {path: '_answers', model: 'Answer'}}})
-                                .populate({path: '_roundQuestions', model: 'RoundQuestion', populate: {path: '_userAnswers', model: 'UserAnswers', populate: {path: '_answer', model: 'answer'}, populate: {path: '_user', model: 'User'}}, populate: {path: '_question', model: 'Question', populate: {path: '_answers', model: 'Answer'}}})
-                                .exec(function(err, round) {
-                                    console.log(round);
-                                    res.send({"success": true, "message": "Runde gestartet", data: round});
+            Category.find(categoryId)
+                .exec(function(err, category) {
+                    Question.findRandom(category._questions)
+                        .limit(3)
+                        .exec(function(err, questions) {
+                            async.forEachOf(questions, function(question, index, cb) {
+                                RoundQuestion.create({
+                                    sequenceNo: increment++,
+                                    _question: question._id
+                                }, function(err, roundQuestion) {
+                                    round._roundQuestions.push(roundQuestion._id);
+                                }).then(function(err) {
+                                    cb();
+                                });
+                            }, function(err) {
+                                round.save();
+                                Quiz.findById(quizId, function(err, quiz) {
+                                    quiz._rounds.push(round._id);
+                                    quiz.save();
+                                    Round.findById(round._id)
+                                        .populate({path: '_category', model: 'Category',
+                                            populate: {path: '_questions', model: 'Question',
+                                                populate: {path: '_answers', model: 'Answer'}
+                                            }
+                                        })
+                                        .exec(function(err, round) {
+                                            var populateOptions = {path: '_roundQuestions', model: 'RoundQuestion',
+                                                populate: {path: '_question', model: 'Question',
+                                                    populate: {path: '_answers', model: 'Answer'}
+                                                }
+                                            };
+
+                                            Round.populate(round, populateOptions,function(err, round) {
+                                                var outputFilename = 'createRound.json';
+
+                                                fs.writeFile(outputFilename, JSON.stringify(round, null, 4), function(err) {
+                                                    if(err) {
+                                                        console.log(err);
+                                                    } else {
+                                                        console.log("JSON saved to " + outputFilename);
+                                                    }
+                                                });
+                                                res.send({"success": true, "message": "Runde gestartet", data: round});
+                                            })
+                                        });
+                                });
                             });
                         });
-                    });
                 });
         });
     },
     getCategories: function (req, res, next) {
         Category.findRandom()
             .limit(3)
-            .populate({path: '_questions', model: 'Question', populate: {path: '_answers', model: 'Answer'}})
+            .populate({path: '_questions', model: 'Question',
+                populate: {path: '_answers', model: 'Answer'}
+            })
             .exec(function (err, categories) {
-                console.log(categories);
                 res.send({ "success" : true, "message" : "3 Kategorien", data: categories});
             });
     },
     getRound: function (req, res, next) {
         Round.findById(req.params.id)
-            .populate({path: '_category', model: 'Category', populate: {path: '_questions', model: 'Question', populate: {path: '_answers', model: 'Answer'}}})
-            .populate({path : '_roundQuestions', model: 'RoundQuestion', populate: {path: '_question', model: 'Question', populate: {path: '_answers', model: 'Answer'}}})
-            .exec(function(err, round){
-                res.send({ "success" : true, "message" : "Runde gefunden", data: round });
+            .populate({path: '_category', model: 'Category',
+                populate: {path: '_questions', model: 'Question',
+                    populate: {path: '_answers', model: 'Answer'}
+                }
+            })
+            .exec(function(err, round) {
+                var populateOptions = {path: '_roundQuestions', model: 'RoundQuestion',
+                    populate: {path: '_question', model: 'Question',
+                        populate: {path: '_answers', model: 'Answer'}
+                    }
+                };
+
+/*
+Round.populate(round, populateOptions, function(err, roundPopulate) {
+var populateOptions = {path: '_roundQuestions', model: 'RoundQuestion',
+    populate: {path: '_userAnswers', model: 'UserAnswer',
+        populate: {path: '_answers', model: 'Answer'},
+        populate: {path: '_user', model: 'User'}
+    }
+};
+*/
+
+                Round.populate(round, populateOptions, function(err, roundPopulate) {
+                    var outputFilename = 'getRound.json';
+
+                    fs.writeFile(outputFilename, JSON.stringify(roundPopulate, null, 4), function(err) {
+                        if(err) {
+                            console.log(err);
+                        } else {
+                            console.log("JSON saved to " + outputFilename);
+                        }
+                    });
+                    res.send({ "success" : true, "message" : "Runde gefunden", data: roundPopulate });
+               // });
+            });
             });
     },
     createUserAnswer: function (req, res, next) {
@@ -183,20 +310,19 @@ var controller = {
             timeToAnswer: req.body.timeToAnswer,
             _answer: req.body.answerId,
             _user: req.body.userId
-        }).then(function(answer) {
+        }).then(function(userAnswer) {
             RoundQuestion.findById(req.body.roundQuestionId, function (err, roundQuestion) {
                 if (err) {
                     res.send({"success": false, "message": "UserAnswer nicht erstellt", data: null });
                 } else {
-                    roundQuestion._userAnswers.push(answer._id);
+                    roundQuestion._userAnswers.push(userAnswer._id);
                     roundQuestion.save();
                     res.send({"success": true, "message": "UserAnswer erstellt", data: null});
                 }
 
             });
         });
-    }
-    
+    },
 };
 
 module.exports = controller;

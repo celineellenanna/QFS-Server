@@ -70,11 +70,12 @@ var answerSchema = mongoose.Schema({
     },
     correct: {
         type: Boolean
-    },
+    }
+    /*,
     _question : {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Question'
-    }
+    }*/
 });
 
 var questionSchema = mongoose.Schema({
@@ -90,13 +91,23 @@ var questionSchema = mongoose.Schema({
     _answers: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Answer'
-    }],
-    _category : { 
-        type: mongoose.Schema.Types.ObjectId, 
-        ref: 'Category' 
-    }
-
+    }]
+    /*,
+    _category : {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Category'
+    }*/
 });
+
+questionSchema.statics.random = function(callback) {
+    this.count(function(err, count) {
+        if (err) {
+            return callback(err);
+        }
+        var rand = Math.floor(Math.random() * count);
+        this.findOne().skip(rand).exec(callback);
+    }.bind(this));
+};
 
 questionSchema.plugin(random, { path: 'r' });
 

@@ -10,8 +10,8 @@ router.get('/round/:id', quizController.getRound);
 router.get('/category', quizController.getCategories);
 router.post('/accept', quizController.accept);
 router.post('/reject', quizController.reject);
-router.get('/:id', quizController.get);
-router.post('/round/answer', quizController.createUserAnswer);
+router.post('/round/userAnswer', quizController.createUserAnswer);
 router.post('/round/', quizController.createRound);
+router.get('/:id', quizController.get);
 
 module.exports = router;
