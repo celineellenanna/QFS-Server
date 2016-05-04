@@ -71,11 +71,6 @@ var answerSchema = mongoose.Schema({
     correct: {
         type: Boolean
     }
-    /*,
-    _question : {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Question'
-    }*/
 });
 
 var questionSchema = mongoose.Schema({
@@ -92,11 +87,6 @@ var questionSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Answer'
     }]
-    /*,
-    _category : {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Category'
-    }*/
 });
 
 questionSchema.statics.random = function(callback) {
@@ -130,10 +120,13 @@ var userAnswerSchema = mongoose.Schema({
         type: Number,
         required: true
     },
+    status: {
+        type: Boolean,
+        required: true
+    },
     _answer: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Answer',
-        required: true
+        ref: 'Answer'
     },
     _user: {
         type: mongoose.Schema.Types.ObjectId,

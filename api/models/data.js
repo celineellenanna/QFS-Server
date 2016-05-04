@@ -3,7 +3,7 @@ var Log = require('../logs/index');
 module.exports = function(db, User, Quiz, Category, Question, Answer) {
 
     db.once('open', function() {
-        Log.info('Database connection successfully');
+        Log.info('Database connected successfully');
         User.create({
             firstname   : 'firstname_user0',
             lastname    : 'lastname_user0',
