@@ -32,8 +32,8 @@ var controller = {
                         $and: [
                             {
                                 $or: [
-                                    {_challengerId: req.params.id, _opponentId: user._id},
-                                    {_challengerId: user._id, _opponentId: req.params.id}
+                                    {_challenger: req.params.id, _opponent: user._id},
+                                    {_challenger: user._id, _opponent: req.params.id}
                                 ]
                             },
                             {
@@ -48,6 +48,7 @@ var controller = {
                         if (quiz) {
                             users.splice(users.indexOf(user), 1);
                         }
+                    }).then(function() {
                         cb();
                     });
                 }, function(err) {

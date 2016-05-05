@@ -232,59 +232,123 @@ var controller = {
         Round.findById(req.params.id)
             .populate(populateOptionsRound)
             .exec(function(err, round) {
-                var outputFilename = 'getRound.json';
-                fs.writeFile(outputFilename, JSON.stringify(round, null, 4), function(err) {
-                    if(err) {
-                        res.send({ "success" : false, "message" : "Error", data: null });
-                    } else {
-                        res.send({ "success" : true, "message" : "Runde gefunden", data: round });
-                    }
-                });
+                res.send({ "success" : true, "message" : "Runde gefunden", data: round });
             });
     },
     createUserAnswer: function (req, res, next) {
+        var quizId = req.body.quizId;
+        var roundId = req.body.roundId;
+        var roundQuestionId = req.body.roundQuestionId;
+
         UserAnswer.create({
             timeToAnswer: req.body.timeToAnswer,
             status: req.body.status,
             _answer: req.body.answerId,
             _user: req.body.userId
         }, function(err, userAnswer) {
-            RoundQuestion.findById(req.body.roundQuestionId)
+            RoundQuestion.findById(roundQuestionId)
                 .then(function (roundQuestion) {
                     if (err) console.log(err);
                     roundQuestion._userAnswers.push(userAnswer._id);
                     roundQuestion.save();
 
-                    res.send({"success": true, "message": "UserAnswer erstellt", data: null});
+                    finshRound(quizId, roundId, function(success, message, data) {
+                        var outputFilename = 'getQuizNormal.json';
+                        Quiz.findById(quizId)
+                            .populate(populateOptionsQuiz)
+                            .exec(function(err, quiz) {
+                                fs.writeFile(outputFilename, JSON.stringify(quiz, null, 4), function(err) {
+                                    if(err) {
+                                        console.log(err);
+                                    } else {
+                                        res.send({"success": success, "message": message, data: quiz});
+                                    }
+                                });
+                        });
+                    });
                 });
         });
     },
     createUserAnswerTimeElapsed: function (req, res, next) {
+        var quizId = req.body.quizId;
+        var roundId = req.body.roundId;
+        var roundQuestionId = req.body.roundQuestionId;
+
         UserAnswer.create({
             timeToAnswer: req.body.timeToAnswer,
             status: false,
             _user: req.body.userId
         }, function(err, userAnswer) {
-            RoundQuestion.findById(req.body.roundQuestionId)
+            RoundQuestion.findById(roundQuestionId)
                 .then(function (roundQuestion) {
                     if (err) console.log(err);
                     roundQuestion._userAnswers.push(userAnswer._id);
                     roundQuestion.save();
 
-                    res.send({"success": true, "message": "UserAnswer erstellt", data: null});
+                    finshRound(quizId, roundId, function(success, message, data) {
+                        var outputFilename = 'getQuizTimeElapsed.json';
+                        Quiz.findById(quizId)
+                            .populate(populateOptionsQuiz)
+                            .exec(function(err, quiz) {
+                                fs.writeFile(outputFilename, JSON.stringify(quiz, null, 4), function(err) {
+                                    if(err) {
+                                        console.log(err);
+                                    } else {
+                                        res.send({"success": success, "message": message, data: quiz});
+                                    }
+                                });
+                        });
+                    });
                 });
-        });
-    },
-    test: function (req, res, next) {
-        Quiz.find({
-            _id: "572a6d28026586ea6a7e7f4a",
-            _rounds: "572a6df29cce12096bae5601",
-            "_rounds._roundQuestions": "572a6df29cce12096bae5602"
-            //"_rounds._roundQuestions._userAnswers._user": "572a6d16026586ea6a7e7e16"
-        }, function(err, docs){
-            res.send(docs);
         });
     }
 };
+
+function finshRound(quizId, roundId, cb) {
+    var countAnswers = 0;
+
+    Round.findById(roundId)
+        .populate(populateOptionsRound)
+        .exec(function(err, round) {
+            async.forEachOf(round._roundQuestions, function(roundQuestion, index, cb0) {
+                async.forEachOf(roundQuestion._userAnswers, function(userAnswer, index, cb1) {
+                    countAnswers++;
+                    cb1();
+                }, function(err) {
+                    cb0();
+                });
+            }, function(err) {
+                if(countAnswers == 3) {
+                    changeQuizStatusForPlayer(quizId, function() {
+                        cb(true, "QuizStatusForPlayer changed", null);
+                    });
+                } else if(countAnswers == 6) {
+                    changeQuizStatusForFinished(quizId, function() {
+                        cb(true, "QuizStatusForFinished changed", null)
+                    });
+                } else {
+                    cb(true, "Nothing done", null);
+                }
+            });
+        });
+}
+
+function changeQuizStatusForPlayer(quizId) {
+    Quiz.findById(quizId, function (err, quiz) {
+        if(quiz.status == 'WaitingForOpponent') {
+            quiz.status = 'WaitingForChallenger';
+        } else {
+            quiz.status = 'WaitingForOpponent';
+        }
+        quiz.save();
+    });
+}
+
+function changeQuizStatusForFinished(quizId) {
+    Quiz.findById(quizId, function (err, quiz) {
+        quiz.status = "Finished";
+        quiz.save();
+    });
+}
 
 module.exports = controller;

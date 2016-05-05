@@ -12,7 +12,6 @@ router.post('/accept', quizController.accept);
 router.post('/reject', quizController.reject);
 router.post('/round/userAnswer', quizController.createUserAnswer);
 router.post('/round/userAnswerTimeElapsed', quizController.createUserAnswerTimeElapsed);
-router.get('/test', quizController.test);
 router.post('/round/', quizController.createRound);
 router.get('/:id', quizController.get);
 
