@@ -149,6 +149,8 @@ var roundQuestionSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'UserAnswer'
     }]
+}, {
+    timestamps : true
 });
 
 var roundSchema = mongoose.Schema({

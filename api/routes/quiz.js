@@ -8,6 +8,7 @@ router.get('/running/:id', quizController.getRunning);
 router.get('/finished/:id', quizController.getFinished);
 router.get('/round/:id', quizController.getRound);
 router.get('/category', quizController.getCategories);
+router.get('/round/getFinishedAnswerCount/:quizId', quizController.getFinishedAnswerCount);
 router.post('/accept', quizController.accept);
 router.post('/reject', quizController.reject);
 router.post('/round/userAnswer', quizController.createUserAnswer);

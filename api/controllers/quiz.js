@@ -49,6 +49,20 @@ var populateOptionsQuiz = [
     }
 ]
 
+var populateOptionsQuizRoundQuestions =  {
+    path: '_rounds',
+    populate: {
+            path: '_roundQuestions',
+            populate: {
+                    path: '_userAnswers',
+                    populate: [
+                        {path: '_user'},
+                        {path: '_answer'}
+                    ]
+            }
+    }
+}
+
 var populateOptionsRound = [
     {
         path:'_category',
@@ -76,6 +90,17 @@ var populateOptionsRound = [
         ]
     }
 ]
+
+var populateOptionsRoundRoundQuestions = {
+    path: '_roundQuestions',
+    populate: {
+        path: '_userAnswers',
+        populate: [
+            {path: '_user'},
+            {path: '_answer'}
+        ]
+    }
+}
 
 
 var controller = {
@@ -131,7 +156,7 @@ var controller = {
                     {_challenger: req.params.id, status: 'WaitingForOpponent'},
                     {_challenger: req.params.id, status: 'WaitingForChallenger'},
                     {_opponent: req.params.id, status: 'WaitingForOpponent'},
-                    {_opponent: req.params.id, status: 'WaitingForOpponent'}
+                    {_opponent: req.params.id, status: 'WaitingForChallenger'}
                 ]
             })
             .populate(populateOptionsQuiz)
@@ -238,7 +263,7 @@ var controller = {
     createUserAnswer: function (req, res, next) {
         var quizId = req.body.quizId;
         var roundId = req.body.roundId;
-        var roundQuestionId = req.body.roundQuestionId;
+        var roundQuestionId = req.body.roundQuestionId;;
 
         UserAnswer.create({
             timeToAnswer: req.body.timeToAnswer,
@@ -252,19 +277,8 @@ var controller = {
                     roundQuestion._userAnswers.push(userAnswer._id);
                     roundQuestion.save();
 
-                    finshRound(quizId, roundId, function(success, message, data) {
-                        var outputFilename = 'getQuizNormal.json';
-                        Quiz.findById(quizId)
-                            .populate(populateOptionsQuiz)
-                            .exec(function(err, quiz) {
-                                fs.writeFile(outputFilename, JSON.stringify(quiz, null, 4), function(err) {
-                                    if(err) {
-                                        console.log(err);
-                                    } else {
-                                        res.send({"success": success, "message": message, data: quiz});
-                                    }
-                                });
-                        });
+                    changeQuizStatus(quizId, function(success, message) {
+                        res.send({"success": success, "message": message, data: null});
                     });
                 });
         });
@@ -285,69 +299,109 @@ var controller = {
                     roundQuestion._userAnswers.push(userAnswer._id);
                     roundQuestion.save();
 
-                    finshRound(quizId, roundId, function(success, message, data) {
-                        var outputFilename = 'getQuizTimeElapsed.json';
-                        Quiz.findById(quizId)
-                            .populate(populateOptionsQuiz)
-                            .exec(function(err, quiz) {
-                                fs.writeFile(outputFilename, JSON.stringify(quiz, null, 4), function(err) {
-                                    if(err) {
-                                        console.log(err);
-                                    } else {
-                                        res.send({"success": success, "message": message, data: quiz});
-                                    }
-                                });
-                        });
+                    changeQuizStatus(quizId, function(success, message, data) {
+                        res.send({"success": success, "message": message, data: null});
                     });
                 });
+        });
+    },
+    getFinishedAnswerCount: function(req, res, next) {
+        var quizId = req.params.quizId;
+
+        /*Quiz.findById(quizId)
+            .populate(populateOptionsQuizRoundQuestions)
+            .exec(function (err, quiz) {
+                if(quiz._rounds.length === 0) {
+                    res.send({"success": true, message: "Noch keine Antworten", data: "0"});
+                } else {
+                    var round = quiz._rounds[quiz._rounds.length - 1];
+                    Round.findById(round._id)
+                        .populate(populateOptionsRoundRoundQuestions)
+                        .then(function(round) {
+                            async.forEachOf(round._roundQuestions, function (roundQuestion, index, cb0) {
+                                async.forEachOf(roundQuestion._userAnswers, function (userAnswer, index, cb1) {
+                                    countAnswers++;
+                                    cb1();
+                                }, function (err) {
+                                    cb0();
+                                });
+                            }, function (err) {
+                                if (err) {
+                                    res.send({"success": false, message: "Fehler", data: "0"});
+                                } else {
+                                    res.send({"success": true, message: "Anzahl beantworteter Fragen", data: countAnswers});
+                                }
+                            });
+                        });
+                }
+            });*/
+
+        countUserAnswers(quizId, function(countUserAnswers) {
+            res.send({"success": true, "message": "CountUserAnswers", data: countUserAnswers});
         });
     }
 };
 
-function finshRound(quizId, roundId, cb) {
+function countUserAnswers(quizId, cb) {
     var countAnswers = 0;
 
-    Round.findById(roundId)
-        .populate(populateOptionsRound)
-        .exec(function(err, round) {
-            async.forEachOf(round._roundQuestions, function(roundQuestion, index, cb0) {
-                async.forEachOf(roundQuestion._userAnswers, function(userAnswer, index, cb1) {
-                    countAnswers++;
-                    cb1();
+    Quiz.findById(quizId)
+        .populate(populateOptionsQuizRoundQuestions)
+        .exec(function (err, quiz) {
+            if(quiz._rounds.length === 0) {
+                cb(0);
+            } else {
+                async.forEachOf(quiz._rounds, function (round, index, cb0) {
+                    async.forEachOf(round._roundQuestions, function (roundQuestion, index, cb1) {
+                        async.forEachOf(roundQuestion._userAnswers, function (userAnswer, index, cb2) {
+                            countAnswers++;
+                            cb2();
+                        }, function(err) {
+                            cb1();
+                        });
+                    }, function(err) {
+                        cb0();
+                    });
                 }, function(err) {
-                    cb0();
+                    cb(countAnswers);
                 });
-            }, function(err) {
-                if(countAnswers == 3) {
-                    changeQuizStatusForPlayer(quizId, function() {
-                        cb(true, "QuizStatusForPlayer changed", null);
-                    });
-                } else if(countAnswers == 6) {
-                    changeQuizStatusForFinished(quizId, function() {
-                        cb(true, "QuizStatusForFinished changed", null)
-                    });
-                } else {
-                    cb(true, "Nothing done", null);
-                }
-            });
+            };
         });
 }
 
-function changeQuizStatusForPlayer(quizId) {
-    Quiz.findById(quizId, function (err, quiz) {
-        if(quiz.status == 'WaitingForOpponent') {
-            quiz.status = 'WaitingForChallenger';
+function changeQuizStatus(quizId, cb) {
+    countUserAnswers(quizId, function(countAnswers) {
+        if(countAnswers % 3 === 0 && countAnswers < 36) {
+            changeQuizStatusForPlayer(quizId, function () {
+                cb(true, "QuizStatusForPlayer changed", countAnswers);
+            });
+        } else if(countAnswers == 36) {
+            changeQuizStatusForFinished(quizId, function () {
+                cb(true, "QuizStatusForFinished changed", countAnswers);
+            });
         } else {
-            quiz.status = 'WaitingForOpponent';
+            cb(true, "Nothing done", 0);
         }
-        quiz.save();
     });
 }
 
-function changeQuizStatusForFinished(quizId) {
+function changeQuizStatusForPlayer(quizId, cb) {
+    Quiz.findById(quizId, function (err, quiz) {
+        if(quiz.status === "WaitingForOpponent") {
+            quiz.status = "WaitingForChallenger";
+        } else {
+            quiz.status = "WaitingForOpponent";
+        }
+        quiz.save();
+        cb();
+    });
+}
+
+function changeQuizStatusForFinished(quizId, cb) {
     Quiz.findById(quizId, function (err, quiz) {
         quiz.status = "Finished";
         quiz.save();
+        cb();
     });
 }
 
