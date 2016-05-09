@@ -127,7 +127,6 @@ var controller = {
             .exec(function(err, quiz) {
                 if(err) next(err);
                 if(quiz) {
-                    console.log(quiz.status);
                     res.send({ "success" : true, "message" : "Quiz gefunden", data : quiz });
                 } else {
                     res.send({ "success" : false, "message" : "Quiz nicht gefunden", data : null });
@@ -318,9 +317,11 @@ var controller = {
 function countUserAnswers(quizId, cb) {
     var countActualRoundAnswers = 0;
     var countAnswers = 0;
+    var challengerCorrectAnswers = 0;
+    var opponentCorrectAnswers = 0;
 
     Quiz.findById(quizId)
-        .populate(populateOptionsQuizRoundQuestions)
+        .populate(populateOptionsQuiz)
         .exec(function (err, quiz) {
             if(quiz._rounds.length === 0) {
                 cb(0, 0);
@@ -332,6 +333,13 @@ function countUserAnswers(quizId, cb) {
                                 countActualRoundAnswers++;
                             }
                             countAnswers++;
+
+                            if(userAnswer._user._id.equals(quiz._challenger._id) && userAnswer.status === true) {
+                                challengerCorrectAnswers++;
+                            } else if(userAnswer._user._id.equals(quiz._opponent._id) && userAnswer.status === true) {
+                                opponentCorrectAnswers++;
+                            }
+
                             cb2();
                         }, function(err) {
                             cb1();
@@ -340,6 +348,9 @@ function countUserAnswers(quizId, cb) {
                         cb0();
                     });
                 }, function(err) {
+                    quiz.challengerPoints = challengerCorrectAnswers;
+                    quiz.opponentPoints = opponentCorrectAnswers;
+                    quiz.save();
                     cb(countAnswers, countActualRoundAnswers);
                 });
             };

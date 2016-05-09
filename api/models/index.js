@@ -186,7 +186,15 @@ var quizSchema = mongoose.Schema({
     _rounds: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Round'
-    }]
+    }],
+    challengerPoints : {
+        type: Number,
+        default: 0
+    },
+    opponentPoints : {
+        type: Number,
+        default: 0
+    }
 }, {
     timestamps: true
 });
