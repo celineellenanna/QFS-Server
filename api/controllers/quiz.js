@@ -127,6 +127,7 @@ var controller = {
             .exec(function(err, quiz) {
                 if(err) next(err);
                 if(quiz) {
+                    console.log(quiz.status);
                     res.send({ "success" : true, "message" : "Quiz gefunden", data : quiz });
                 } else {
                     res.send({ "success" : false, "message" : "Quiz nicht gefunden", data : null });
@@ -263,7 +264,7 @@ var controller = {
     createUserAnswer: function (req, res, next) {
         var quizId = req.body.quizId;
         var roundId = req.body.roundId;
-        var roundQuestionId = req.body.roundQuestionId;;
+        var roundQuestionId = req.body.roundQuestionId;
 
         UserAnswer.create({
             timeToAnswer: req.body.timeToAnswer,
@@ -308,52 +309,28 @@ var controller = {
     getFinishedAnswerCount: function(req, res, next) {
         var quizId = req.params.quizId;
 
-        /*Quiz.findById(quizId)
-            .populate(populateOptionsQuizRoundQuestions)
-            .exec(function (err, quiz) {
-                if(quiz._rounds.length === 0) {
-                    res.send({"success": true, message: "Noch keine Antworten", data: "0"});
-                } else {
-                    var round = quiz._rounds[quiz._rounds.length - 1];
-                    Round.findById(round._id)
-                        .populate(populateOptionsRoundRoundQuestions)
-                        .then(function(round) {
-                            async.forEachOf(round._roundQuestions, function (roundQuestion, index, cb0) {
-                                async.forEachOf(roundQuestion._userAnswers, function (userAnswer, index, cb1) {
-                                    countAnswers++;
-                                    cb1();
-                                }, function (err) {
-                                    cb0();
-                                });
-                            }, function (err) {
-                                if (err) {
-                                    res.send({"success": false, message: "Fehler", data: "0"});
-                                } else {
-                                    res.send({"success": true, message: "Anzahl beantworteter Fragen", data: countAnswers});
-                                }
-                            });
-                        });
-                }
-            });*/
-
-        countUserAnswers(quizId, function(countUserAnswers) {
-            res.send({"success": true, "message": "CountUserAnswers", data: countUserAnswers});
+        countUserAnswers(quizId, function(countAnswers, countActualRoundAnswers) {
+            res.send({"success": true, "message": "CountUserAnswers", data: {countAnswers: countAnswers, countActualRoundAnswers: countActualRoundAnswers}});
         });
     }
 };
 
 function countUserAnswers(quizId, cb) {
+    var countActualRoundAnswers = 0;
     var countAnswers = 0;
 
     Quiz.findById(quizId)
         .populate(populateOptionsQuizRoundQuestions)
         .exec(function (err, quiz) {
             if(quiz._rounds.length === 0) {
-                cb(0);
+                cb(0, 0);
             } else {
                 async.forEachOf(quiz._rounds, function (round, index, cb0) {
-                    async.forEachOf(round._roundQuestions, function (roundQuestion, index, cb1) {
-                        async.forEachOf(roundQuestion._userAnswers, function (userAnswer, index, cb2) {
+                    async.forEachOf(round._roundQuestions, function (roundQuestion, index1, cb1) {
+                        async.forEachOf(roundQuestion._userAnswers, function (userAnswer, index2, cb2) {
+                            if(index === quiz._rounds.length - 1) {
+                                countActualRoundAnswers++;
+                            }
                             countAnswers++;
                             cb2();
                         }, function(err) {
@@ -363,19 +340,19 @@ function countUserAnswers(quizId, cb) {
                         cb0();
                     });
                 }, function(err) {
-                    cb(countAnswers);
+                    cb(countAnswers, countActualRoundAnswers);
                 });
             };
         });
 }
 
 function changeQuizStatus(quizId, cb) {
-    countUserAnswers(quizId, function(countAnswers) {
-        if(countAnswers % 3 === 0 && countAnswers < 36) {
+    countUserAnswers(quizId, function(countAnswers, countActualRoundAnswers) {
+        if(countActualRoundAnswers === 3 && countAnswers < 36) {
             changeQuizStatusForPlayer(quizId, function () {
                 cb(true, "QuizStatusForPlayer changed", countAnswers);
             });
-        } else if(countAnswers == 36) {
+        } else if(countAnswers === 36) {
             changeQuizStatusForFinished(quizId, function () {
                 cb(true, "QuizStatusForFinished changed", countAnswers);
             });
