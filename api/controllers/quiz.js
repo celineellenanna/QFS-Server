@@ -213,9 +213,9 @@ var controller = {
         Round.create({
             _category: categoryId
         }).then(function(round) {
-            Category.find(categoryId)
+            Category.findById(categoryId)
                 .exec(function(err, category) {
-                    Question.findRandom(category._questions)
+                    Question.findRandom({_id: { $in: category._questions}})
                         .limit(3)
                         .exec(function(err, questions) {
                             async.forEachOf(questions, function(question, index, cb) {
