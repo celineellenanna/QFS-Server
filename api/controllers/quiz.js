@@ -6,7 +6,6 @@ var Question = require('../models/index').Question;
 var Round = require('../models/index').Round;
 var RoundQuestion = require('../models/index').RoundQuestion;
 var UserAnswer = require('../models/index').UserAnswer;
-var User = require('../models/index').User;
 var Answer = require('../models/index').Answer;
 var fs = require('fs');
 

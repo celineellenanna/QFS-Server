@@ -200,7 +200,7 @@ var quizSchema = mongoose.Schema({
 });
 
 var ratingSchema = mongoose.Schema({
-    ratingValue: {
+    value: {
         type: String,
         enum: ['Highest', 'AboveAverage', 'Average', 'BelowAverage', 'Lowest']
     },
