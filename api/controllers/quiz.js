@@ -309,7 +309,8 @@ var controller = {
         var quizId = req.params.quizId;
 
         countUserAnswers(quizId, function(countAnswers, countActualRoundAnswers) {
-            res.send({"success": true, "message": "CountUserAnswers", data: {countAnswers: countAnswers, countActualRoundAnswers: countActualRoundAnswers}});
+            res.send({"success": true, "message": "CountUserAnswers", 
+                       data: {countAnswers: countAnswers, countActualRoundAnswers: countActualRoundAnswers}});
         });
     }
 };
