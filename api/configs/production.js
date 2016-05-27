@@ -1,8 +1,8 @@
 //Server
 process.srv             = {};
-process.srv.env         = 'development';
+process.srv.env         = 'production';
 process.srv.host        = 'localhost';
-process.srv.port        = process.env.NODE_PORT || 3000;
+process.srv.port        = process.env.NODE_PORT || 443;
 
 //Database
 process.db              = {};
