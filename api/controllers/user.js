@@ -4,7 +4,7 @@ var Quiz = require('../models/index').Quiz;
 var async = require('async');
 
 var controller = {
-    index: function(req, res, next) {
+    getAll: function(req, res, next) {
         User.find(function(err, users) {
             if(err) next(err);
             if(users) {
