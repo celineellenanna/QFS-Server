@@ -6,7 +6,7 @@ module.exports = function(db, User, Quiz, Category, Question, Answer) {
         Log.info('Database connected successfully');
         User.create({
             firstname   : 'Patrick',
-            lastname    : 'Steinhäusl',
+            lastname    : 'Steinhaeusl',
             username    : 'psteinha',
             password    : '123456',
             email       : 'psteinha@hsr.ch',
