@@ -7313,3 +7313,13 @@ Wed May 11 2016 15:59:50 GMT+0200 (CEST) | Environment:development
 Wed May 11 2016 15:59:50 GMT+0200 (CEST) | Host:localhost
 Wed May 11 2016 15:59:50 GMT+0200 (CEST) | Port:3000
 Wed May 11 2016 15:59:50 GMT+0200 (CEST) | Database connected successfully
+Fri May 27 2016 16:20:28 GMT+0200 (CEST) | QFS WEB API started
+Fri May 27 2016 16:20:28 GMT+0200 (CEST) | Environment:development
+Fri May 27 2016 16:20:28 GMT+0200 (CEST) | Host:localhost
+Fri May 27 2016 16:20:28 GMT+0200 (CEST) | Port:3000
+Fri May 27 2016 16:20:28 GMT+0200 (CEST) | Database connected successfully
+Fri May 27 2016 16:24:14 GMT+0200 (CEST) | QFS WEB API started
+Fri May 27 2016 16:24:14 GMT+0200 (CEST) | Environment:development
+Fri May 27 2016 16:24:14 GMT+0200 (CEST) | Host:localhost
+Fri May 27 2016 16:24:14 GMT+0200 (CEST) | Port:3000
+Fri May 27 2016 16:24:14 GMT+0200 (CEST) | Database connected successfully

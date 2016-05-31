@@ -42,7 +42,7 @@ var userSchema = mongoose.Schema({
         status: {
             type: String,
             enum: ['Registered', 'Activated', 'Deleted'],
-            default: 'Registered'
+            default: 'Activated'
         },
         role: {
             type: String,
