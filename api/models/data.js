@@ -8,7 +8,7 @@ module.exports = function(db, User, Quiz, Category, Question, Answer) {
             firstname   : 'Patrick',
             lastname    : 'Steinhaeusl',
             username    : 'psteinha',
-            password    : '123456',
+            password    : 'Muster123',
             email       : 'psteinha@hsr.ch',
             status      : 'Activated'
         }, function(err) {
@@ -20,7 +20,7 @@ module.exports = function(db, User, Quiz, Category, Question, Answer) {
             firstname   : 'Jessica',
             lastname    : 'Kalberer',
             username    : 'jkalbere',
-            password    : '123456',
+            password    : 'Muster123',
             email       : 'jkalbere@hsr.ch',
             status      : 'Activated'
         }, function(err) {
@@ -32,7 +32,7 @@ module.exports = function(db, User, Quiz, Category, Question, Answer) {
             firstname   : 'Albert',
             lastname    : 'Scola',
             username    : 'ascola',
-            password    : '123456',
+            password    : 'Muster123',
             email       : 'ascola@hsr.ch',
             status      : 'Activated'
         }, function(err) {
@@ -44,7 +44,7 @@ module.exports = function(db, User, Quiz, Category, Question, Answer) {
             firstname   : 'Stuart',
             lastname    : 'Holz',
             username    : 'sholz',
-            password    : '123456',
+            password    : 'Muster123',
             email       : 'sholz@hsr.ch',
             status      : 'Activated'
         }, function(err) {
