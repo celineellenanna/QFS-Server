@@ -5,11 +5,11 @@ module.exports = function(db, User, Quiz, Category, Question, Answer) {
     db.once('open', function() {
         Log.info('Database connected successfully');
         User.create({
-            firstname   : 'firstname_user0',
-            lastname    : 'lastname_user0',
-            username    : 'user0',
-            password    : 'pass0',
-            email       : 'user0@hsr.ch',
+            firstname   : 'Patrick',
+            lastname    : 'Steinhäusl',
+            username    : 'psteinha',
+            password    : '123456',
+            email       : 'psteinha@hsr.ch',
             status      : 'Activated'
         }, function(err) {
             if (err) Log.error(err);
@@ -17,11 +17,11 @@ module.exports = function(db, User, Quiz, Category, Question, Answer) {
         });
 
         User.create({
-            firstname   : 'firstname_user1',
-            lastname    : 'lastname_user1',
-            username    : 'user1',
-            password    : 'pass1',
-            email       : 'user1@hsr.ch',
+            firstname   : 'Jessica',
+            lastname    : 'Kalberer',
+            username    : 'jkalbere',
+            password    : '123456',
+            email       : 'jkalbere@hsr.ch',
             status      : 'Activated'
         }, function(err) {
             if (err) Log.error(err);
@@ -29,11 +29,11 @@ module.exports = function(db, User, Quiz, Category, Question, Answer) {
         });
 
         User.create({
-            firstname   : 'firstname_user2',
-            lastname    : 'lastname_user2',
-            username    : 'user2',
-            password    : 'pass2',
-            email       : 'user2@hsr.ch',
+            firstname   : 'Albert',
+            lastname    : 'Scola',
+            username    : 'ascola',
+            password    : '123456',
+            email       : 'ascola@hsr.ch',
             status      : 'Activated'
         }, function(err) {
             if (err) Log.error(err);
@@ -41,11 +41,11 @@ module.exports = function(db, User, Quiz, Category, Question, Answer) {
         });
 
         User.create({
-            firstname   : 'firstname_user3',
-            lastname    : 'lastname_user3',
-            username    : 'user3',
-            password    : 'pass3',
-            email       : 'user3@hsr.ch',
+            firstname   : 'Stuart',
+            lastname    : 'Holz',
+            username    : 'sholz',
+            password    : '123456',
+            email       : 'sholz@hsr.ch',
             status      : 'Activated'
         }, function(err) {
             if (err) Log.error(err);
