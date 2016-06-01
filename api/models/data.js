@@ -5,11 +5,11 @@ module.exports = function(db, User, Quiz, Category, Question, Answer) {
     db.once('open', function() {
         Log.info('Database connected successfully');
         User.create({
-            firstname   : 'Patrick',
-            lastname    : 'Steinhaeusl',
-            username    : 'psteinha',
+            firstname   : 'Celine',
+            lastname    : 'Ott',
+            username    : 'cott',
             password    : 'Muster123',
-            email       : 'psteinha@hsr.ch',
+            email       : 'cott@hsr.ch',
             status      : 'Activated'
         }, function(err) {
             if (err) Log.error(err);
